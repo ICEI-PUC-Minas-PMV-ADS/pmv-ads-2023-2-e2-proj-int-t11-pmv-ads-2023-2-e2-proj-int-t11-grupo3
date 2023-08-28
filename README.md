@@ -1,12 +1,10 @@
 # Em Definição
 
-`Análise e Desenvolvimento de Sistemas`
+`Análise E Desenvolvimento De Sistemas`
 
-`Projeto: Desenvolvimento de uma aplicação interativa`
+`Projeto: Desenvolvimento De Uma Aplicação Interativa`
 
 `Eixo 2`
-
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
