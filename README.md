@@ -1,10 +1,10 @@
 # Em Definição
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de uma aplicação interativa`
 
-`SEMESTRE`
+`Eixo 2`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
