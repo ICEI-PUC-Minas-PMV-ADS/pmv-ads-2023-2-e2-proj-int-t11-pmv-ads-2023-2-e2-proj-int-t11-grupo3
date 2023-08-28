@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Em Definição
 
 `CURSO`
 
@@ -10,14 +10,14 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Atos dos Santos Pereira
+* Gabriel Batista Vieira
+* Giulia da Silva Brião
+* Rodrigo Soares de Oliveira
 
 ## Orientador
 
-* Nome completo do professor 1
+* Neil Paiva
 
 ## Instruções de utilização
 
