@@ -10,18 +10,19 @@ A compra e venda de roupas usadas não apenas oferecem uma alternativa acessíve
 Desenvolver uma plataforma na qual os usuários possam anunciar peças de vestuário usadas, facilitando sua localização para que outros usuários interessados possam adquirir os itens de segunda mão.
 
 Como objetivos específicos, podemos ressaltar:
-
+'''
 ●	Cadastro de usuários: Permite que os usuários criem perfis, incluindo informações como tamanho e tipo preferido de roupas.
 ●	Sistema de avaliações: Permita que compradores e vendedores avaliem uns aos outros após cada transação concluída.
 ●	Listagem de roupas: Os vendedores podem criar listagens para suas roupas com detalhes, incluindo fotos, descrição, tamanho, preço e estado de conservação.
 ●	Filtro inteligente: Implementação de filtros inteligentes para ajudar os compradores a encontrar exatamente o que desejam.
-
+'''
 ## Justificativa
 
 Segundo o BCG, é estimado que somente itens como roupas, sapatos e acessórios usados representam de US$30 a US$40 bilhões em valor a nível mundial. A tendência é que a quantidade de peças de segunda-mão nos armários dos consumidores aumente nos próximos anos, com cálculos de crescimento a taxas anuais (CAGR) de 15% a 20% nos próximos cinco anos.
 No Brasil, a compra de itens usados é uma realidade comprovada pelos mais de 3 mil respondentes do estudo – 56% deles alega ter feito ao menos uma transação de compra ou venda desse tipo de produto nos últimos 12 meses.
 Apesar de produtos eletrônicos chamarem a atenção de metade dos respondentes na hora de comprar usados, são os itens de moda, como roupas, sapatos e acessórios, os grandes procurados em lojas de segunda-mão, representando 49, 34 e 33% das escolhas.
 Por isso o desenvolvimento de uma plataforma inovadora e completa que atenda as necessidades tanto dos vendedores quanto dos compradores, facilitando o uso e a sustentabilidade é importante para atendimento desse nicho que está em crescimento no mundo.
+
 
 ## Público-Alvo
 
