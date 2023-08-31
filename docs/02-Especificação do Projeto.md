@@ -10,13 +10,13 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem. 
 
-![Persona1 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/6a81aa52-5c92-4663-8125-e1b44e6e20a2)
+![Persona1 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/2fb42323-abbf-431a-8063-b9164d401294)
 
 ![Persona2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/c5b9ec42-87fe-438a-8826-231d7b466c51)
 
 ![Persona3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/32a4b002-00e3-454c-9529-4b8dc388177a)
 
-![Persona4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/9c844a75-6ec4-4a96-afaf-75b11711654b)
+![Persona4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/2bd66e30-7559-47e4-8a3a-e88e77db135e)
 
 ![Persona5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/a83adb01-219e-4239-8c6a-e3022ee4e1ba)
 
