@@ -24,18 +24,17 @@ As personas levantadas durante o processo de entendimento do problema são apres
 
 A partir da compreensão do dia a dia das personas identificadas para o projeto, foram registradas as seguintes histórias de usuários:
 
-|EU COMO... `PERSONA`|QUERO/PRECISO ... `FUNCIONALIDADE`      |PARA ... `POR QUE`                      |
-|--------------------|----------------------------------------|----------------------------------------|
-|Lilian Elizei       | uma fonte de renda extra               | para ajudar nas despesas de casa       |
-|Lilian Elizei       | revender roupas                        | conseguir uma renda extra              |
-|Joana Marques       | revender roupas sem tomar tanto tempo  | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|EU COMO... `PERSONA`|QUERO/DESEJO ... `O QUE`                                                                    |PARA ... `POR QUE`                                                                                          |
+|--------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+|Lilian Elizei       | uma fonte de renda extra                                                                   | para ajudar nas despesas de casa                                                                           |
+|Lilian Elizei       | revender roupas                                                                            | conseguir uma renda extra                                                                                  |
+|Joana Marques       | revender roupas sem tomar tanto tempo                                                      | para ajudar famílias carentes                                                                              | 
+|Ana Pereira         | renovar seu guarda-roupa de forma fácil e ecconômica                                       | melhorar a autoestima                                                                                      |
+|Ana Pereira         | vender roupas sem usa                                                                      | desapegar de itens que não combinam mais                                                                   |
+|Carla Montenegro    | aumentar o faturamento do seu brechó                                                       | adquirir novas peças para renovação do estoque                                                             |
+|Carla Montenegro    | encontrar uma plataforma de venda on line de vestuário usuado                              | encontrar maneiras mais eficazes para vender suas peças                                                    |
+|Lucas Oliveira      | encontrar roupas que reflitam suas personalidade, mantendo um estilo de compra sustentável | encontrar roupas que encaixem no seu orçamento, mas mantendo uma boa qualidade                             |
+   
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
