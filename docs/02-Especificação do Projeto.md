@@ -4,7 +4,7 @@ O projeto Outra Chance é uma ferramenta útil para ajudar os usuários a vender
 
 ## Personas
 
-As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem. 
+As personas levantadas durante o processo de entendimento do problema são apresentadas nas Figuras que se seguem. 
 
 ![Persona1 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/2fb42323-abbf-431a-8063-b9164d401294)
 
@@ -30,27 +30,27 @@ A partir da compreensão do dia a dia das personas identificadas para o projeto,
 |Carla Montenegro    | aumentar o faturamento do seu brechó                                                       | adquirir novas peças para renovação do estoque                                                             |
 |Carla Montenegro    | encontrar uma plataforma de venda on line de vestuário usuado                              | encontrar maneiras mais eficazes para vender suas peças                                                    |
 |Lucas Oliveira      | encontrar roupas que reflitam suas personalidade, mantendo um estilo de compra sustentável | encontrar roupas que encaixem no seu orçamento, mas mantendo uma boa qualidade                             |
+
    
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
-
 ## Requisitos
 
 As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|ID    | Descrição do Requisito                                                                                                                                                     | Prioridade |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+|RF-001| A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições.                                          | ALTA       | 
+|RF-002| Na homepage, logada ou não, deverá existir uma barra de busca que permitirá ao usuário filtrar os itens por categorias como tipo de vestuário, tamanho, cor, entre outros. | ALTA       |
+|RF-003| Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar ou salvar itens, a criação de uma conta ou login será requerido.                    | ALTA       |
+|RF-004| Ao criar um anúncio, o usuário deverá fornecer informações como: descrição do item, imagem, tamanho, tipo de vestuário, condição (novo/usado), e dados de contato.         | ALTA       |
+|RF-005| Cada anúncio deve mostrar claramente o nome do vendedor, dados de contato, e a data em que o anúncio foi postado.                                                          | ALTA       |
+|RF-006| O usuário logado deverá ter um painel pessoal onde poderá visualizar seus anúncios ativos, itens salvos e gerenciar seus dados de perfil.                                  | MÉDIA      |
+|RF-007| No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá remover o anúncio da lista principal, mas manter no histórico do usuário.          | ALTA       |
+|RF-008| O usuário deve poder salvar itens de interesse em sua conta para visualizar posteriormente sem a necessidade de buscá-los novamente na plataforma.                         | ALTA       |
+|RF-009| O sistema deverá fornecer feedbacks de ações para o usuário, como confirmações de anúncios postados, itens salvos, ou erros durante a interação.                           | MÉDIA      |
+|RF-010| Ao visualizar um anúncio, o sistema apresentará sugestões de peças para o usuário advindas de anúncios pagos por empresas, baseando-se em categorias semelhantes.          | MÉDIA      |
+|RF-011| Os anúncios permitirão que usuários interajam por meio de comentários para que tirem dúvidas ou apenas expressem opiniões sobre as peças.                                  | BAIXA      |
 
 ### Requisitos não Funcionais
 
