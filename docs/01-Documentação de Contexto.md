@@ -26,4 +26,6 @@ Por isso o desenvolvimento de uma plataforma inovadora e completa que atenda as 
 
 ## Público-Alvo
 
-Estamos voltados para o público masculino e feminino com idade aproximada entre 18 e 35 anos. Trata-se de pessoas que buscam um espaço para comprar e vender itens de vestuário. Seus gostos pessoais variam entre viajar, sair para fazer compras, balada e cinema. Em relação ao custo x benefício, estão mais ligadas as marcas oferecidas. Pessoas nessa faixa etária possuem um modelo mental totalmente voltado para o consumo, mas, também querem seguir tenências.
+De acordo com um estudo feito pela Revista Brasileira de Pesquisas de Marketing (Matos, L.; Barbosa J., 2016), Opinião e Mídia, os principais compradores são do gênero feminino entre 18 e 25 anos, que possuem um nível de renda entre um e cinco salários-mínimos e estão cursando o ensino superior.  
+
+Pensando nisso, o foco do Outra Chance é do público feminino com idade aproximada entre 18 e 45 anos as quais buscam um espaço para comprar e vender itens de vestuário. Seus gostos pessoais variam entre moda, bem-estar, sustentabilidade, compras, balada e cinema. Em relação ao custo x benefício, estão mais ligadas as marcas oferecidas. Pessoas nessa faixa etária possuem hábitos voltados pra consumo, que querem seguir tendências sem abrir mão da saúde financeira. 
