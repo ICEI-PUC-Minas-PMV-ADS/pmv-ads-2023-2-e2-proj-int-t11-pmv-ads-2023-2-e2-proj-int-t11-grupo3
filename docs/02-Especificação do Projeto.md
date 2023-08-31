@@ -47,20 +47,20 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-005   | Cada anúncio deve mostrar claramente o nome do vendedor, dados de contato, e a data em que o anúncio foi postado.                                                          | ALTA       |
 |RF-006   | O usuário logado deverá ter um painel pessoal onde poderá visualizar seus anúncios ativos, itens salvos e gerenciar seus dados de perfil.                                  | MÉDIA      |
 |RF-007   | No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá remover o anúncio da lista principal, mas manter no histórico do usuário.          | ALTA       |
-|RF-008   | O usuário deve poder salvar itens de interesse em sua conta para visualizar posteriormente sem a necessidade de buscá-los novamente na plataforma.                         | ALTA       |
-|RF-009   | O sistema deverá fornecer feedbacks de ações para o usuário, como confirmações de anúncios postados, itens salvos, ou erros durante a interação.                           | MÉDIA      |
-|RF-010   | Ao visualizar um anúncio, o sistema apresentará sugestões de peças para o usuário advindas de anúncios pagos por empresas, baseando-se em categorias semelhantes.          | MÉDIA      |
-|RF-011   | Os anúncios permitirão que usuários interajam por meio de comentários para que tirem dúvidas ou apenas expressem opiniões sobre as peças.                                  | BAIXA      |
+|RF-008   | O usuário deve poder salvar itens de interesse em sua conta para visualizar posteriormente sem a necessidade de buscá-los novamente na plataforma.                         | MÉDIA      |
+|RF-009   | Ao visualizar um anúncio, o sistema apresentará sugestões de peças para o usuário advindas de anúncios pagos por empresas, baseando-se em categorias semelhantes.          | MÉDIA      |
+|RF-010   | Os anúncios permitirão que usuários interajam por meio de comentários para que tirem dúvidas ou apenas expressem opiniões sobre as peças.                                  | BAIXA      |
 
 ### Requisitos não Funcionais
 
 |ID        | Descrição do Requisito                                                                                                                                                    | Prioridade |
 |----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-|RNF-001   | O sistema deve ser responsivo para rodar em dispositivos móveis.                                                                                                          | ALTA       | 
+|RNF-001   | O sistema deve ser responsivo para rodar em variados dispositivos.                                                                                                        | ALTA       | 
 |RNF-002   | Garantir a privacidade e segurança dos dados dos usuários.                                                                                                                | ALTA       |
-|RNF-003   | Deve processar requisições do usuário em no máximo 2s.                                                                                                                    | ALTA       |
+|RNF-003   | Deve processar requisições do usuário em no máximo 2s.                                                                                                                    | BAIXA      |
 |RNF-004   | Fornecer uma interface amigável e intuitiva.                                                                                                                              | MÉDIA      |
 |RNF-005   | Facilitar a integração com futuras atualizações.                                                                                                                          | BAIXA      |
+|RNF-006   | O sistema deverá fornecer feedbacks de ações para o usuário, como confirmações ou erros durante a interação.                                                              | MÉDIA      |
 
 ## Restrições
 
