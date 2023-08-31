@@ -66,11 +66,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 O projeto está restrito pelos itens apresentados na tabela a seguir.
 
-|ID| Restrição                                                       |
-|--|-----------------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre.          |
-|02| Deverá ser desenvolvido um módulo de backend e frontend.        |
-|03| Não será possível realizar transações financeiras na plataforma.|
+|ID| Restrição                                                                                                                                                                                      |
+|--|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|01| O projeto deverá ser entregue até o final do semestre.                                                                                                                                         |
+|02| Deverá ser desenvolvido um módulo de backend e frontend.                                                                                                                                       |
+|03| Não será possível realizar transações financeiras na plataforma.                                                                                                                               |
 
 
 ## Diagrama de Casos de Uso
