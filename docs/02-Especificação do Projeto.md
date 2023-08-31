@@ -38,9 +38,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID         | Descrição do Requisito                                                                                                                                                     | Prioridade |
-|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-|RF-001     | A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições.                                          | ALTA       | 
+|ID       | Descrição do Requisito                                                                                                                                                     | Prioridade |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| RF-001   | A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições.                                          | ALTA       | 
 |RF-002   | Na homepage, logada ou não, deverá existir uma barra de busca que permitirá ao usuário filtrar os itens por categorias como tipo de vestuário, tamanho, cor, entre outros. | ALTA       |
 |RF-003   | Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar ou salvar itens, a criação de uma conta ou login será requerido.                    | ALTA       |
 |RF-004   | Ao criar um anúncio, o usuário deverá fornecer informações como: descrição do item, imagem, tamanho, tipo de vestuário, condição (novo/usado), e dados de contato.         | ALTA       |
@@ -54,8 +54,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos não Funcionais
 
-|ID       | Descrição do Requisito                                                                                                                                                     | Prioridade |
-|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+|ID        | Descrição do Requisito                                                                                                                                                    | Prioridade |
+|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 |RNF-001   | O sistema deve ser responsivo para rodar em dispositivos móveis.                                                                                                          | ALTA       | 
 |RNF-002   | Garantir a privacidade e segurança dos dados dos usuários.                                                                                                                | ALTA       |
 |RNF-003   | Deve processar requisições do usuário em no máximo 2s.                                                                                                                    | ALTA       |
