@@ -3,7 +3,7 @@
 O mercado de segunda mão, também conhecido como second-hand ou resale (revenda), tem crescido exponencialmente nos últimos anos. O segmento da moda tem acompanhado essa tendência, principalmente pelo comportamento de um consumidor mais consciente, especialmente entre o público mais jovem, que se guia pelo conceito da sustentabilidade na hora de adquirir produtos.
 Dados do Sebrae divulgados em 2021 apontam que, entre 2010 e 2015, houve um crescimento de 210% dos brechós e da venda de roupas usadas. E a tendência é que o setor continue em ascensão, tanto que já estão surgindo startups com foco nesse ramo. 
 A venda de roupas usadas, está se tornando cada vez mais popular em todo mundo, este fenômeno representa muito mais do que uma tendencia de consumo, é um reflexo das mudanças nas atitudes dos consumidores em relação à moda, sustentabilidade e estilo pessoal.
-A compra e venda de roupas usadas não apenas oferecem uma alternativa acessível ao consumo de moda, mas também desempenha um papel fundamental na promoção da sustentabilidade ambiental, reduzindo o desperdício têxtil e diminuindo o impacto negativo da indústria da moda no planeta, estudos indicam que um item de segunda mão pode emitir até 82% menos carbono do que um item novo.
+A compra e venda de roupas usadas não apenas oferecem uma alternativa acessível ao consumo de moda, mas também desempenha um papel fundamental na promoção da sustentabilidade ambiental, reduzindo o desperdício têxtil e diminuindo o impacto negativo da indústria da moda no planeta, estudos indicam que um item de segunda mão pode emitir até 82% menos carbono do que um item novo..
 
 ## Objetivos
 
