@@ -11,7 +11,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 O diagrama apresentado na figura abaixo representa o fluxo de interação do usuário pelas telas da aplicação. Cada uma dessas telas será detalhada na sessão seguinte.
 
-![_Fluxograma - Outra Chance](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/c1689935-b1f9-4a5d-8d93-9efd7d3659ad)
+![_Fluxograma - Outra Chance (1)](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/4d3a9c89-215c-4eca-bf04-5098d6745242)
 
 ## Wireframes
 
