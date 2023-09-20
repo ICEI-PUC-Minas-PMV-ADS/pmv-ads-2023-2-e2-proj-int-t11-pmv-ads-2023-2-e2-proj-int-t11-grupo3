@@ -1,5 +1,8 @@
 # Outra Chance
 
+![logo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/039aa830-2fa9-4982-b16d-dd21d093c162)
+
+
 `Análise E Desenvolvimento De Sistemas`
 
 `Projeto: Desenvolvimento De Uma Aplicação Interativa`
