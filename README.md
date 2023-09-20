@@ -1,7 +1,4 @@
-# Outra Chance
-
-![logo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/039aa830-2fa9-4982-b16d-dd21d093c162)
-
+![logo escuro](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/d39b11f2-7b4d-4cb9-accf-afc3e05a36d1)
 
 `Análise E Desenvolvimento De Sistemas`
 
