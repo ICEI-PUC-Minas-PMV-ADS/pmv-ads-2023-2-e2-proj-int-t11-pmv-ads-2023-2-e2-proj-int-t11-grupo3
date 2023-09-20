@@ -1,9 +1,17 @@
 
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
+O grupo utiliza a metodologia Scrum para atacar o problema, com sprints de curta duração e reuniões diárias virtuais. A equipe utiliza uma ferramenta de gerenciamento de projetos online. As reuniões do Scrum são realizadas virtualmente para planejar, revisar e melhorar continuamente o trabalho.
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+|  Ambiente               | Plataforma | Link de acesso                                                                                   | 
+|-------------------------|-------------|-----------------------------------------------------------------------------------------------|
+|Repositório do projeto   | GitHub      | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3                                                                                                                          |
+
+|Design de interfaces     |             |                                                                                               |
+
+|Gerenciamento do projeto | GitHub      | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597                                   |
+
+|Comunicações e reuniões  | Google Meet |https://meet.google.com/](https://meet.google.com/scw-paxt-ssh?authuser=1                      |
 
 ## Controle de Versão
 
