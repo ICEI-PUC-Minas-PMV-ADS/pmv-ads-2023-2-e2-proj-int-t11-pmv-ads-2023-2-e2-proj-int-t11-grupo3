@@ -3,7 +3,8 @@
 
 O grupo utiliza a metodologia Scrum para atacar o problema, com sprints de curta duração e reuniões diárias virtuais. A equipe utiliza uma ferramenta de gerenciamento de projetos online. As reuniões do Scrum são realizadas virtualmente para planejar, revisar e melhorar continuamente o trabalho.
 
-|  Ambiente               | Plataforma | Link de acesso                                                                                   | 
+|  Ambiente               | Plataforma  | Link de acesso     | 
+
 |-------------------------|-------------|-----------------------------------------------------------------------------------------------|
 |Repositório do projeto   | GitHub      | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3                                                                                                                          |
 
