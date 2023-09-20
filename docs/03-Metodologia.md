@@ -7,19 +7,8 @@ O grupo utiliza a metodologia Scrum para atacar o problema, com sprints de curta
 |-----------------------|------------|--------------------------------------------------------------------------------------------------------------------------------|
 |Repositório do projeto | GitHub     | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3 |
 |Design de interfaces   |MarvelApp   | https://marvelapp.com/prototype/ee8ga88                                                                                      |
-|Gerenciamento do projeto| GitHub    | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/418                                                                    |
-|Comunicações e reuniões| Microsoft Teams|https://teams.microsoft.com/l/channel/19%3a2mjgrpubPrXAUV1BZVy29nj_OFw-Q2lFZXYaa7QWU7s1%40thread.tacv2/Geral?groupId=ac151284-a96f-4793-839b-1a3f63cf7afb&tenantId=14cbd5a7-ec94-46ba-b314-cc0fc972a161
-
-|  Ambiente               | Plataforma  | Link de acesso     | 
-
-|-------------------------|-------------|-----------------------------------------------------------------------------------------------|
-|Repositório do projeto   | GitHub      | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3                                                                                                                          |
-
-|Design de interfaces     | 1            |  1                                                                                           |
-
-|Gerenciamento do projeto | GitHub      | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597                                   |
-
-|Comunicações e reuniões  | Google Meet |https://meet.google.com/](https://meet.google.com/scw-paxt-ssh?authuser=1                      |
+|Gerenciamento do projeto| GitHub    | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597                                                                  |
+|Comunicações e reuniões| Google Meet| https://meet.google.com/](https://meet.google.com/scw-paxt-ssh?authuser=1 
 
 ## Controle de Versão
 
