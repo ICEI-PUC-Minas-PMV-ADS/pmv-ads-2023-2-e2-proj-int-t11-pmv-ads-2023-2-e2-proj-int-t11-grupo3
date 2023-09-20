@@ -3,6 +3,13 @@
 
 O grupo utiliza a metodologia Scrum para atacar o problema, com sprints de curta duração e reuniões diárias virtuais. A equipe utiliza uma ferramenta de gerenciamento de projetos online. As reuniões do Scrum são realizadas virtualmente para planejar, revisar e melhorar continuamente o trabalho.
 
+|  Ambiente             | Plataforma | Link de acesso                                                                                                                 |
+|-----------------------|------------|--------------------------------------------------------------------------------------------------------------------------------|
+|Repositório do projeto | GitHub     | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-1-e1-proj-web-t11-pmv-ads-2023-1-e1-proj-web-t11-05/blob/main/README.md |
+|Design de interfaces   |MarvelApp   | https://marvelapp.com/prototype/ee8ga88                                                                                      |
+|Gerenciamento do projeto| GitHub    | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/418                                                                    |
+|Comunicações e reuniões| Microsoft Teams|https://teams.microsoft.com/l/channel/19%3a2mjgrpubPrXAUV1BZVy29nj_OFw-Q2lFZXYaa7QWU7s1%40thread.tacv2/Geral?groupId=ac151284-a96f-4793-839b-1a3f63cf7afb&tenantId=14cbd5a7-ec94-46ba-b314-cc0fc972a161
+
 |  Ambiente               | Plataforma  | Link de acesso     | 
 
 |-------------------------|-------------|-----------------------------------------------------------------------------------------------|
