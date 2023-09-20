@@ -6,7 +6,7 @@ O grupo utiliza a metodologia Scrum para atacar o problema, com sprints de curta
 |  Ambiente             | Plataforma | Link de acesso                                                                                                                 |
 |-----------------------|------------|--------------------------------------------------------------------------------------------------------------------------------|
 |Repositório do projeto | GitHub     | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3 |
-|Design de interfaces   |   |                                                                                     |
+|Design de interfaces   | Figma | https://www.figma.com/file/aZVi9WkEJQoC90Vxgc33LT/OUTRA-CHANCE?type=design&node-id=4%3A4&mode=design&t=BXeaM2VWNGUQZgUA-1                                                                                   |
 |Gerenciamento do projeto| GitHub    | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597                                                                  |
 |Comunicações e reuniões| Google Meet| https://meet.google.com/](https://meet.google.com/scw-paxt-ssh?authuser=1 
 
