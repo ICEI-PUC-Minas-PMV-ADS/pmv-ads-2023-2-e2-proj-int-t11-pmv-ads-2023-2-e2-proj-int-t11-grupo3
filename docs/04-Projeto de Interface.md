@@ -11,11 +11,39 @@ O diagrama apresentado na figura abaixo representa o fluxo de interação do usu
 
 ## Wireframes
 
-Conforme fluxo de telas do projeto apresentado na sessão anterior, as telas da aplicação estão detalhadas nos itens que se seguem. As telas da aplicação exibem uma estrutura comum que será exposta na figura abaixo:
+Login
 
-Menu: elementos de navegação primária, associados a navegação entre as páginas da aplicação;
-Filtro: apresenta elementos de navageção secundária, onde será possível restringir as buscas;
-Pesquisa: campo destinado a pesquisa de elementos do bloco de conteúdo;
-Nome de usuário: nome do usuário logado na aplicação;
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/0722cd6d-aa88-4bc9-b951-f956c118420d)
 
-![Captura de tela 2023-09-22 135724](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/ff92028e-071a-4cd9-96b1-562bca7f29b4)
+Criar conta
+
+![Captura de tela 2023-09-22 140153](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/71083e98-a593-4660-a23a-144794699ecf)
+
+HomePage
+
+![Captura de tela 2023-09-22 140234](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/99b34684-9850-44ed-9b61-a99a98e4924a)
+
+Anúncios
+
+![Captura de tela 2023-09-22 140259](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/6f52021e-0bf4-495a-9c22-00a0d40eb6d7)
+
+Perfil
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/03ca9ac0-80ef-45c8-8093-887907fb37ab)
+
+Favoritos
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/4977761c-9938-4739-899c-4e9a360a3156)
+
+
+
+
+
+
+
+
+
+
+
+
+
