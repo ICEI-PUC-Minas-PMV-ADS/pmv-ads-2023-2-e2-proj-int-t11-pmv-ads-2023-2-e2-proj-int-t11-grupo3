@@ -11,15 +11,11 @@ O diagrama apresentado na figura abaixo representa o fluxo de interação do usu
 
 ## Wireframes
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+Conforme fluxo de telas do projeto apresentado na sessão anterior, as telas da aplicação estão detalhadas nos itens que se seguem. As telas da aplicação exibem uma estrutura comum que será exposta na figura abaixo:
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+Menu: elementos de navegação primária, associados a navegação entre as páginas da aplicação;
+Filtro: apresenta elementos de navageção secundária, onde será possível restringir as buscas;
+Pesquisa: campo destinado a pesquisa de elementos do bloco de conteúdo;
+Nome de usuário: nome do usuário logado na aplicação;
+
+![Captura de tela 2023-09-22 135724](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/ff92028e-071a-4cd9-96b1-562bca7f29b4)
