@@ -10,73 +10,53 @@ O grupo utiliza a metodologia Scrum para atacar o problema, com sprints de curta
 |Gerenciamento do projeto| GitHub    | https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597                                                                  |
 |Comunicações e reuniões| Google Meet| https://meet.google.com/](https://meet.google.com/scw-paxt-ssh?authuser=1 
 
-## Controle de Versão
-
-A ferramenta de controle de versão adotada no projeto foi o
-[Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-foi utilizado para hospedagem do repositório.
-
-O projeto segue a seguinte convenção para o nome de branches:
-
-- `main`: versão estável já testada do software
-- `unstable`: versão já testada do software, porém instável
-- `testing`: versão em testes do software
-- `dev`: versão de desenvolvimento do software
-
-Quanto à gerência de issues, o projeto adota a seguinte convenção para
-etiquetas:
-
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `enhancement`: uma funcionalidade precisa ser melhorada
-- `feature`: uma nova funcionalidade precisa ser introduzida
-
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
-
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
->  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
-
 ## Gerenciamento de Projeto
 
-### Divisão de Papéis
+Divisão de Papéis no Projeto:
 
-Apresente a divisão de papéis entre os membros do grupo.
+ - Scrum Master: 
+   - Giulia da Silva Brião
 
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+ - Product Owner: 
+   - Gabriel Batista Vieira
+
+ - Equipe de Desenvolvimento: 
+   - Atos dos Santos Pereira
+   - Gabriel Batista Vieira
+   - Giulia da Silva Brião
+   - Rodrigo Soares de Oliveira
+ 
+ - Equipe de Design: 
+   - Atos dos Santos Pereira
+   - Gabriel Batista Vieira
+   - Giulia da Silva Brião
+   - Rodrigo Soares de Oliveira
+
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+A ferramenta "projects" do GitHub está sendo utilizada para a organização e distribuição de tarefas seguindo a listagem abaixo:
+
+  - **Product Backlog:** contém as tarefas identificadas e necessárias para a criação do produto;
+  - **To do:** contém as tarefas que serão incluídas na sprint;
+  - **In progress:** contém as tarefas que foram iniciadas e estão em desenvolvimento;
+  - **In review:** contém as tarefas serão checadas, de forma a se controlar a qualidade do desenvolvimento;
+  - **Done:** contém as tarefas que foram concluídas;
+
+A figura abaixo ilustra a utilização do Kanban board:
+
+
 
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código.
-- Ferramentas de comunicação
-- Ferramentas de desenho de tela (_wireframing_)
+- **GitHub:** repositório do projeto;
+- **VS Code:** editor de código;
+- **Figma:** ferramenta de design;
+- **Lucid:** ferramenta de criação de diagramas;
+- **Microsoft Teams:** ferramenta para reuniões;
+- **WhatsApp:** ferramenta para cominucações rápidas;
 
-O editor de código foi escolhido porque ele possui uma integração com o
-sistema de versão. As ferramentas de comunicação utilizadas possuem
-integração semelhante e por isso foram selecionadas. Por fim, para criar
-diagramas utilizamos essa ferramenta por melhor captar as
-necessidades da nossa solução.
 
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
- 
-> **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
-> - [Github](https://github.com/)
+Optamos por utilizar o editor de código VS Code devido à sua integração com o repositório do projeto o GitHub e o sistema de versão o Git. As ferramentas de comunicação foram escolhidas com base em sua praticidade e usabilidade, enquanto a ferramenta de criação de diagramas o Lucid foi selecionado por sua capacidade de representar de forma mais clara e precisa as necessidades da solução que estamos desenvolvendo.
