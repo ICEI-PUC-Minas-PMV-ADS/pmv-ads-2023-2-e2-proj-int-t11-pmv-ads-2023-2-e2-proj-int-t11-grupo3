@@ -41,15 +41,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID       | Descrição do Requisito                                                                                                                                                     | Prioridade |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 |RF-001   | A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições.                                          | ALTA       | 
-|RF-002   | Na homepage, logada ou não, deverá existir uma barra de busca que permitirá ao usuário filtrar os itens por categorias como tipo de vestuário, tamanho, cor, entre outros. | ALTA       |
+|RF-002   | Na homepage, logada ou não, deverá existir filtros de busca que permitirão ao usuário filtrar os anúncios por categorias como tipo de vestuário, tamanho, cor, entre outros. | ALTA       |
 |RF-003   | Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar ou salvar itens, a criação de uma conta ou login será requerido.                    | ALTA       |
-|RF-004   | Ao criar um anúncio, o usuário deverá fornecer informações como: descrição do item, imagem, tamanho, tipo de vestuário, condição (novo/usado), e dados de contato.         | ALTA       |
-|RF-005   | Cada anúncio deve mostrar claramente o nome do vendedor, dados de contato, e a data em que o anúncio foi postado.                                                          | ALTA       |
-|RF-006   | O usuário logado deverá ter um painel pessoal onde poderá visualizar seus anúncios ativos, itens salvos e gerenciar seus dados de perfil.                                  | MÉDIA      |
-|RF-007   | No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá remover o anúncio da lista principal, mas manter no histórico do usuário.          | ALTA       |
-|RF-008   | O usuário deve poder salvar itens de interesse em sua conta para visualizar posteriormente sem a necessidade de buscá-los novamente na plataforma.                         | MÉDIA      |
-|RF-009   | Ao visualizar um anúncio, o sistema apresentará sugestões de peças para o usuário advindas de anúncios pagos por empresas, baseando-se em categorias semelhantes.          | MÉDIA      |
-|RF-010   | Os anúncios permitirão que usuários interajam por meio de comentários para que tirem dúvidas ou apenas expressem opiniões sobre as peças.                                  | BAIXA      |
+|RF-004   | Ao criar um anúncio, o usuário deverá fornecer informações do anúncio como valor, título, descrição, localidade, foto, tamanho, tipo de vestuário, condição (novo/usado), entre outros.         | ALTA       |
+|RF-005   | Cada anúncio deve mostrar claramente o nome do vendedor e dados de contato, além dos dados essenciais sobre aquele anúncio, de acordo com os informados na RF-004.                                                          | ALTA       |
+|RF-006   | O usuário logado deverá ter um painel pessoal onde poderá visualizar seus anúncios ativos, se tiver, poder criar anúncios e gerenciar seus dados de perfil.                                  | MÉDIA      |
+|RF-007   | No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá remover o anúncio da lista principal.          | ALTA       |
+|RF-008   | Ao visualizar um anúncio, o sistema apresentará sugestões de peças para o usuário advindas de anúncios pagos por empresas, baseando-se em categorias semelhantes.          | MÉDIA      |
+|RF-009   | Os anúncios permitirão que usuários interajam por meio de comentários para que tirem dúvidas ou apenas expressem opiniões sobre as peças.                                  | BAIXA      |
 
 ### Requisitos não Funcionais
 
