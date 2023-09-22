@@ -41,11 +41,6 @@ Nessa tela o usuário poderá ver anúncios já finalizdos, criar novos e editar
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/03ca9ac0-80ef-45c8-8093-887907fb37ab)
 
-- Tela de Favoritos
-
-Tela onde o usuário poderá criar uma lista de desejos, favoritando assim os seus anúncios preferidos.
-
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/4977761c-9938-4739-899c-4e9a360a3156)
 
 
 
