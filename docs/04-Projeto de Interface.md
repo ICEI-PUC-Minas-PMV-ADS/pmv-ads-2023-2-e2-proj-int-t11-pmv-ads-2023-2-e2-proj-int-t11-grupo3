@@ -7,7 +7,7 @@ Estamos dando ênfase da usabilidade durante o processo de criação da interfac
 
 O diagrama apresentado na figura abaixo representa o fluxo de interação do usuário pelas telas da aplicação. Cada uma dessas telas será detalhada na sessão seguinte.
 
-![_Fluxograma - Outra Chance (2)](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/d7162132-d729-4330-b3a5-ac4e8e2b4205)
+![Fluxograma - Outra Chance ](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/47bc4f17-0354-475d-bfb9-cc34b1d9c6a4)
 
 ## Wireframes
 
