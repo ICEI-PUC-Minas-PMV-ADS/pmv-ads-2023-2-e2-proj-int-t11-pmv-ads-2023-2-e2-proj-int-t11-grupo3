@@ -47,8 +47,6 @@ A figura abaixo ilustra a utilização do Kanban board:
 
 ![Kanabn Outra Chance](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/d92e936e-85df-4580-a00b-fc845c8bbb9d)
 
-Kanbanboard Outra Chance: https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597/views/1 
-
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
