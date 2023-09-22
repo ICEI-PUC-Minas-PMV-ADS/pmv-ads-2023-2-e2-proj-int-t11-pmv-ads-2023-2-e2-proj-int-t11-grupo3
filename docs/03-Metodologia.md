@@ -18,8 +18,8 @@ Divisão de Papéis no Projeto:
    - Giulia da Silva Brião
 
  - Product Owner: 
-   - Gabriel Batista Vieira
-
+   - Rodrigo Soares de Oliveira
+     
  - Equipe de Desenvolvimento: 
    - Atos dos Santos Pereira
    - Gabriel Batista Vieira
