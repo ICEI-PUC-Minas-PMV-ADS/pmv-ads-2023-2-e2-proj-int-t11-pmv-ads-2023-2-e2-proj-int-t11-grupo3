@@ -37,15 +37,17 @@ Divisão de Papéis no Projeto:
 
 A ferramenta "projects" do GitHub está sendo utilizada para a organização e distribuição de tarefas seguindo a listagem abaixo:
 
-  - **Product Backlog:** contém as tarefas identificadas e necessárias para a criação do produto;
-  - **To do:** contém as tarefas que serão incluídas na sprint;
+  - **New:** contém as novas tarefas que serão inseridas na sprint;
+  - **Backlog:** contém as tarefas identificadas e necessárias para a criação do produto;
   - **In progress:** contém as tarefas que foram iniciadas e estão em desenvolvimento;
   - **In review:** contém as tarefas serão checadas, de forma a se controlar a qualidade do desenvolvimento;
   - **Done:** contém as tarefas que foram concluídas;
 
 A figura abaixo ilustra a utilização do Kanban board:
 
+![Kanabn Outra Chance](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/d92e936e-85df-4580-a00b-fc845c8bbb9d)
 
+Kanbanboard Outra Chance: https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/597/views/1 
 
 ### Ferramentas
 
