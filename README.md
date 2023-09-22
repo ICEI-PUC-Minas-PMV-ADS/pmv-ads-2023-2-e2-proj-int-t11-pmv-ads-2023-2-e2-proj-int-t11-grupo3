@@ -1,4 +1,5 @@
-![logo s fundo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/6816cc72-22b3-41ce-84df-42dc71b3c6fd)
+![logo s fundo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/08483b82-ef00-4a46-a3fe-6948705b0a3b)
+
 
 
 `Análise E Desenvolvimento De Sistemas`
