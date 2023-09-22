@@ -28,9 +28,6 @@ Divisão de Papéis no Projeto:
  
  - Equipe de Design: 
    - Atos dos Santos Pereira
-   - Gabriel Batista Vieira
-   - Giulia da Silva Brião
-   - Rodrigo Soares de Oliveira
 
 
 ### Processo
