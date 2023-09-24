@@ -42,7 +42,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 |RF-001   | A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições.                                          | ALTA       | 
 |RF-002   | Na homepage, logada ou não, deverá existir filtros de busca que permitirão ao usuário filtrar os anúncios por categorias como tipo de vestuário, tamanho, cor, entre outros. | ALTA       |
-|RF-003   | Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar ou salvar itens, a criação de uma conta ou login será requerido.                    | ALTA       |
+|RF-003   | Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar ou comentar em anúncios, a criação de uma conta ou login será requerido.                    | ALTA       |
 |RF-004   | Ao criar um anúncio, o usuário deverá fornecer informações do anúncio como valor, título, descrição, localidade, foto, tamanho, tipo de vestuário, condição (novo/usado), entre outros.         | ALTA       |
 |RF-005   | Cada anúncio deve mostrar claramente o nome do vendedor e dados de contato, além dos dados essenciais sobre aquele anúncio, de acordo com os informados na RF-004.                                                          | ALTA       |
 |RF-006   | O usuário logado deverá ter um painel pessoal onde poderá visualizar seus anúncios ativos, se tiver, poder criar anúncios e gerenciar seus dados de perfil.                                  | MÉDIA      |
