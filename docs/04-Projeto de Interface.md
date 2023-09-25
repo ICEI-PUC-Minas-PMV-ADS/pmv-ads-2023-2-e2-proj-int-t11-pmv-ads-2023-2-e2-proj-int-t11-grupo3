@@ -26,15 +26,21 @@ Caso o usuário seja um usuário novo e deseja se cadastrar, após ele clicar no
 
 - Tela HomePage
 
-HomePage onde o usuário poderá ver todos os anúncios da plataforma.
+Homepage onde o usuário poderá ver todos os anúncios da plataforma.
 
 ![Captura de tela 2023-09-22 140234](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/99b34684-9850-44ed-9b61-a99a98e4924a)
 
-- Tela de Anúncios
+- Tela de Anúncios no Perfil do Usuário
 
-Nessa tela o usuário poderá ver mais detalhes sobre o anúncio selecionado.
+Nessa tela o usuário poderá ver seus anúncios.
 
 ![Captura de tela 2023-09-22 140259](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/6f52021e-0bf4-495a-9c22-00a0d40eb6d7)
+
+- Tela de Detalhes de um anúncio
+
+Aqui o usuário poderá não só ver mais detalhes do anúncio como também comentar nele.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/75391453/3d4adcd4-f5a3-4a0c-9102-d1295afd4690)
+
 
 - Tela de Perfil
 
@@ -42,6 +48,10 @@ Nessa tela o usuário poderá ver anúncios já finalizdos, criar novos e editar
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/126190493/03ca9ac0-80ef-45c8-8093-887907fb37ab)
 
+- Tela de alteração de dados cadastrais
+
+No perfil do usuário, o mesmo poderá alterar seus dados
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/75391453/8af6b559-421d-407a-b2f2-986cd67ba1da)
 
 
 
