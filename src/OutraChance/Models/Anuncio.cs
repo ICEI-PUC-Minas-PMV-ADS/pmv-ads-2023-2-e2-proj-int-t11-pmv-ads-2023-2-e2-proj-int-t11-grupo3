@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OutraChance.Models
 {
@@ -27,6 +28,10 @@ namespace OutraChance.Models
         public string Status { get; set; }
 
         public int Id_Usuario { get; set; }
+
+        [ForeignKey("Id_Usuario")]
+
+        public Usuario Usuario { get; set;}
     }
 }
 

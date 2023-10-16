@@ -29,5 +29,8 @@ namespace OutraChance.Models
         public string Senha { get; set; }
 
         public int Avatar { get; set; }
-    }
+
+        public ICollection<Anuncio> Anuncios { get; set; }
+
+        }
 }
