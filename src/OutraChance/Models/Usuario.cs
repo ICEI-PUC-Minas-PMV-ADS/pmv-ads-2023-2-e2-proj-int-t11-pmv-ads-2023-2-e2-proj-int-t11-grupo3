@@ -20,6 +20,7 @@ namespace OutraChance.Models
 
         [Display(Name = "Data de Nascimento")]
         [Required(ErrorMessage = "O preenchimento da Data de Nascimento é obrigatório!")]
+        [DataType(DataType.Date)]
         public DateTime Data_Nascimento { get; set; }
 
         [Display(Name = "Telefone")]
@@ -32,6 +33,7 @@ namespace OutraChance.Models
 
         [Display(Name = "Senha")]
         [Required(ErrorMessage = "O preenchimento da Senha é obrigatório!")]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
 
         [Display(Name = "Imagem do Perfil")]
