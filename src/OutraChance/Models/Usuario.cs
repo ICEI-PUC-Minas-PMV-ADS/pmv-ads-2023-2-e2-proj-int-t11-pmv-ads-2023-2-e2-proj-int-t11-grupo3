@@ -14,13 +14,13 @@ namespace OutraChance.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "O preenchimento do CPF é obrigatório!")]
-        public int Cpf { get; set; }
+        public string Cpf { get; set; }
 
         [Required(ErrorMessage = "O preenchimento da Data de Nascimento é obrigatório!")]
         public DateTime Data_Nascimento { get; set; }
 
         [Required(ErrorMessage = "O preenchimento do Telefone é obrigatório!")]
-        public int Telefone { get; set; }
+        public string Telefone { get; set; }
 
         [Required(ErrorMessage = "O preenchimento do E-mail é obrigatório!")]
         public string Email { get; set; }
@@ -28,7 +28,7 @@ namespace OutraChance.Models
         [Required(ErrorMessage = "O preenchimento da Senha é obrigatório!")]
         public string Senha { get; set; }
 
-        public int Avatar { get; set; }
+        public string Avatar { get; set; }
 
         public ICollection<Anuncio> Anuncios { get; set; }
 
