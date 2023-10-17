@@ -30,7 +30,6 @@ namespace OutraChance.Models
         public int Id_Usuario { get; set; }
 
         [ForeignKey("Id_Usuario")]
-
         public Usuario Usuario { get; set;}
     }
 }
