@@ -28,6 +28,8 @@ namespace OutraChance.Controllers
 
             var anuncio = await _context.Anuncios
                 .Include(a => a.Usuario)
+                .Include(a => a.CaracteristicasAnuncios)
+                    .ThenInclude(ca => ca.Caracteristica)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (anuncio == null || anuncio.Status != "Ativo")
