@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OutraChance.Models;
 
@@ -11,9 +12,10 @@ using OutraChance.Models;
 namespace OutraChance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231017235212_M05-add-coluna-imagem-tabela-anuncio")]
+    partial class M05addcolunaimagemtabelaanuncio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,42 +68,6 @@ namespace OutraChance.Migrations
                     b.ToTable("Anuncios");
                 });
 
-            modelBuilder.Entity("OutraChance.Models.Caracteristica", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Caracteristica");
-                });
-
-            modelBuilder.Entity("OutraChance.Models.CaracteristicaAnuncio", b =>
-                {
-                    b.Property<int>("AnuncioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CaracteristicaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Valor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AnuncioId", "CaracteristicaId");
-
-                    b.HasIndex("CaracteristicaId");
-
-                    b.ToTable("CaracteristicaAnuncios");
-                });
-
             modelBuilder.Entity("OutraChance.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -150,35 +116,6 @@ namespace OutraChance.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
-                });
-
-            modelBuilder.Entity("OutraChance.Models.CaracteristicaAnuncio", b =>
-                {
-                    b.HasOne("OutraChance.Models.Anuncio", "Anuncio")
-                        .WithMany("CaracteristicasAnuncios")
-                        .HasForeignKey("AnuncioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("OutraChance.Models.Caracteristica", "Caracteristica")
-                        .WithMany("CaracteristicasAnuncios")
-                        .HasForeignKey("CaracteristicaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Anuncio");
-
-                    b.Navigation("Caracteristica");
-                });
-
-            modelBuilder.Entity("OutraChance.Models.Anuncio", b =>
-                {
-                    b.Navigation("CaracteristicasAnuncios");
-                });
-
-            modelBuilder.Entity("OutraChance.Models.Caracteristica", b =>
-                {
-                    b.Navigation("CaracteristicasAnuncios");
                 });
 
             modelBuilder.Entity("OutraChance.Models.Usuario", b =>

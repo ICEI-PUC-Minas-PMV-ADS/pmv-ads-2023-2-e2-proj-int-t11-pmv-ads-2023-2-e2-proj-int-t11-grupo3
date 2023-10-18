@@ -27,10 +27,14 @@ namespace OutraChance.Models
         [Required(ErrorMessage = "O preenchimento da Status é obrigatório!")]
         public string Status { get; set; }
 
+        public string Imagem { get; set; }
+
         public int Id_Usuario { get; set; }
 
         [ForeignKey("Id_Usuario")]
         public Usuario Usuario { get; set;}
+
+        public ICollection<CaracteristicaAnuncio> CaracteristicasAnuncios {  get; set; }
     }
 }
 
