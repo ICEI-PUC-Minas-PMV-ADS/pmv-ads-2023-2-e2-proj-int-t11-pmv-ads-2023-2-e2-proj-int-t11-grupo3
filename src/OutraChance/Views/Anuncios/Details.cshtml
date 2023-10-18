@@ -1,0 +1,75 @@
+﻿@model OutraChance.Models.Anuncio
+
+@{
+    ViewData["Title"] = "Tenis Adidas Azul";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card border-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> 
+                                <img id="main-image" src="@(string.IsNullOrEmpty(Model.Imagem) ? "https://www.malhariapradense.com.br/wp-content/uploads/2017/08/produto-sem-imagem.png" : Model.Imagem) " width="250" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product pt-4">
+                            <div class="mt-3 mb-3">
+                                <h5>@Html.DisplayFor(model => model.Titulo)</h5>
+                                <div class="price d-flex flex-row align-items-center">
+                                    <div class="ml-2">
+                                        <b>Vendido e entregue por:  @Html.DisplayFor(model => model.Usuario.Nome)</b>
+                                        <img src="@(string.IsNullOrEmpty(Model.Usuario.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Usuario.Avatar)" class="rounded-circle" alt="..." height="50" width="50">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="about">@Html.DisplayFor(model => model.Descricao)</p>
+                            <div>
+                                <b class="fs-3 text-warning">R$@Html.DisplayFor(model => model.Preco)</b>
+                            </div>
+                            @foreach(var caracteristicaAnuncio in Model.CaracteristicasAnuncios)
+                            {
+                                <div>
+                                    <b>@caracteristicaAnuncio.Caracteristica.Nome : @caracteristicaAnuncio.Valor</b>
+                                </div>
+                            }
+                            <div class="d-grid gap-2 col-6 mt-4">
+                                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Dados do anunciante</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userInfoModalLabel">Dados de contato do anunciante</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="d-flex justify-content-center m-2">
+                        <img src="@(string.IsNullOrEmpty(Model.Usuario.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Usuario.Avatar)" class="rounded-circle" alt="..." height="100" width="100">
+                    </div>
+                    <strong>Nome:</strong> @Model.Usuario.Nome <br />
+                    <strong>Email:</strong> @Model.Usuario.Email <br />
+                    <strong>Telefone:</strong> @Model.Usuario.Telefone <br />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
