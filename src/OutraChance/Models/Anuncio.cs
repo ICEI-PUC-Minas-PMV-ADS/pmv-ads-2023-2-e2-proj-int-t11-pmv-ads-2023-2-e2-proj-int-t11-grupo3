@@ -25,8 +25,7 @@ namespace OutraChance.Models
         [Required(ErrorMessage = "O preenchimento do Estado é obrigatório!")]
         public string Estado { get; set; }
 
-        [Required(ErrorMessage = "O preenchimento da Status é obrigatório!")]
-        public string Status { get; set; }
+        public bool Status { get; set; }
 
         [DataType(DataType.Upload)]
         public string Imagem { get; set; }

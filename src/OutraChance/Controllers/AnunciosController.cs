@@ -39,7 +39,7 @@ namespace OutraChance.Controllers
                     .ThenInclude(ca => ca.Caracteristica)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (anuncio == null || anuncio.Status != "Ativo")
+            if (anuncio == null)
             {
                 return NotFound();
             }

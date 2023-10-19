@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OutraChance.Migrations
 {
-    public partial class m01 : Migration
+    public partial class m01bdzerado : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,7 +52,7 @@ namespace OutraChance.Migrations
                     Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
                     Imagem = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Id_Usuario = table.Column<int>(type: "int", nullable: false)
                 },
