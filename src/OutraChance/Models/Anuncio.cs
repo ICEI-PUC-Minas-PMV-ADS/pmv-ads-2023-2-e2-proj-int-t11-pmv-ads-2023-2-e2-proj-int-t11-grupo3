@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
 
 namespace OutraChance.Models
 {
@@ -27,6 +28,7 @@ namespace OutraChance.Models
         [Required(ErrorMessage = "O preenchimento da Status é obrigatório!")]
         public string Status { get; set; }
 
+        [DataType(DataType.Upload)]
         public string Imagem { get; set; }
 
         public int Id_Usuario { get; set; }

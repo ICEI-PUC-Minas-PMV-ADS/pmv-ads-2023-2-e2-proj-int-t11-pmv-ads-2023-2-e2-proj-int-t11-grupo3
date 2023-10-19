@@ -37,6 +37,7 @@ namespace OutraChance.Models
         public string Senha { get; set; }
 
         [Display(Name = "Imagem do Perfil")]
+        [DataType(DataType.ImageUrl)]
         public string Avatar { get; set; }
 
         public ICollection<Anuncio> Anuncios { get; set; }
