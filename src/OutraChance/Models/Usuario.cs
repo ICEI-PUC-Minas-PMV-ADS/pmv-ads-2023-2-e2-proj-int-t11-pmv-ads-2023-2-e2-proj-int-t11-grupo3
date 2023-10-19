@@ -10,7 +10,7 @@ namespace OutraChance.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Nome do usuário")]
+        [Display(Name = "Nome")]
         [Required(ErrorMessage = "O preenchimento do Nome é obrigatório!")]
         public string Nome { get; set; }
 
