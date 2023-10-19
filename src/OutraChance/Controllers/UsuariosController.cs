@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,70 @@ namespace OutraChance.Controllers
         public async Task<IActionResult> Index()
         {
               return View(await _context.Usuarios.ToListAsync());
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(Usuario usuario)
+        {
+            //Pegando as informações do usuário
+
+            var dados = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Email == usuario.Email);
+
+            //Caso seja nulo *usuário não exista, retornará a mensagem
+
+            if (dados == null)
+            {
+                ViewBag.Message = "Usuário e/ou senha inválida";
+                return View();
+            }
+
+            //Caso usuário esteja OK, será verificada a senha
+
+            if (BCrypt.Net.BCrypt.Verify(usuario.Senha, dados.Senha))
+            {
+
+                //Criação das credenciais
+
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
+                    new Claim(ClaimTypes.Name, dados.Nome)
+
+                };
+
+                var usuarioIdentify = new ClaimsIdentity(claims, "Login");
+                ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentify);
+
+                var props = new AuthenticationProperties
+                {
+
+                    //Definindo o tempo de expiração do login, no caso 8 horas
+
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddHours(8),
+                    IsPersistent = true,
+                };
+
+                await HttpContext.SignInAsync(principal, props);
+
+                return Redirect("/");
+
+            }
+            else
+            {
+                ViewBag.Message = "Usuário e/ou senha inválida";
+            }
+
+
+            return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Usuarios");
         }
 
         // GET: Usuarios/Details/5
@@ -165,69 +230,6 @@ namespace OutraChance.Controllers
         }
         //Login Configuração
 
-        [HttpPost]
-        public async Task<IActionResult> Login(Usuario usuario)
-        {
-            //Pegando as informações do usuário
-
-            var dados = await _context.Usuarios
-                .FindAsync(usuario.Id);
-
-            //Caso seja nulo *usuário não exista, retornará a mensagem
-
-            if (dados == null)
-            {
-                ViewBag.Message = "Usuário e/ou senha inválida";
-                return View();
-            }
-
-            //Caso usuário esteja OK, será verificada a senha
-
-            bool senhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, dados.Senha);
-
-            if (senhaOk)
-            {
-
-                //Criação das credenciais
-
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
-                    new Claim(ClaimTypes.Name, dados.Nome)
-
-                };
-
-                var usuarioIdentify = new ClaimsIdentity(claims, "Login");
-                ClaimsPrincipal principal = new ClaimsPrincipal(usuarioIdentify);
-
-                var props = new AuthenticationProperties
-                {
-
-                    //Definindo o tempo de expiração do login, no caso 8 horas
-
-                    AllowRefresh = true,
-                    ExpiresUtc = DateTime.UtcNow.ToLocalTime().AddHours(8),
-                    IsPersistent = true,
-                };
-
-                await HttpContext.SignInAsync(principal, props);
-
-                Redirect("/");
-
-            }
-            else
-            {
-                ViewBag.Message = "Usuário e/ou senha inválida";
-            }
-
-
-            return View();
-        }
-
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync();
-            return RedirectToAction("Login", "Usuarios");
-        }
+        
     }
 }
