@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -64,11 +65,9 @@ namespace OutraChance.Controllers
         public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Imagem,Id_Usuario")] Anuncio anuncio)
         {
 
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id");
+            var claimUsuarioId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            }
+            anuncio.Id_Usuario = Convert.ToInt32(claimUsuarioId);
 
             if (ModelState.IsValid)
             {
