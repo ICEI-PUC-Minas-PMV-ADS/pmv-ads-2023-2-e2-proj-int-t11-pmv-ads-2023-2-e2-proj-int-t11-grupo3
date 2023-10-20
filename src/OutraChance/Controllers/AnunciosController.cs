@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +10,10 @@ using OutraChance.Models;
 
 namespace OutraChance.Controllers
 {
+    
     public class AnunciosController : Controller
     {
+
         private readonly AppDbContext _context;
 
         public AnunciosController(AppDbContext context)
@@ -48,6 +51,8 @@ namespace OutraChance.Controllers
         }
 
         // GET: Anuncios/Create
+        [Authorize]
+
         public IActionResult Create()
         {
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");

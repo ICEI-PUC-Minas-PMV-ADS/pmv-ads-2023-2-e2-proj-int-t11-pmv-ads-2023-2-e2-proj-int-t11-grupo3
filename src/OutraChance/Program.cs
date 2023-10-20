@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

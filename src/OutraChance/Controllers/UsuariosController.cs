@@ -22,6 +22,12 @@ namespace OutraChance.Controllers
         }
 
         // GET: Usuarios
+        [AllowAnonymous]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Index()
         {
               return View(await _context.Usuarios.ToListAsync());
@@ -50,7 +56,6 @@ namespace OutraChance.Controllers
             {
 
                 //Criação das credenciais
-
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, dados.Id.ToString()),
@@ -226,12 +231,7 @@ namespace OutraChance.Controllers
           return _context.Usuarios.Any(e => e.Id == id);
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-        //Login Configuração
-
+     
         
     }
 }

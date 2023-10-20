@@ -15,7 +15,7 @@ namespace OutraChance.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Anuncios");
         }
 
         public IActionResult Privacy()
