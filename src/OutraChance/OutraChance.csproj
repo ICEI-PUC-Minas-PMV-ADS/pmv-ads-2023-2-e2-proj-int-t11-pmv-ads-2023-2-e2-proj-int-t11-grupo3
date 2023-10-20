@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Categoria.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Usuarios\Login.cshtml" />
   </ItemGroup>
 

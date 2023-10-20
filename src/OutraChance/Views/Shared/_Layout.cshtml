@@ -31,12 +31,8 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">Criar Conta</a>
                             </li>
                         </ul>
-                        <ul>
-                            
-                        </ul>
 
-                    <ul class="navbar-nav">
-
+                        <ul class="navbar-nav flex-grow-1">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
@@ -49,10 +45,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
                             </li>
                         }
-                    </ul>
-                    <ul>
-
-                    </ul>
+                        </ul>
                 </div>
             </div>
         </nav>
