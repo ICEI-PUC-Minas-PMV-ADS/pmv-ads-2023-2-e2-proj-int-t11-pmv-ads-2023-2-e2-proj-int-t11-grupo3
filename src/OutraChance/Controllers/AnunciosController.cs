@@ -63,6 +63,13 @@ namespace OutraChance.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Imagem,Id_Usuario")] Anuncio anuncio)
         {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id");
+
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(anuncio);
