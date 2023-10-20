@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace OutraChance.Controllers
     public class AnunciosController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public AnunciosController(AppDbContext context)
+        public AnunciosController(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: Anuncios
@@ -59,10 +62,17 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Imagem,Id_Usuario")] Anuncio anuncio)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Id_Usuario,ImagemUpload")] Anuncio anuncio)
         {
             if (ModelState.IsValid)
             {
+                var arquivo = anuncio.ImagemUpload;
+
+                if (arquivo != null && arquivo.Length > 0)
+                {
+                    anuncio.Imagem = await this.SalvarArquivo(arquivo);
+                }
+
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -165,6 +175,30 @@ namespace OutraChance.Controllers
         private bool AnuncioExists(int id)
         {
           return _context.Anuncios.Any(e => e.Id == id);
+        }
+
+        private async Task<string> SalvarArquivo(IFormFile file)
+        {
+            string connectionString = _configuration.GetConnectionString("AzureStorage");
+            string container = "uploads";
+
+            BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
+
+            BlobContainerClient blobContainerClient = blobServiceClient.GetBlobContainerClient(container);
+
+            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
+            BlobClient blobClient = blobContainerClient.GetBlobClient(blobName);
+
+            using (var stream = file.OpenReadStream())
+            {
+                await blobClient.UploadAsync(stream);
+            }
+
+            string blobUrl = blobClient.Uri.AbsoluteUri;
+
+            return blobUrl;
+
         }
     }
 }

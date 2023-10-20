@@ -36,6 +36,9 @@ namespace OutraChance.Models
         public Usuario Usuario { get; set;}
 
         public ICollection<CaracteristicaAnuncio> CaracteristicasAnuncios {  get; set; }
+
+        [NotMapped] // Essa propriedade está na classe de anúncio mas, não será salva no banco, ela será utilizada apenas no momento do upload
+        public IFormFile ImagemUpload { get; set; }
     }
 }
 
