@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Novo Anúncio</h1>
 
-<h4>Anuncio</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
+                <input asp-for="Preco" id="preco" class="form-control" />
                 <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,11 +48,11 @@
                 <input type = "file" asp-for="Imagem" class="form-control" />
                 <span asp-validation-for="Imagem" class="text-danger"></span>
             </div>
-            <div class="form-group">
+           @*  <div class="form-group">
                 <label asp-for="Id_Usuario" class="control-label"></label>
                 <input asp-for="Id_Usuario" class="form-control" />
                 <span asp-validation-for="Id_Usuario" class="text-danger"></span>
-            </div>
+            </div> *@
             <br />
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary" />
@@ -67,4 +66,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+    <script>
+        $('#preco').mask("#.##0,00", { reverse: true });
+    </script>
 }

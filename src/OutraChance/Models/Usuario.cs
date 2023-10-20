@@ -1,5 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.StaticFiles.Infrastructure;
+using Newtonsoft.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 
 namespace OutraChance.Models
 {
@@ -29,6 +32,8 @@ namespace OutraChance.Models
 
         [Display(Name = "E-mail")]
         [Required(ErrorMessage = "O preenchimento do E-mail é obrigatório!")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage ="Digite um E-mail válido!")]
         public string Email { get; set; }
 
         [Display(Name = "Senha")]
