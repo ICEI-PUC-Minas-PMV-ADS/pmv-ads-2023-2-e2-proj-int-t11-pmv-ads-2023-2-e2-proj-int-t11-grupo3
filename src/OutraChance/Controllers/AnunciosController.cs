@@ -50,7 +50,6 @@ namespace OutraChance.Controllers
         }
 
         // GET: Anuncios/Create
-        
         public IActionResult Create()
         {
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
