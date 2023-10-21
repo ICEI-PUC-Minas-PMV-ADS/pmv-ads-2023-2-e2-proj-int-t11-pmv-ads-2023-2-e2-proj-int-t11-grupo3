@@ -1,11 +1,19 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using OutraChance.Models;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+});
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
@@ -16,6 +24,20 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 {
     options.CheckConsentNeeded = context => true;
     options.MinimumSameSitePolicy = SameSiteMode.None;
+});
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+        {
+            new CultureInfo("en-US"),
+            new CultureInfo("pt-BR"),
+            // outros culturas, se necessário
+        };
+
+    // Define as culturas padrão para a aplicação
+    options.DefaultRequestCulture = new RequestCulture("en-US");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
 });
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -33,6 +55,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseRequestLocalization(app.Services.GetService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

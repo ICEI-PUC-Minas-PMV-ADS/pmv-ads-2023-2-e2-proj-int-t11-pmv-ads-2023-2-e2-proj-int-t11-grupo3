@@ -82,6 +82,8 @@ namespace OutraChance.Controllers
                     anuncio.Imagem = await uploadAzure.SalvarArquivo(arquivo);
                 }
 
+                anuncio.Preco = anuncio.Preco / 100;
+
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

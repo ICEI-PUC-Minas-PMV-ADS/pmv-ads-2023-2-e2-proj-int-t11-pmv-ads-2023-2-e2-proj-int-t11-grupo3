@@ -20,7 +20,6 @@ namespace OutraChance.Models
 
         [Display(Name = "Preço")]
         [Required(ErrorMessage = "O preenchimento do Preço é obrigatório!")]
-        [DataType(DataType.Currency)]
         public decimal Preco { get; set; }
 
         [Display(Name = "Cidade")]
