@@ -54,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagem)
+                    <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="75" width="50"></img>
             </td>
                 @if (User.Identity.IsAuthenticated){
             <td>

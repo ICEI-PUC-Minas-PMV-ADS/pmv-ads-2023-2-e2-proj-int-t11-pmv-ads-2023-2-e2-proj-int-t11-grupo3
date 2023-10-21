@@ -45,6 +45,9 @@ namespace OutraChance.Models
         [DataType(DataType.ImageUrl)]
         public string Avatar { get; set; }
 
+        [NotMapped] // Essa propriedade está na classe de anúncio mas, não será salva no banco, ela será utilizada apenas no momento do upload
+        public IFormFile ImagemUpload { get; set; }
+
         public ICollection<Anuncio> Anuncios { get; set; }
 
         }

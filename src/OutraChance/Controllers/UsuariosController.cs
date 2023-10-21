@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
+using OutraChance.Services;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -18,10 +19,12 @@ namespace OutraChance.Controllers
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public UsuariosController(AppDbContext context)
+        public UsuariosController(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: Usuarios
@@ -125,11 +128,18 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,Avatar")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,Avatar,ImagemUpload")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+                var arquivo = usuario.ImagemUpload;
+
+                if (arquivo != null && arquivo.Length > 0)
+                {
+                    UploadAzure uploadAzure = new UploadAzure(_configuration);
+                    usuario.Avatar = await uploadAzure.SalvarArquivo(arquivo);
+                }
+
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();

@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
+using OutraChance.Services;
 
 namespace OutraChance.Controllers
 {
     public class AnunciosController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public AnunciosController(AppDbContext context)
+        public AnunciosController(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: Anuncios
@@ -61,7 +65,7 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Imagem,Id_Usuario")] Anuncio anuncio)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Id_Usuario,ImagemUpload")] Anuncio anuncio)
         {
 
             var claimUsuarioId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -70,6 +74,14 @@ namespace OutraChance.Controllers
 
             if (ModelState.IsValid)
             {
+                var arquivo = anuncio.ImagemUpload;
+
+                if (arquivo != null && arquivo.Length > 0)
+                {
+                    UploadAzure uploadAzure = new UploadAzure(_configuration);
+                    anuncio.Imagem = await uploadAzure.SalvarArquivo(arquivo);
+                }
+
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
