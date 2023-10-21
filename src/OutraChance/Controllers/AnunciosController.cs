@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authorization;
@@ -53,7 +54,6 @@ namespace OutraChance.Controllers
         }
 
         // GET: Anuncios/Create
-       
         public IActionResult Create()
         {
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
@@ -67,6 +67,11 @@ namespace OutraChance.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Id_Usuario,ImagemUpload")] Anuncio anuncio)
         {
+
+            var claimUsuarioId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            anuncio.Id_Usuario = Convert.ToInt32(claimUsuarioId);
+
             if (ModelState.IsValid)
             {
                 var arquivo = anuncio.ImagemUpload;
