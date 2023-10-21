@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
+using OutraChance.Services;
 
 namespace OutraChance.Controllers
 {
@@ -70,7 +71,8 @@ namespace OutraChance.Controllers
 
                 if (arquivo != null && arquivo.Length > 0)
                 {
-                    anuncio.Imagem = await this.SalvarArquivo(arquivo);
+                    UploadAzure uploadAzure = new UploadAzure(_configuration);
+                    anuncio.Imagem = await uploadAzure.SalvarArquivo(arquivo);
                 }
 
                 _context.Add(anuncio);
@@ -175,30 +177,6 @@ namespace OutraChance.Controllers
         private bool AnuncioExists(int id)
         {
           return _context.Anuncios.Any(e => e.Id == id);
-        }
-
-        private async Task<string> SalvarArquivo(IFormFile file)
-        {
-            string connectionString = _configuration.GetConnectionString("AzureStorage");
-            string container = "uploads";
-
-            BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
-
-            BlobContainerClient blobContainerClient = blobServiceClient.GetBlobContainerClient(container);
-
-            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-
-            BlobClient blobClient = blobContainerClient.GetBlobClient(blobName);
-
-            using (var stream = file.OpenReadStream())
-            {
-                await blobClient.UploadAsync(stream);
-            }
-
-            string blobUrl = blobClient.Uri.AbsoluteUri;
-
-            return blobUrl;
-
         }
     }
 }
