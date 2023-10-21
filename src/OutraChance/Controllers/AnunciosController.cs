@@ -123,6 +123,14 @@ namespace OutraChance.Controllers
             {
                 try
                 {
+                    var arquivo = anuncio.ImagemUpload;
+
+                    if (arquivo != null && arquivo.Length > 0)
+                    {
+                        UploadAzure uploadAzure = new UploadAzure(_configuration);
+                        anuncio.Imagem = await uploadAzure.SalvarArquivo(arquivo);
+                    }
+
                     _context.Update(anuncio);
                     await _context.SaveChangesAsync();
                 }
