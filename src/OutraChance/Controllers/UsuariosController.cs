@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace OutraChance.Controllers
 {
@@ -26,6 +29,8 @@ namespace OutraChance.Controllers
         {
               return View(await _context.Usuarios.ToListAsync());
         }
+
+        
 
         [HttpPost]
         [AllowAnonymous]
@@ -120,6 +125,7 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,Avatar")] Usuario usuario)
         {
             if (ModelState.IsValid)
@@ -127,9 +133,9 @@ namespace OutraChance.Controllers
                 usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Anuncios");
             }
-            return View(usuario);
+            return RedirectToAction("Index", "Anuncios");
         }
 
         // GET: Usuarios/Edit/5
