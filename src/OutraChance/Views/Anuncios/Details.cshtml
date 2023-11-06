@@ -4,6 +4,7 @@
     ViewData["Title"] = "Tenis Adidas Azul";
 }
 
+<a class="nav-link text-dark" asp-area="" asp-controller="Anuncios" asp-action="Index">Voltar</a>
 <div class="container mt-5 mb-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
@@ -37,9 +38,22 @@
                                     <b>@caracteristicaAnuncio.Caracteristica.Nome : @caracteristicaAnuncio.Valor</b>
                                 </div>
                             }
-                            <div class="d-grid gap-2 col-6 mt-4">
-                                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Dados do anunciante</button>
-                            </div>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="d-grid gap-2 col-6 mt-4">
+                                    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalDadosAnunciante">
+                                        Dados do anunciante
+                                    </button>
+                                </div>
+                            }else{
+                                <div class="d-grid gap-2 col-6 mt-4">
+                                    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#precisaLogar">
+                                        Dados do anunciante
+                                    </button>
+                                </div>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -48,7 +62,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalDadosAnunciante" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -70,6 +84,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
             </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="precisaLogar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class=" d-flex justify-content-center align-items-center">
+                    <h3 class="modal-title" id="userInfoModalLabel">Você precisa fazer login para conseguir ver os dados do anunciante</h3>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+                <div class="modal-footer d-flex justify-content-center">
+                    <a type="button" class="btn btn-success" asp-area="" asp-controller="Usuarios" asp-action="Login">Logar</a>
+                </div>
         </div>
     </div>
 </div>
