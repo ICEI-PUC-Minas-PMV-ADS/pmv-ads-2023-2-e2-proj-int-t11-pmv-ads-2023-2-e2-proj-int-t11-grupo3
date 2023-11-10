@@ -46,39 +46,43 @@
 
     </dl>
 </div>
-<table class="table">
-    <tbody>
-        @foreach (var anuncio in Model.Anuncios)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => anuncio.Titulo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => anuncio.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => anuncio.Preco)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => anuncio.Cidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => anuncio.Estado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => anuncio.Status)
-                </td>
-                <td>
-                    <img src="@Html.DisplayFor(modelItem => anuncio.Imagem)" height="75" width="50"/>
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@anuncio.Id" class="btn btn-success">Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@if(Model.Anuncios != null)
+{
+    <table class="table">
+        <tbody>
+            @foreach (var anuncio in Model.Anuncios)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => anuncio.Titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => anuncio.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => anuncio.Preco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => anuncio.Cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => anuncio.Estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => anuncio.Status)
+                    </td>
+                    <td>
+                        <img src="@Html.DisplayFor(modelItem => anuncio.Imagem)" height="75" width="50" />
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@anuncio.Id" class="btn btn-success">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
