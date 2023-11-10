@@ -108,6 +108,7 @@ namespace OutraChance.Controllers
             }
 
             var usuario = await _context.Usuarios
+                .Include(u => u.Anuncios)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (usuario == null)
