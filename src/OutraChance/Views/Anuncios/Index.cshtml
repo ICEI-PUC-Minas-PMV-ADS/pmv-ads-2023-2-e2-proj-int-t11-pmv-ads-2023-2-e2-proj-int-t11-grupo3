@@ -4,7 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <input type="text" name="filtroTitulo" placeholder="Título" />
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
