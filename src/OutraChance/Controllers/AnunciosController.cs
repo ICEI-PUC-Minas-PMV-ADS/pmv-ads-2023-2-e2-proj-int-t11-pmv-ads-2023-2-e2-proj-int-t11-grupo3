@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
@@ -63,9 +64,15 @@ namespace OutraChance.Controllers
         }
 
         // GET: Anuncios/Create
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync()
         {
+            var caracteristicas = await _context.Caracteristicas
+                .Include(a => a.caracteristicaValores)
+                .ToListAsync();
+            
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
+            ViewData["Caracteristicas"] = caracteristicas;
+
             return View();
         }
 
@@ -74,9 +81,11 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Id_Usuario,ImagemUpload")] Anuncio anuncio)
+        public async Task<IActionResult> Create(
+            [Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Id_Usuario,ImagemUpload,CaracteristicasAnuncios")] Anuncio anuncio,
+            [Bind(Prefix = "Caracteristicas")] List<CaracteristicaAnuncio> Caracteristicas
+        )
         {
-
             var claimUsuarioId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             anuncio.Id_Usuario = Convert.ToInt32(claimUsuarioId);
@@ -95,6 +104,15 @@ namespace OutraChance.Controllers
 
                 _context.Add(anuncio);
                 await _context.SaveChangesAsync();
+
+                foreach(var caracteristicaAnuncio in Caracteristicas)
+                {
+                    caracteristicaAnuncio.AnuncioId = anuncio.Id;
+                    _context.CaracteristicaAnuncios.Add(caracteristicaAnuncio);
+                }
+
+                await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf", anuncio.Id_Usuario);

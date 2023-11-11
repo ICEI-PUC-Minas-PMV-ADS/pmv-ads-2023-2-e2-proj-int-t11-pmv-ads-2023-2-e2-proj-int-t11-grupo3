@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OutraChance.Models;
 
@@ -11,9 +12,10 @@ using OutraChance.Models;
 namespace OutraChance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231111172822_M03-tabela-valores-caracteristicas")]
+    partial class M03tabelavalorescaracteristicas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,28 +82,6 @@ namespace OutraChance.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Caracteristicas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Nome = "Cor"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Nome = "Tamanho"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Nome = "Departamento"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Nome = "Genero"
-                        });
                 });
 
             modelBuilder.Entity("OutraChance.Models.CaracteristicaAnuncio", b =>
@@ -143,122 +123,6 @@ namespace OutraChance.Migrations
                     b.HasIndex("CaracteristicaId");
 
                     b.ToTable("CaracteristicaValores");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CaracteristicaId = 1,
-                            Valor = "Azul"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CaracteristicaId = 1,
-                            Valor = "Amarelo"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CaracteristicaId = 1,
-                            Valor = "Vermelho"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CaracteristicaId = 1,
-                            Valor = "Verde"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CaracteristicaId = 1,
-                            Valor = "Laranja"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CaracteristicaId = 1,
-                            Valor = "Lilás"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CaracteristicaId = 1,
-                            Valor = "Branco"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CaracteristicaId = 1,
-                            Valor = "Preto"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CaracteristicaId = 2,
-                            Valor = "PP"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CaracteristicaId = 2,
-                            Valor = "P"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CaracteristicaId = 2,
-                            Valor = "M"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CaracteristicaId = 2,
-                            Valor = "G"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CaracteristicaId = 2,
-                            Valor = "GG"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CaracteristicaId = 3,
-                            Valor = "Calças"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CaracteristicaId = 3,
-                            Valor = "Blusas"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            CaracteristicaId = 3,
-                            Valor = "Calçados"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            CaracteristicaId = 3,
-                            Valor = "Shorts"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            CaracteristicaId = 4,
-                            Valor = "Masculino"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            CaracteristicaId = 4,
-                            Valor = "Feminino"
-                        });
                 });
 
             modelBuilder.Entity("OutraChance.Models.Usuario", b =>

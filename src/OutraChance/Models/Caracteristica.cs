@@ -11,5 +11,7 @@ namespace OutraChance.Models
         public string Nome{ get; set; }
 
         public ICollection<CaracteristicaAnuncio> CaracteristicasAnuncios { get; set; }
+
+        public ICollection<CaracteristicaValores> caracteristicaValores { get; set; }
     }
 }
