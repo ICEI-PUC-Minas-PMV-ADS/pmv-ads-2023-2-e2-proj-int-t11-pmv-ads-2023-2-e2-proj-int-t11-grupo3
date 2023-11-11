@@ -31,7 +31,7 @@ namespace OutraChance.Models
         public string Estado { get; set; }
 
         [Display(Name = "Qual status deste anúncio?")]
-        public bool Status { get; set; }
+        public string Status { get; set; }
 
         [Display(Name = "Imagem")]
         [DataType(DataType.Upload)]

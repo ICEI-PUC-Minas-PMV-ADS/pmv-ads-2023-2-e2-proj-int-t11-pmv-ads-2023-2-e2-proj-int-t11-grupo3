@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Create";
+
+    var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
 }
 
 <h1>Novo Anúncio</h1>
@@ -25,6 +27,26 @@
                 <label asp-for="Preco" class="control-label"></label>
                 <input asp-for="Preco" id="preco" class="form-control" />
             </div>
+            @if(caracteristicas != null)
+            {
+                var index = 0;
+
+                @foreach (var caracteristica in caracteristicas)
+                {
+                    <div class="form-group">
+                        <label class="control-label">@caracteristica.Nome</label>
+                        <select name="Caracteristicas[@index].Valor" class="form-control">
+                            <option value="">Nenhum</option>
+                            @foreach (var valor in caracteristica.caracteristicaValores)
+                            {
+                                <option value="@valor.Valor">@valor.Valor</option>
+                            }
+                        </select>
+                        <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+                    </div>
+                    index++;
+                }
+            }
             <div class="form-group">
                 <label asp-for="Cidade" class="control-label"></label>
                 <input asp-for="Cidade" class="form-control" />
