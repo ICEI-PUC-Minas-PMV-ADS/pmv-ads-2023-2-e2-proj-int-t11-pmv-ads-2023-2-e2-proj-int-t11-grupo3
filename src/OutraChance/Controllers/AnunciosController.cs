@@ -25,10 +25,19 @@ namespace OutraChance.Controllers
         }
 
         // GET: Anuncios
-        public async Task<IActionResult> Index()
+        // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo
+        public async Task<IActionResult> Index(string filtroTitulo)
         {
-            var appDbContext = _context.Anuncios.Include(a => a.Usuario);
-            return View(await appDbContext.ToListAsync());
+            var anunciosQuery = _context.Anuncios.Include(a => a.Usuario).AsQueryable();
+
+            if(!string.IsNullOrEmpty(filtroTitulo))
+            {
+                anunciosQuery = anunciosQuery.Where(a => a.Titulo.Contains(filtroTitulo));
+            }
+
+            var anuncios = await anunciosQuery.ToListAsync();
+
+            return View(anuncios);
         }
 
         // GET: Anuncios/Details/5
