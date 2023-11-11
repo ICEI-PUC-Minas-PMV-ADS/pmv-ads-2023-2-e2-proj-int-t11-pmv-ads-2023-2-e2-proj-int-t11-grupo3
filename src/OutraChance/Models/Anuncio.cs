@@ -14,7 +14,7 @@ namespace OutraChance.Models
         [Required(ErrorMessage = "O preenchimento do Titulo é obrigatório!")]
         public string Titulo { get; set; }
 
-        [Display(Name = "Descição")]
+        [Display(Name = "Descrição")]
         [Required(ErrorMessage = "O preenchimento da Descrição é obrigatório!")]
         public string Descricao { get; set; }
 
