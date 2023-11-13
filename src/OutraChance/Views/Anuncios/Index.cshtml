@@ -21,6 +21,30 @@
         </select>
     </div>
     <div class="row justify-content-center m-3">
+        <!-- Select para Estado -->
+        <select name="filtroCor" id="filtroCor" asp-items="ViewBag.filtroCor">
+            <option value="">Cor</option>
+        </select>
+    </div>
+    <div class="row justify-content-center m-3">
+        <!-- Select para Estado -->
+        <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho">
+            <option value="">Tamanho</option>
+        </select>
+    </div>
+    <div class="row justify-content-center m-3">
+        <!-- Select para Estado -->
+        <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep">
+            <option value="">Departamento</option>
+        </select>
+    </div>
+    <div class="row justify-content-center m-3">
+        <!-- Select para Estado -->
+        <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero">
+            <option value="">Genero</option>
+        </select>
+    </div>
+    <div class="row justify-content-center m-3">
         <button type="button" onclick="limparEFazerSubmit()">Limpar Filtros</button>
     </div>
 </form>
@@ -97,13 +121,25 @@
         $(document).ready(function () {
             var dropdownCidade = $("#filtroCidade");
             var dropdownEstado = $("#filtroEstado");
+            var dropdownCor = $("#filtroCor");
+            var dropdownTamanho = $("#filtroTamanho");
+            var dropdownDep = $("#filtroDep");
+            var dropdownGenero = $("#filtroGenero");
             var form = $(".filtro-form");
 
             var itemselecionadoCidade = '@ViewContext.HttpContext.Request.Query["filtroCidade"].ToString()';
             var itemselecionadoEstado = '@ViewContext.HttpContext.Request.Query["filtroEstado"].ToString()';
+            var itemselecionadoCor = '@ViewContext.HttpContext.Request.Query["filtroCor"].ToString()';
+            var itemselecionadoTamanho = '@ViewContext.HttpContext.Request.Query["filtroTamanho"].ToString()';
+            var itemselecionadoDep = '@ViewContext.HttpContext.Request.Query["filtroDep"].ToString()';
+            var itemselecionadoGenero = '@ViewContext.HttpContext.Request.Query["filtroGenero"].ToString()';
 
             dropdownCidade.val(itemselecionadoCidade);
             dropdownEstado.val(itemselecionadoEstado);
+            dropdownCor.val(itemselecionadoCor);
+            dropdownTamanho.val(itemselecionadoTamanho);
+            dropdownDep.val(itemselecionadoDep);
+            dropdownGenero.val(itemselecionadoGenero);
 
             dropdownCidade.change(function () {
                 form.submit();
@@ -113,10 +149,34 @@
                 form.submit();
             });
 
+            dropdownCor.change(function () {
+                form.submit();
+            });
+
+            dropdownTamanho.change(function () {
+                form.submit();
+            });
+
+            dropdownDep.change(function () {
+                form.submit();
+            });
+
+            dropdownGenero.change(function () {
+                form.submit();
+            });
+
             var selectedValue = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
             ropdownCidade.val(selectedValue);
             var selectedValue2 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
             dropdownEstado.val(selectedValue2);
+            var selectedValue3 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            dropdownCor.val(selectedValue3);
+         //   var selectedValue4 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+         //   dropdownEstado.val(selectedValue4);
+         //   var selectedValue5 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+         //   dropdownEstado.val(selectedValue5);
+         //   var selectedValue6 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+         //   dropdownEstado.val(selectedValue6);
         });
     </script>
 

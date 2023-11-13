@@ -27,12 +27,20 @@ namespace OutraChance.Controllers
 
         // GET: Anuncios
         // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo      
-        public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade)
+        public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero)
         {
 
             var anunciosQuery = _context.Anuncios.Include(a => a.Usuario).AsQueryable();
-           // var caracteristicasQuery = _context.CaracteristicaAnuncios.Include(a => a.Caracteristica).AsQueryable();
             var anuncios = await anunciosQuery.ToListAsync();
+
+            var caracteristicasQuery = _context.CaracteristicaAnuncios.Include(ca =>ca.Anuncio).AsQueryable();
+            var caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
+
+            var idEspecificoCor = 1;
+            var idEspecificoTamanho = 2;
+            var idEspecificoDep = 3;
+            var idEspecificoGenero = 4;
+
 
             if (!string.IsNullOrEmpty(filtro))
             {
@@ -70,14 +78,50 @@ namespace OutraChance.Controllers
 
             }
 
+             if (!string.IsNullOrEmpty(filtroCor))
+            {
+
+                caracteristicasQuery = caracteristicasQuery
+                .Where(a => a.AnuncioId.ToString().Contains(filtroCor) ||
+                a.CaracteristicaId.ToString().Contains(filtroCor) ||
+                a.Valor.Contains(filtroCor));
+
+            }
+
 
             anuncios = await anunciosQuery.ToListAsync();
+            caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
 
             var cidadesDistintas = _context.Anuncios.Select(a => a.Cidade).Distinct().ToList();
             ViewBag.filtroCidade = new SelectList(cidadesDistintas);
 
             var estadosDistintos = _context.Anuncios.Select(a => a.Estado).Distinct().ToList();
             ViewBag.filtroEstado = new SelectList(estadosDistintos);
+
+            var caracteristicaCor = _context.CaracteristicaAnuncios
+            .Where (ca => ca.CaracteristicaId == idEspecificoCor)
+            .Select(ca => ca.Valor).Distinct().ToList();
+            ViewBag.filtroCor = new SelectList(caracteristicaCor);
+
+            var caracteristicaTamanho = _context.CaracteristicaAnuncios
+            .Where(ca => ca.CaracteristicaId == idEspecificoTamanho)
+            .Select(ca => ca.Valor).Distinct().ToList();
+            ViewBag.filtroTamanho = new SelectList(caracteristicaTamanho);
+
+            var caracteristicaDep = _context.CaracteristicaAnuncios
+            .Where(ca => ca.CaracteristicaId == idEspecificoDep)
+            .Select(ca => ca.Valor).Distinct().ToList();
+            ViewBag.filtroDep = new SelectList(caracteristicaDep);
+
+            var caracteristicaGenero = _context.CaracteristicaAnuncios
+            .Where(ca => ca.CaracteristicaId == idEspecificoGenero)
+            .Select(ca => ca.Valor).Distinct().ToList();
+            ViewBag.filtroGenero = new SelectList(caracteristicaGenero);
+
+
+
+
+
 
             //  var caracteristicas = _context.Anuncios.Distinct().ToList();
             //  ViewData["filtroCidade"] = new SelectList(caracteristicas, "Cidade", "Cidade", "Id");
