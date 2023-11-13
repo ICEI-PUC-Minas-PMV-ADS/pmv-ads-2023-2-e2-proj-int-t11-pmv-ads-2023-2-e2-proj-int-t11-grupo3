@@ -9,41 +9,43 @@
 }
 <form asp-action="Index" method="get" class="filtro-form">
     <div class="row justify-content-center m-3">
-        <!-- Select para Cidade -->
-        <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade">
-            <option value="">Cidade</option>
-        </select>
-    </div>
-    <div class="row justify-content-center m-3">
+        <div class="col">
+           <!-- Select para Cidade -->
+           <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade">
+              <option value="">Cidade</option>
+           </select>
+        </div>
+    <div class="col">
         <!-- Select para Estado -->
         <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado">
             <option value="">Estado</option>
         </select>
     </div>
-    <div class="row justify-content-center m-3">
+    <div class="col">
         <!-- Select para Estado -->
         <select name="filtroCor" id="filtroCor" asp-items="ViewBag.filtroCor">
             <option value="">Cor</option>
         </select>
     </div>
-    <div class="row justify-content-center m-3">
+    <div class="col">
         <!-- Select para Estado -->
         <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho">
             <option value="">Tamanho</option>
         </select>
     </div>
-    <div class="row justify-content-center m-3">
+    <div class="col">
         <!-- Select para Estado -->
         <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep">
             <option value="">Departamento</option>
         </select>
     </div>
-    <div class="row justify-content-center m-3">
+    <div class="col">
         <!-- Select para Estado -->
         <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero">
             <option value="">Genero</option>
         </select>
     </div>
+</div>
     <div class="row justify-content-center m-3">
         <button type="button" onclick="limparEFazerSubmit()">Limpar Filtros</button>
     </div>

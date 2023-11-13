@@ -12,19 +12,21 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-           <div class="container-fluid">
-                <a class="navbar-brand" href="~/Anuncios">Outra Chance</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="col">
+                    <a class="navbar-brand" href="~/Anuncios">Outra Chance</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <form asp-action="Index" method="get">
-                    <div class="navbar-nav flex-grow-1">
-                        <input type="text" name="filtro" placeholder="Pesquisar" />
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </div>
-                </form>
-                <div class="collapse navbar-collapse me-2" id="navbarSupportedContent">
+                    </button>
+                </div>
+                <div class="nav-area nav-top-area nav-center">
+                     <form asp-action="Index" method="get">
+                     <input type="text" name="filtro" placeholder="Pesquisar" />
+                     <button type="submit" class="btn btn-primary">Pesquisar</button>
+                     </form>
+                </div>
+                <div class="col order-1" id="navbarSupportedContent">
                     <div class="navbar-nav me-2">
                      <ul class="navbar-nav me-2">
                         @if (User.Identity.IsAuthenticated)
@@ -56,10 +58,10 @@
                         }
                      </ul>
                     
-                    </div>
-                </div>
+                    </div>                </div>
+              </nav>
            </div>
-        </nav>
+        
     </header>
 
    
