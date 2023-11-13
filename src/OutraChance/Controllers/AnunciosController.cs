@@ -26,19 +26,71 @@ namespace OutraChance.Controllers
         }
 
         // GET: Anuncios
-        // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo
-        public async Task<IActionResult> Index(string filtroTitulo)
+        // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo      
+        public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade)
         {
+
             var anunciosQuery = _context.Anuncios.Include(a => a.Usuario).AsQueryable();
-
-            if(!string.IsNullOrEmpty(filtroTitulo))
-            {
-                anunciosQuery = anunciosQuery.Where(a => a.Titulo.Contains(filtroTitulo));
-            }
-
+           // var caracteristicasQuery = _context.CaracteristicaAnuncios.Include(a => a.Caracteristica).AsQueryable();
             var anuncios = await anunciosQuery.ToListAsync();
 
+            if (!string.IsNullOrEmpty(filtro))
+            {
+
+                anunciosQuery = anunciosQuery
+                .Where(a => a.Titulo.Contains(filtro) || 
+                a.Descricao.Contains(filtro) || 
+                a.Estado.Contains(filtro) || 
+                a.Cidade.Contains(filtro) ||
+                a.Id.ToString().Contains(filtro));
+
+            }
+
+            if (!string.IsNullOrEmpty(filtroEstado))
+            {
+
+                anunciosQuery = anunciosQuery
+                .Where(a => a.Titulo.Contains(filtroEstado) ||
+                a.Descricao.Contains(filtroEstado) ||
+                a.Estado.Contains(filtroEstado) ||
+                a.Cidade.Contains(filtroEstado) ||
+                a.Id.ToString().Contains(filtroEstado));
+
+            }
+
+            if (!string.IsNullOrEmpty(filtroCidade))
+            {
+
+                anunciosQuery = anunciosQuery
+                .Where(a => a.Titulo.Contains(filtroCidade) ||
+                a.Descricao.Contains(filtroCidade) ||
+                a.Estado.Contains(filtroCidade) ||
+                a.Cidade.Contains(filtroCidade) ||
+                a.Id.ToString().Contains(filtroCidade));
+
+            }
+
+
+            anuncios = await anunciosQuery.ToListAsync();
+
+            var cidadesDistintas = _context.Anuncios.Select(a => a.Cidade).Distinct().ToList();
+            ViewBag.filtroCidade = new SelectList(cidadesDistintas);
+
+            var estadosDistintos = _context.Anuncios.Select(a => a.Estado).Distinct().ToList();
+            ViewBag.filtroEstado = new SelectList(estadosDistintos);
+
+            //  var caracteristicas = _context.Anuncios.Distinct().ToList();
+            //  ViewData["filtroCidade"] = new SelectList(caracteristicas, "Cidade", "Cidade", "Id");
+            // ViewData["filtroEstado"] = new SelectList(caracteristicas, "Estado", "Estado", "Id");
+
+            // var caracteristicasCor = _context.CaracteristicaAnuncios.ToList()
+            //  .Where(c => c.CaracteristicaId == 1).ToList();
+            //   ViewData["Cor"] = new SelectList(caracteristicas, "CaracteristicasId", "Valor");
+
+
+
             return View(anuncios);
+
         }
 
         // GET: Anuncios/Details/5

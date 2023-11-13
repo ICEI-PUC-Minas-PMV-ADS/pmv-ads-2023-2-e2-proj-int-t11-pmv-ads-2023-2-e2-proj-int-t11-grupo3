@@ -2,17 +2,35 @@
 
 @{
     ViewData["Title"] = "Index";
-}
 
-<form asp-action="Index" method="get">
-    <div class="form-group">
-        <input type="text" name="filtroTitulo" placeholder="Título" />
-        <button type="submit" class="btn btn-primary">Filtrar</button>
+    var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
+   
+   
+}
+<form asp-action="Index" method="get" class="filtro-form">
+    <div class="row justify-content-center m-3">
+        <!-- Select para Cidade -->
+        <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade">
+            <option value="">Cidade</option>
+        </select>
+    </div>
+    <div class="row justify-content-center m-3">
+        <!-- Select para Estado -->
+        <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado">
+            <option value="">Estado</option>
+        </select>
+    </div>
+    <div class="row justify-content-center m-3">
+        <button type="button" onclick="limparEFazerSubmit()">Limpar Filtros</button>
     </div>
 </form>
+
+
 <table class="table">
+    
     <thead>
         <tr>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
@@ -29,17 +47,17 @@
                 @Html.DisplayNameFor(model => model.Estado)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Imagem)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+       
 @foreach (var item in Model) {
+         
         <tr>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
@@ -56,9 +74,6 @@
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
                 <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="75" width="50"></img>
             </td>
             <td>
@@ -71,6 +86,51 @@
             </td> *@
                
         </tr>
+
 }
     </tbody>
 </table>
+
+    @section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            var dropdownCidade = $("#filtroCidade");
+            var dropdownEstado = $("#filtroEstado");
+            var form = $(".filtro-form");
+
+            var itemselecionadoCidade = '@ViewContext.HttpContext.Request.Query["filtroCidade"].ToString()';
+            var itemselecionadoEstado = '@ViewContext.HttpContext.Request.Query["filtroEstado"].ToString()';
+
+            dropdownCidade.val(itemselecionadoCidade);
+            dropdownEstado.val(itemselecionadoEstado);
+
+            dropdownCidade.change(function () {
+                form.submit();
+            });
+
+            dropdownEstado.change(function () {
+                form.submit();
+            });
+
+            var selectedValue = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            ropdownCidade.val(selectedValue);
+            var selectedValue2 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            dropdownEstado.val(selectedValue2);
+        });
+    </script>
+
+    <script>
+        function limparEFazerSubmit() {
+            
+            voltarParaHomepage();
+        }
+
+        function voltarParaHomepage() {
+            // Verificar forma correta de redirecionar
+            window.location.href = 'https://localhost:44364/Anuncios';
+        }
+    </script>
+}
+
+
