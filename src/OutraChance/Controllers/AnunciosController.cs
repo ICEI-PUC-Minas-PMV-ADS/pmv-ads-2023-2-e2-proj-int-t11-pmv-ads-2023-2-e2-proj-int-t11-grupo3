@@ -30,8 +30,10 @@ namespace OutraChance.Controllers
         public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero)
         {
 
-            var anunciosQuery = _context.Anuncios.Include(a => a.Usuario).AsQueryable();
-            var anuncios = await anunciosQuery.ToListAsync();
+            var anunciosQuery = _context.Anuncios
+                .Include(a => a.Usuario)
+                .Include(a => a.CaracteristicasAnuncios)
+                .AsQueryable();
 
             var caracteristicasQuery = _context.CaracteristicaAnuncios.Include(ca =>ca.Anuncio).AsQueryable();
             var caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
@@ -78,18 +80,14 @@ namespace OutraChance.Controllers
 
             }
 
-             if (!string.IsNullOrEmpty(filtroCor))
+            if (!string.IsNullOrEmpty(filtroCor))
             {
-
-                caracteristicasQuery = caracteristicasQuery
-                .Where(a => a.AnuncioId.ToString().Contains(filtroCor) ||
-                a.CaracteristicaId.ToString().Contains(filtroCor) ||
-                a.Valor.Contains(filtroCor));
-
+                anunciosQuery = anunciosQuery
+                    .Where(a => a.CaracteristicasAnuncios.Any(ca => ca.Valor == filtroCor));
             }
 
 
-            anuncios = await anunciosQuery.ToListAsync();
+            var anuncios = await anunciosQuery.ToListAsync();
             caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
 
             var cidadesDistintas = _context.Anuncios.Select(a => a.Cidade).Distinct().ToList();
@@ -117,21 +115,6 @@ namespace OutraChance.Controllers
             .Where(ca => ca.CaracteristicaId == idEspecificoGenero)
             .Select(ca => ca.Valor).Distinct().ToList();
             ViewBag.filtroGenero = new SelectList(caracteristicaGenero);
-
-
-
-
-
-
-            //  var caracteristicas = _context.Anuncios.Distinct().ToList();
-            //  ViewData["filtroCidade"] = new SelectList(caracteristicas, "Cidade", "Cidade", "Id");
-            // ViewData["filtroEstado"] = new SelectList(caracteristicas, "Estado", "Estado", "Id");
-
-            // var caracteristicasCor = _context.CaracteristicaAnuncios.ToList()
-            //  .Where(c => c.CaracteristicaId == 1).ToList();
-            //   ViewData["Cor"] = new SelectList(caracteristicas, "CaracteristicasId", "Valor");
-
-
 
             return View(anuncios);
 
