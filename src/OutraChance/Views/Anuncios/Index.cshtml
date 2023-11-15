@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<OutraChance.Models.Anuncio>
 
+
+
 @{
     ViewData["Title"] = "Index";
 
@@ -7,6 +9,8 @@
    
    
 }
+
+
 <form asp-action="Index" method="get" class="filtro-form">
     <div class="row justify-content-center m-3">
         <div class="col">
@@ -75,7 +79,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Imagem)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.CaracteristicasAnuncios)
+            </th>
+        
         </tr>
     </thead>
     <tbody>
@@ -105,13 +112,23 @@
             <td>
                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a> 
              </td>
+            <td>
+                    @foreach (var caracteristicaAnuncio in item.CaracteristicasAnuncios)
+                    {
+                        
+                        <b>@caracteristicaAnuncio.Caracteristica.Nome : @caracteristicaAnuncio.Valor</b>
+                    }
+            </td>
            @*     
            <td>
                  <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> 
                  <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
             </td> *@
                
-        </tr>
+            </tr>
+
+           
+        
 
 }
     </tbody>

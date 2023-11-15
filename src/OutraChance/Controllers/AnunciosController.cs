@@ -86,6 +86,24 @@ namespace OutraChance.Controllers
                     .Where(a => a.CaracteristicasAnuncios.Any(ca => ca.Valor == filtroCor));
             }
 
+            if (!string.IsNullOrEmpty(filtroTamanho))
+            {
+                anunciosQuery = anunciosQuery
+                    .Where(a => a.CaracteristicasAnuncios.Any(ca => ca.Valor == filtroTamanho));
+            }
+
+            if (!string.IsNullOrEmpty(filtroDep))
+            {
+                anunciosQuery = anunciosQuery
+                    .Where(a => a.CaracteristicasAnuncios.Any(ca => ca.Valor == filtroDep));
+            }
+
+            if (!string.IsNullOrEmpty(filtroGenero))
+            {
+                anunciosQuery = anunciosQuery
+                    .Where(a => a.CaracteristicasAnuncios.Any(ca => ca.Valor == filtroGenero));
+            }
+
 
             var anuncios = await anunciosQuery.ToListAsync();
             caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
