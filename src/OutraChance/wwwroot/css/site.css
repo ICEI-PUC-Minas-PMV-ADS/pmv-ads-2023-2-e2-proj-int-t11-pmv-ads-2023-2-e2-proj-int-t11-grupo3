@@ -10,9 +10,101 @@ html {
 
 html {
   position: relative;
-  min-height: 100%;
+  min-height: 100%; 
 }
 
 body {
   margin-bottom: 60px;
+}
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+
+}
+
+#rowFiltros {
+    justify-content: stretch;
+    width:1100px;
+}
+
+#rowCards {
+    justify-content: stretch;
+    width:1100px;
+}
+
+#rowMenu {
+    position:relative;
+    width:1100px;
+    margin-left:auto;
+    padding:0;
+}
+
+.container {
+    padding-left: 0;
+    width: 1100px;
+    margin-left:auto;
+    flex-wrap:wrap;
+
+}
+
+#filtroGenero, #filtroTamanho, #filtroEstado, #filtroCidade, #filtroDep, #btn-limparFiltros{
+    width: 175px;
+}
+
+#colFiltros {
+    width: 16%;
+}
+
+#colCardsAnuncios {
+    margin-top:30px;
+    margin-right:0px;
+    width: 25%;
+    
+}
+
+#colOutraChanche {
+    width: 15%;
+    justify-content:flex-start;
+}
+
+#colFiltroPesquisa {
+    justify-content:center;
+    width:45%;
+}
+
+#colMenus{
+    width:auto;
+    display:inline-flex;
+    margin-top:30px;
+    margin-bottom:30px;
+    justify-items:right;
+    margin-right:30px;
+}
+
+#colMeuPerfil {
+    margin-right:20px;
+}
+
+.col {
+    flex:none;
+}
+
+#contCards{
+    flex-wrap:wrap;
+}
+#cardAnuncios {
+    width: 16em;
+    margin-right: 10px;
+}
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+#filtro {
+    width: 330px;
 }

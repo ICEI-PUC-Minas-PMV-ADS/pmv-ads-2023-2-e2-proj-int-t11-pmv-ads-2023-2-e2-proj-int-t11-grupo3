@@ -7,72 +7,71 @@
 
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
    
-   
 }
 
 
+   <div class="container" id="containerGeral" style="width:100%">
 
-
-<table class="table">
-
-   <div class="container">
-       <div class="row g-1" style="margin-top:30px;">
+    <div class="container px-1" id="containerFiltros" style="width:100%">
+       <div class="row" id="rowFiltros" name="rowFiltros" style="width:100%">
 
             <form asp-action="Index" method="get" class="filtro-form">
-
-                <div class="row align-items-start mt-2">
-                    <div class="col-2" style="margin-left: -8px">
+                <h6>FILTROS DE PESQUISA</h6>
+                <BR/>
+                <div class="row" id="rowFiltros" name="rowFiltros">
+                    <div class="col-2" id="colFiltros" name="colFiltros">
                         <!-- Select para Cidade -->
-                        <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep" style="width:175px">
+                        <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep">
                             <option value="">Departamento</option>
                         </select>
                     </div>
-                    <div class="col-2">
-                        <!-- Select para Estado -->
-                        <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero" style="width:175px">
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Categoria -->
+                        <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero">
                             <option value="">Categoria</option>
                         </select>
                     </div>
-                    <div class="col-2">
-                        <!-- Select para Estado -->
-                        <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho" style="width:175px">
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Tamanho -->
+                        <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho">
                             <option value="">Tamanho</option>
                         </select>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2" id="colFiltros" name="colFiltros">
                         <!-- Select para Estado -->
-                        <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado" style="width:175px">
+                        <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado">
                             <option value="">Estado</option>
                         </select>
                     </div>
 
-                    <div class="col-2">
-                        <!-- Select para Estado -->
-                        <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade" style="width:175px">
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Cidade -->
+                        <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade">
                             <option value="">Cidade</option>
                         </select>
                     </div>
 
-                    <div class="col-2 align-content-end">
-                        <button type="button" onclick="limparEFazerSubmit()" style="width:182px">Limpar Filtros</button>
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <button type="button" name="btn-limparFiltros" id="btn-limparFiltros" onclick="limparEFazerSubmit()">Limpar Filtros</button>
                     </div>
                 </div>
             </form>
-
+        </div>
+    </div>
     
-
-    @foreach (var item in Model)
+        <div class="container px-1" id="containerCards" style="width:100%"> 
+            <div class="row" id="rowCards" name="rowCards" style="width:100%">
+                @foreach (var item in Model)
        
-    { 
-        
-       <div class="col-3" style="margin-top:40px;">
-        <div class="card" style="width: 16rem;">
-            <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="254"></img>
-            <div class="card-body">
-                <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
-                <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
-                            @if (item.CaracteristicasAnuncios != null)
-                            {
+                {
+                <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">                
+                     <div class="card" id="cardAnuncios" name="cardAnuncios">
+                        <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="100%"></img>
+                        <div class="card-body">
+                        <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                        <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+                         @if (item.CaracteristicasAnuncios != null)
+                         {
 
 
                                 @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
@@ -82,12 +81,12 @@
                                         <h7>@caracteristicasAnuncios.Valor </h7>
                                     }
                                 }
-                            }
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    @if (item.CaracteristicasAnuncios != null)
-                    {
+                         }
+                        </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        @if (item.CaracteristicasAnuncios != null)
+                        {
 
 
                         @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
@@ -97,9 +96,9 @@
                                 <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
                             }
                         }
-                    }
-                    @if (item.CaracteristicasAnuncios != null)
-                    {
+                        }
+                        @if (item.CaracteristicasAnuncios != null)
+                        {
 
 
                         @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
@@ -109,23 +108,24 @@
                                 <h7>Cor: @caracteristicasAnuncios.Valor </h7>
                             }
                         }
-                    }
+                        }
                                 
-                </li>
-
-               <br>
-
-                <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b> 
+                    </li>
+                    <br>
+                    <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
        
-            </ul>
-                <div class="row-10">
-                    <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:256px">Detalhes</a>
+                </ul>
+                <div class="row">
+                    <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
                 </div>
-           </div>
-           </div>           
+                    </div>
+                </div>    
+                
     }
-   
-    </div>
+
+            </div>
+        </div>
+
     </div>
     
     @section Scripts {

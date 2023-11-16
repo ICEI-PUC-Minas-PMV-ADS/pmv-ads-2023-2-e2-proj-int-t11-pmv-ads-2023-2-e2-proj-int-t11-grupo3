@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OutraChance.Models;
+using SQLitePCL;
 using System.Diagnostics;
 
 namespace OutraChance.Controllers
 {
+     
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+       
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,6 +17,7 @@ namespace OutraChance.Controllers
 
         public IActionResult Index()
         {
+            
             return RedirectToAction("Index","Anuncios");
         }
 
@@ -28,5 +31,7 @@ namespace OutraChance.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+       
     }
 }

@@ -12,56 +12,64 @@
 </head>
 <body>
     <header>
-        <div class="row">
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="col">
+       <div class="container px-1">
+        <div class="row" id="rowMenu" name="rowMenu">
+          <nav class="navbar">
+                <div id="colOutraChance" name="colOutraChance">
                     <a class="navbar-brand" href="~/Anuncios">Outra Chance</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
-                <div class="nav-area nav-top-area nav-center">
-                     <form asp-action="Index" method="get">
-                     <input type="text" name="filtro" placeholder="Pesquisar" />
-                     <button type="submit" class="btn btn-primary">Pesquisar</button>
-                     </form>
+                <div class="col" id="colFiltroPesquisa" name="colFiltroPesquisa" style="display: inherit">
+                <form class="nav-search justify-contente-center" action="Anuncios" method="GET" role="search" style="display: inherit;">
+                    <input type="text" class="nav-search-input" id="filtro" aria-label="Digite o que você quer encontrar" name="filtro" placeholder="Buscar produtos, marcas e muito mais…" >
+                    <button type="submit" class="nav-search-btn"><div role="img" aria-label="Buscar" class="nav-icon-search"></div></button>                
+                </form>
                 </div>
-                <div class="col order-1" id="navbarSupportedContent">
-                    <div class="navbar-nav me-2">
-                     <ul class="navbar-nav me-2">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                          <li class="nav-item">
-                              <a class="nav-link text-dark" asp-area="" asp-controller="Anuncios" asp-action="Create">Anunciar</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Details" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value">Meu perfil</a>
-                          </li>
-                        }
-                     <ul class="navbar-nav flex-grow-1">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                          <li class="nav-item me-2">
-                                Olá, @User.Identity.Name <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
-                          </li>
-                        }
-                         else
-                        {
-                           <li class="nav-item">
-                                 <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
-                           </li>
-                     <ul class="navbar-nav flex-grow-1">
-                           <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">Criar Conta</a>
-                           </li>
-                     </ul>
-                        }
-                     </ul>
-                    
-                    </div>                </div>
-              </nav>
-           </div>
-        
+                    <div class="col px-1" id="colMenus" name="colMenus">
+                            @if (User.Identity.IsAuthenticated)
+
+                            {
+                                 <div class="col">
+                                     <div class="nav-item">
+                                          <a class="nav-link text-dark" asp-area="" asp-controller="Anuncios" asp-action="Create">Anunciar</a>
+                                     </div>
+                                 </div>
+                                 <div class="col" id="colMeuPerfil" name="colMeuPerfil"> 
+                                     <div class="nav-item">
+                                          <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Details" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value">Meu perfil</a>
+                                     </div>
+                                 </div>
+                               
+                            }
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="row">
+                                     <div class="col">
+                                    Olá, @User.Identity.Name 
+                                     </div>
+                                     <div class="col">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                                     </div>
+                               </div>
+                            }
+                            else
+                            {
+                                <div class="col">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Create">Criar Conta</a>
+                                </div>
+                                 <div class="col">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Login">Login</a>
+                                </div>
+                            
+                                
+                            }
+                       
+                    </div>
+          </nav>
+        </div>
+        </div>
     </header>
 
    
