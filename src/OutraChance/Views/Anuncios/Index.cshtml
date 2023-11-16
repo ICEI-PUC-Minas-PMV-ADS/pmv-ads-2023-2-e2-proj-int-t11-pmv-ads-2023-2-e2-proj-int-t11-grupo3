@@ -58,72 +58,50 @@
 
 <table class="table">
     
-    <thead>
-        <tr>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagem)
-            </th>
-                    
-        </tr>
-    </thead>
-    <tbody>
-       
-@foreach (var item in Model) {
-         
-        <tr>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="75" width="50"></img>
-            </td>
-            <td>
-               <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a> 
-             </td>
-           
-           @*     
-           <td>
-                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> 
-                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-            </td> *@
-               
-            </tr>
+    @foreach (var item in Model)
+    {
 
-           
-        
+        <div class="card" style="width: 18rem;">
+            <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="286px"></img>
+            <div class="card-body">
+                <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    @if (item.CaracteristicasAnuncios != null)
+                    {
 
-}
-    </tbody>
-</table>
+
+                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                        {
+                            if (caracteristicasAnuncios.CaracteristicaId == 2)
+                            {
+                                <h7>TAM:@caracteristicasAnuncios.Valor |</h7>
+                            }
+                        }
+                    }
+                    @if (item.CaracteristicasAnuncios != null)
+                    {
+
+
+                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                        {
+                            if (caracteristicasAnuncios.CaracteristicaId == 1)
+                            {
+                                <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                            }
+                        }
+                    }
+                </li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"><b>@Html.DisplayFor(modelitem => item.Preco)</b>  <a href="Details" class="card-link"></a></li>
+                <button type="button" class="btn-success">Detalhes</button>
+            </ul>
+
+        </div>
+
+    }
 
     @section Scripts {
 
