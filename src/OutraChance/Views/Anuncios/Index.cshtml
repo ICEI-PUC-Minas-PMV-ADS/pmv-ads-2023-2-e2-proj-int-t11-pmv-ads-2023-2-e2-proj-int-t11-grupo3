@@ -11,61 +11,78 @@
 }
 
 
-<form asp-action="Index" method="get" class="filtro-form">
-    <div class="row justify-content-center m-3">
-        <div class="col">
-           <!-- Select para Cidade -->
-           <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade">
-              <option value="">Cidade</option>
-           </select>
-        </div>
-    <div class="col">
-        <!-- Select para Estado -->
-        <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado">
-            <option value="">Estado</option>
-        </select>
-    </div>
-    <div class="col">
-        <!-- Select para Estado -->
-        <select name="filtroCor" id="filtroCor" asp-items="ViewBag.filtroCor">
-            <option value="">Cor</option>
-        </select>
-    </div>
-    <div class="col">
-        <!-- Select para Estado -->
-        <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho">
-            <option value="">Tamanho</option>
-        </select>
-    </div>
-    <div class="col">
-        <!-- Select para Estado -->
-        <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep">
-            <option value="">Departamento</option>
-        </select>
-    </div>
-    <div class="col">
-        <!-- Select para Estado -->
-        <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero">
-            <option value="">Genero</option>
-        </select>
-    </div>
-</div>
-    <div class="row justify-content-center m-3">
-        <button type="button" onclick="limparEFazerSubmit()">Limpar Filtros</button>
-    </div>
-</form>
 
 
 <table class="table">
-    
-    @foreach (var item in Model)
-    {
 
-        <div class="card" style="width: 18rem;">
-            <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="286px"></img>
+   <div class="container">
+       <div class="row g-1" style="margin-top:30px;">
+
+            <form asp-action="Index" method="get" class="filtro-form">
+
+                <div class="row align-items-start mt-2">
+                    <div class="col-2" style="margin-left: -8px">
+                        <!-- Select para Cidade -->
+                        <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep" style="width:175px">
+                            <option value="">Departamento</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <!-- Select para Estado -->
+                        <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero" style="width:175px">
+                            <option value="">Categoria</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <!-- Select para Estado -->
+                        <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho" style="width:175px">
+                            <option value="">Tamanho</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <!-- Select para Estado -->
+                        <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado" style="width:175px">
+                            <option value="">Estado</option>
+                        </select>
+                    </div>
+
+                    <div class="col-2">
+                        <!-- Select para Estado -->
+                        <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade" style="width:175px">
+                            <option value="">Cidade</option>
+                        </select>
+                    </div>
+
+                    <div class="col-2 align-content-end">
+                        <button type="button" onclick="limparEFazerSubmit()" style="width:182px">Limpar Filtros</button>
+                    </div>
+                </div>
+            </form>
+
+    
+
+    @foreach (var item in Model)
+       
+    { 
+        
+       <div class="col-3" style="margin-top:40px;">
+        <div class="card" style="width: 16rem;">
+            <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="254"></img>
             <div class="card-body">
                 <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
                 <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+                            @if (item.CaracteristicasAnuncios != null)
+                            {
+
+
+                                @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                {
+                                    if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                    {
+                                        <h7>@caracteristicasAnuncios.Valor </h7>
+                                    }
+                                }
+                            }
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
@@ -77,7 +94,7 @@
                         {
                             if (caracteristicasAnuncios.CaracteristicaId == 2)
                             {
-                                <h7>TAM:@caracteristicasAnuncios.Valor |</h7>
+                                <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
                             }
                         }
                     }
@@ -93,16 +110,24 @@
                             }
                         }
                     }
+                                
                 </li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"><b>@Html.DisplayFor(modelitem => item.Preco)</b>  <a href="Details" class="card-link"></a></li>
-                <button type="button" class="btn-success">Detalhes</button>
+
+               <br>
+
+                <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b> 
+       
             </ul>
-
-        </div>
-
+                <div class="row-10">
+                    <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:256px">Detalhes</a>
+                </div>
+           </div>
+           </div>           
     }
-
+   
+    </div>
+    </div>
+    
     @section Scripts {
 
     <script>
@@ -179,6 +204,13 @@
             window.location.href = 'https://localhost:44364/Anuncios';
         }
     </script>
+
+        <script>
+            document.getElementById('btnOpenModal').addEventListener('click', function () {
+                // Abre o modal da view details
+                $('#modalDadosAnunciante').modal('show');
+            });
+        </script>
 }
 
 
