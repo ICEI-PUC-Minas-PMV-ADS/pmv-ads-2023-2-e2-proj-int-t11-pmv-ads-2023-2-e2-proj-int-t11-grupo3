@@ -108,3 +108,12 @@ body {
 #filtro {
     width: 330px;
 }
+
+#banner{
+    display:flex;
+
+}
+
+#imgBanner{
+    width:98%;
+}
