@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Reflection.PortableExecutable;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -11,6 +12,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
 using OutraChance.Services;
+using X.PagedList;
+using X.PagedList.Mvc;
+using X.PagedList.Mvc.Core;
+
 
 namespace OutraChance.Controllers
 {
@@ -27,7 +32,7 @@ namespace OutraChance.Controllers
 
         // GET: Anuncios
         // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo      
-        public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero)
+        public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero, int? pagina, int tamanhoPagina = 8)
         {
             
 
@@ -138,7 +143,12 @@ namespace OutraChance.Controllers
             .Select(ca => ca.Valor).Distinct().ToList();
             ViewBag.filtroGenero = new SelectList(caracteristicaGenero);
 
-            return View(anuncios);
+            //Paginação
+            var numeroPagina = pagina ?? 1;
+            var anunciosPaginados = await anunciosQuery.ToPagedListAsync(numeroPagina, tamanhoPagina);
+            //Paginação
+
+            return View(anunciosPaginados);
 
         }
 
