@@ -29,6 +29,7 @@ namespace OutraChance.Controllers
         // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo      
         public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero)
         {
+            
 
             var anunciosQuery = _context.Anuncios
                 .Include(a => a.Usuario)
@@ -37,6 +38,7 @@ namespace OutraChance.Controllers
 
             var caracteristicasQuery = _context.CaracteristicaAnuncios.Include(ca =>ca.Anuncio).AsQueryable();
             var caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
+          
 
             var idEspecificoCor = 1;
             var idEspecificoTamanho = 2;

@@ -71,7 +71,7 @@
  
         <div class="container px-1" id="containerCards" style="width:100%"> 
             <div class="row" id="rowCards" name="rowCards" style="width:100%">
-                @foreach (var item in Model)
+                @foreach (var item in Model.OrderByDescending(x => x.Id))
        
                 {
                 <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">                
