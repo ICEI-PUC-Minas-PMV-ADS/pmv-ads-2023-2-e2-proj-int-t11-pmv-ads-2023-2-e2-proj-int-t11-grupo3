@@ -52,7 +52,9 @@ namespace OutraChance.Controllers
                 a.Descricao.Contains(filtro) || 
                 a.Estado.Contains(filtro) || 
                 a.Cidade.Contains(filtro) ||
-                a.Id.ToString().Contains(filtro));
+                a.Id.ToString().Contains(filtro)||
+                a.CaracteristicasAnuncios.Any(ca => ca.Valor.Contains(filtro)));
+
 
             }
 
