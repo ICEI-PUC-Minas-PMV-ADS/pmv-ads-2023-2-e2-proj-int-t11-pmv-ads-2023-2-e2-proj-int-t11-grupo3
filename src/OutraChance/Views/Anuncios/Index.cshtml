@@ -1,76 +1,248 @@
-﻿@model IEnumerable<OutraChance.Models.Anuncio>
+﻿@model X.PagedList.IPagedList<OutraChance.Models.Anuncio>
+@using X.PagedList.Mvc;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+
 
 @{
     ViewData["Title"] = "Index";
+
+    var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
+
+}
+<div class="row" id="banner" nome="banner">
+    <img src="~/Imagens/banner1.gif" id="imgBanner" name="imgBanner" />
+</iv>
+
+<br />
+
+<div class="container" id="containerGeral" style="justify-content:center">
+
+    <div class="container px-1" id="containerFiltros" style="justify-content:center">
+        <div class="row" id="rowFiltros" name="rowFiltros">
+
+            <form asp-action="Index" method="get" class="filtro-form">
+                <br/>
+                    <div class="row" id="texto" name="texto"><h6>FILTROS DE PESQUISA</h6></div>
+
+                <br />
+                <div class="row" id="rowFiltros" name="rowFiltros">
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Cidade -->
+                        <select name="filtroDep" id="filtroDep" asp-items="ViewBag.filtroDep">
+                            <option value="">Departamento</option>
+                        </select>
+                    </div>
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Categoria -->
+                        <select name="filtroCor" id="filtroCor" asp-items="ViewBag.filtroCor">
+                            <option value="">Cor</option>
+                        </select>
+                    </div>
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Tamanho -->
+                        <select name="filtroTamanho" id="filtroTamanho" asp-items="ViewBag.filtroTamanho">
+                            <option value="">Tamanho</option>
+                        </select>
+                    </div>
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Estado -->
+                        <select name="filtroEstado" id="filtroEstado" asp-items="ViewBag.filtroEstado">
+                            <option value="">Estado</option>
+                        </select>
+                    </div>
+
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <!-- Select para Cidade -->
+                        <select name="filtroCidade" id="filtroCidade" asp-items="ViewBag.filtroCidade">
+                            <option value="">Cidade</option>
+                        </select>
+                    </div>
+
+                    <div class="col-2" id="colFiltros" name="colFiltros">
+                        <button type="button" name="btn-limparFiltros" id="btn-limparFiltros" onclick="limparEFazerSubmit()">Limpar Filtros</button>
+                    </div>
+                       
+                </div>
+                
+            </form>
+
+        </div>
+           
+        </div>
+        <hr />
+    <br />
+        <div class="row" id="texto" name="texto">
+            <h6>ADICIONADOS RECENTEMENTE</h6>
+            </div>
+   
+    <div class="container px-1" id="containerCards" style="width:100%">
+        <div class="row" id="rowCards" name="rowCards" style="width:100%">
+            @foreach (var item in Model.OrderByDescending(x => x.Id))
+
+            {
+                <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">
+                    <div class="card" id="cardAnuncios" name="cardAnuncios">
+                        <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="100%"></img>
+                        <div class="card-body">
+                            <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                            <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+                            @if (item.CaracteristicasAnuncios != null)
+                            {
+
+
+                                @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                {
+                                    if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                    {
+                                        <h7>@caracteristicasAnuncios.Valor </h7>
+                                    }
+                                }
+                            }
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                @if (item.CaracteristicasAnuncios != null)
+                                {
+
+
+                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                    {
+                                        if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                        {
+                                            <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                        }
+                                    }
+                                }
+                                @if (item.CaracteristicasAnuncios != null)
+                                {
+
+
+                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                    {
+                                        if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                        {
+                                            <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                        }
+                                    }
+                                }
+
+                            </li>
+                            <br>
+                            <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+
+                        </ul>
+                        <div class="row">
+                            <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+    <br />
+    <div class="row" id="pagniacao" name="paginacao">
+        <div class="pagination-container">
+
+            @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }), new PagedListRenderOptions
+            {
+            ContainerDivClasses = new[] { "pagination justify-content-center" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+            })
+
+        </div>
+    </div>
+
+
+
+</div>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            var dropdownCidade = $("#filtroCidade");
+            var dropdownEstado = $("#filtroEstado");
+            var dropdownCor = $("#filtroCor");
+            var dropdownTamanho = $("#filtroTamanho");
+            var dropdownDep = $("#filtroDep");
+            var dropdownGenero = $("#filtroGenero");
+            var form = $(".filtro-form");
+
+            var itemselecionadoCidade = '@ViewContext.HttpContext.Request.Query["filtroCidade"].ToString()';
+            var itemselecionadoEstado = '@ViewContext.HttpContext.Request.Query["filtroEstado"].ToString()';
+            var itemselecionadoCor = '@ViewContext.HttpContext.Request.Query["filtroCor"].ToString()';
+            var itemselecionadoTamanho = '@ViewContext.HttpContext.Request.Query["filtroTamanho"].ToString()';
+            var itemselecionadoDep = '@ViewContext.HttpContext.Request.Query["filtroDep"].ToString()';
+            var itemselecionadoGenero = '@ViewContext.HttpContext.Request.Query["filtroGenero"].ToString()';
+
+            dropdownCidade.val(itemselecionadoCidade);
+            dropdownEstado.val(itemselecionadoEstado);
+            dropdownCor.val(itemselecionadoCor);
+            dropdownTamanho.val(itemselecionadoTamanho);
+            dropdownDep.val(itemselecionadoDep);
+            dropdownGenero.val(itemselecionadoGenero);
+
+            dropdownCidade.change(function () {
+                form.submit();
+            });
+
+            dropdownEstado.change(function () {
+                form.submit();
+            });
+
+            dropdownCor.change(function () {
+                form.submit();
+            });
+
+            dropdownTamanho.change(function () {
+                form.submit();
+            });
+
+            dropdownDep.change(function () {
+                form.submit();
+            });
+
+            dropdownGenero.change(function () {
+                form.submit();
+            });
+
+            var selectedValue = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            ropdownCidade.val(selectedValue);
+            var selectedValue2 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            dropdownEstado.val(selectedValue2);
+            var selectedValue3 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            dropdownCor.val(selectedValue3);
+            //   var selectedValue4 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            //   dropdownEstado.val(selectedValue4);
+            //   var selectedValue5 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            //   dropdownEstado.val(selectedValue5);
+            //   var selectedValue6 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            //   dropdownEstado.val(selectedValue6);
+        });
+    </script>
+
+    <script>
+        function limparEFazerSubmit() {
+
+            voltarParaHomepage();
+        }
+
+        function voltarParaHomepage() {
+            // Verificar forma correta de redirecionar
+            window.location.href = 'https://localhost:44364/Anuncios';
+        }
+    </script>
+
+    <script>
+        document.getElementById('btnOpenModal').addEventListener('click', function () {
+            // Abre o modal da view details
+            $('#modalDadosAnunciante').modal('show');
+        });
+    </script>
 }
 
-<form asp-action="Index" method="get">
-    <div class="form-group">
-        <input type="text" name="filtroTitulo" placeholder="Título" />
-        <button type="submit" class="btn btn-primary">Filtrar</button>
-    </div>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagem)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="75" width="50"></img>
-            </td>
-            <td>
-               <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Details</a> 
-             </td>
-           @*     
-           <td>
-                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> 
-                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-            </td> *@
-               
-        </tr>
-}
-    </tbody>
-</table>
+

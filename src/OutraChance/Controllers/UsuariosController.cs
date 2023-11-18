@@ -96,7 +96,7 @@ namespace OutraChance.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login", "Usuarios");
+            return RedirectToAction("Index", "Anuncios");
         }
 
         // GET: Usuarios/Details/5

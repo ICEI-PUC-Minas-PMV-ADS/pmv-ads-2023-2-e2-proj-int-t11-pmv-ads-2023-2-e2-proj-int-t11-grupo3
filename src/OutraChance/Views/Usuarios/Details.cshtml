@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+
 
 <div>
     <h4>Usuario</h4>
@@ -75,7 +75,7 @@
                         <img src="@Html.DisplayFor(modelItem => anuncio.Imagem)" height="75" width="50" />
                     </td>
                     <td>
-                        <a asp-action="Details" asp-route-id="@anuncio.Id" class="btn btn-success">Details</a>
+                        <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@anuncio.Id" class="btn btn-success">Detalhes</a>
                     </td>
                 </tr>
             }
