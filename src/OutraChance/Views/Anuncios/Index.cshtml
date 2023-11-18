@@ -10,20 +10,20 @@
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
 
 }
-
-<div class="container" id="banner" nome="banner">
+<div class="row" id="banner" nome="banner">
     <img src="~/Imagens/banner1.gif" id="imgBanner" name="imgBanner" />
-</div>
+</iv>
 
 <br />
 
-<div class="container" id="containerGeral" style="width:100%">
+<div class="container" id="containerGeral" style="justify-content:center">
 
-    <div class="container px-1" id="containerFiltros" style="width:100%">
-        <div class="row" id="rowFiltros" name="rowFiltros" style="width:100%">
+    <div class="container px-1" id="containerFiltros" style="justify-content:center">
+        <div class="row" id="rowFiltros" name="rowFiltros">
 
             <form asp-action="Index" method="get" class="filtro-form">
-                <h6>FILTROS DE PESQUISA</h6>
+                <br/>
+                    <div class="row" id="texto" name="texto"><h6>FILTROS DE PESQUISA</h6></div>
 
                 <br />
                 <div class="row" id="rowFiltros" name="rowFiltros">
@@ -62,17 +62,20 @@
                     <div class="col-2" id="colFiltros" name="colFiltros">
                         <button type="button" name="btn-limparFiltros" id="btn-limparFiltros" onclick="limparEFazerSubmit()">Limpar Filtros</button>
                     </div>
-
+                       
                 </div>
-
+                
             </form>
 
         </div>
+           
+        </div>
         <hr />
-    </div>
     <br />
-    <h6>ADICIONADOS RECENTEMENTE</h6>
-    <br />
+        <div class="row" id="texto" name="texto">
+            <h6>ADICIONADOS RECENTEMENTE</h6>
+            </div>
+   
     <div class="container px-1" id="containerCards" style="width:100%">
         <div class="row" id="rowCards" name="rowCards" style="width:100%">
             @foreach (var item in Model.OrderByDescending(x => x.Id))

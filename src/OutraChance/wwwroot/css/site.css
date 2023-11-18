@@ -1,60 +1,58 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%; 
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
 .row {
     --bs-gutter-x: 0;
     --bs-gutter-y: 0;
-
 }
 
 #rowFiltros {
     justify-content: stretch;
-    width:1100px;
+    width: 1100px;
 }
 
 #rowCards {
     justify-content: stretch;
-    width:1100px;
+    width: 1100px;
 }
 
 #rowMenu {
-    position:relative;
-    width:1100px;
-    margin-left:auto;
-    padding:0;
+    position: relative;
+    width: 1100px;
+    margin-left: auto;
+    padding: 0;
 }
 
 #rowPaginacao {
-    display:flex;
-    width:100%;
-    justify-content:center;
-        
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .container {
     padding-left: 0;
-    width: 1100px;
-    margin-left:auto;
-    flex-wrap:wrap;
-
+    width: 1088px;
+    margin-left: auto;
+    flex-wrap: wrap;
 }
 
-#filtroGenero, #filtroTamanho, #filtroEstado, #filtroCidade, #filtroDep, #btn-limparFiltros, #filtroCor{
+#filtroGenero, #filtroTamanho, #filtroEstado, #filtroCidade, #filtroDep, #btn-limparFiltros, #filtroCor {
     width: 175px;
 }
 
@@ -63,46 +61,47 @@ body {
 }
 
 #colCardsAnuncios {
-    margin-top:30px;
-    margin-right:0px;
+    margin-top: 30px;
+    margin-right: 0px;
     width: 25%;
-    
 }
 
 #colOutraChanche {
     width: 15%;
-    justify-content:flex-start;
+    justify-content: flex-start;
 }
 
 #colFiltroPesquisa {
-    justify-content:center;
-    width:45%;
+    justify-content: center;
+    width: 45%;
 }
 
-#colMenus{
-    width:auto;
-    display:inline-flex;
-    margin-top:30px;
-    margin-bottom:30px;
-    justify-items:right;
-    margin-right:30px;
+#colMenus {
+    width: auto;
+    display: inline-flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-items: right;
+    margin-right: 30px;
 }
 
 #colMeuPerfil {
-    margin-right:20px;
+    margin-right: 20px;
 }
 
 .col {
-    flex:none;
+    flex: none;
 }
 
-#contCards{
-    flex-wrap:wrap;
+#contCards {
+    flex-wrap: wrap;
 }
+
 #cardAnuncios {
     width: 16em;
     margin-right: 10px;
 }
+
 .navbar {
     position: relative;
     display: flex;
@@ -116,11 +115,88 @@ body {
     width: 330px;
 }
 
-#banner{
-    display:flex;
-
+#banner {
+    display: flex;
 }
 
-#imgBanner{
-    width:98%;
+#imgBanner {
+    width: 100%;
 }
+
+#logoOutraChance {
+    width: 50px;
+    height: 50px;
+}
+
+
+a.btn.btn-outline-primary {
+    border-color: #928787;
+    color: #928787;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
+}
+
+    a.btn.btn-outline-primary:hover {
+        color: #928787;
+        background-color: #fca6d3;
+    }
+
+
+a.btn.btn-outline-secondary {
+    border-color: #928787;
+    color: #928787;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-right: 1.5em;
+    width: 75.98px;
+    height: 37.8px; 
+}
+
+a.btn.btn-outline-secondary:hover {
+    color: #928787;
+    background-color: #fca6d3;
+}
+
+a.btn.btn-outline-danger {
+    border-color: #928787;
+    color: #928787;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-right: 1.5em;
+    width: 75.98px;
+    height: 37.8px;
+}
+
+a.btn.btn-outline-danger:hover {
+    color: #928787;
+    background-color: #ef9292;
+}
+
+#navBar {
+    background-color: #f6e8eb;
+    width: 100%;
+}
+
+#containerGeral {
+    background-color: #f6e8ebcc;
+    width: 100%;
+    justify-content: start;
+}
+
+.card {
+    margin-left: 5.5px;
+    background-color: #dedbdbe6;
+}
+
+.list-group-item {
+    background-color: #dedbdbe6;
+}
+
+#texto{
+    margin-left: 10px;
+    color:#928787;
+}
+
+
+
