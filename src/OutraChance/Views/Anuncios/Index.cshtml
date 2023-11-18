@@ -1,31 +1,31 @@
 ﻿@model X.PagedList.IPagedList<OutraChance.Models.Anuncio>
-@using X.PagedList.Mvc
+@using X.PagedList.Mvc;
 @using X.PagedList.Mvc.Core;
-
+@using X.PagedList.Web.Common;
 
 
 @{
     ViewData["Title"] = "Index";
 
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
-   
+
 }
 
 <div class="container" id="banner" nome="banner">
     <img src="~/Imagens/banner1.gif" id="imgBanner" name="imgBanner" />
 </div>
 
-   <br/>
+<br />
 
-   <div class="container" id="containerGeral" style="width:100%">
+<div class="container" id="containerGeral" style="width:100%">
 
     <div class="container px-1" id="containerFiltros" style="width:100%">
-       <div class="row" id="rowFiltros" name="rowFiltros" style="width:100%">
+        <div class="row" id="rowFiltros" name="rowFiltros" style="width:100%">
 
             <form asp-action="Index" method="get" class="filtro-form">
                 <h6>FILTROS DE PESQUISA</h6>
 
-                <br/>
+                <br />
                 <div class="row" id="rowFiltros" name="rowFiltros">
                     <div class="col-2" id="colFiltros" name="colFiltros">
                         <!-- Select para Cidade -->
@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-2" id="colFiltros" name="colFiltros">
                         <!-- Select para Categoria -->
-                        <select name="filtroGenero" id="filtroGenero" asp-items="ViewBag.filtroGenero">
-                            <option value="">Categoria</option>
+                        <select name="filtroCor" id="filtroCor" asp-items="ViewBag.filtroCor">
+                            <option value="">Cor</option>
                         </select>
                     </div>
                     <div class="col-2" id="colFiltros" name="colFiltros">
@@ -62,28 +62,30 @@
                     <div class="col-2" id="colFiltros" name="colFiltros">
                         <button type="button" name="btn-limparFiltros" id="btn-limparFiltros" onclick="limparEFazerSubmit()">Limpar Filtros</button>
                     </div>
-                 
+
                 </div>
-             
+
             </form>
-           
+
         </div>
         <hr />
     </div>
- 
-        <div class="container px-1" id="containerCards" style="width:100%"> 
-            <div class="row" id="rowCards" name="rowCards" style="width:100%">
-                @foreach (var item in Model.OrderByDescending(x => x.Id))
-       
-                {
-                <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">                
-                     <div class="card" id="cardAnuncios" name="cardAnuncios">
+    <br />
+    <h6>ADICIONADOS RECENTEMENTE</h6>
+    <br />
+    <div class="container px-1" id="containerCards" style="width:100%">
+        <div class="row" id="rowCards" name="rowCards" style="width:100%">
+            @foreach (var item in Model.OrderByDescending(x => x.Id))
+
+            {
+                <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">
+                    <div class="card" id="cardAnuncios" name="cardAnuncios">
                         <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="100%"></img>
                         <div class="card-body">
-                        <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
-                        <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
-                         @if (item.CaracteristicasAnuncios != null)
-                         {
+                            <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                            <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+                            @if (item.CaracteristicasAnuncios != null)
+                            {
 
 
                                 @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
@@ -93,54 +95,69 @@
                                         <h7>@caracteristicasAnuncios.Valor </h7>
                                     }
                                 }
-                         }
+                            }
                         </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        @if (item.CaracteristicasAnuncios != null)
-                        {
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                @if (item.CaracteristicasAnuncios != null)
+                                {
 
 
-                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                        {
-                            if (caracteristicasAnuncios.CaracteristicaId == 2)
-                            {
-                                <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
-                            }
-                        }
-                        }
-                        @if (item.CaracteristicasAnuncios != null)
-                        {
+                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                    {
+                                        if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                        {
+                                            <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                        }
+                                    }
+                                }
+                                @if (item.CaracteristicasAnuncios != null)
+                                {
 
 
-                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                        {
-                            if (caracteristicasAnuncios.CaracteristicaId == 1)
-                            {
-                                <h7>Cor: @caracteristicasAnuncios.Valor </h7>
-                            }
-                        }
-                        }
-                                
-                    </li>
-                    <br>
-                    <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
-       
-                </ul>
-                <div class="row">
-                    <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
-                </div>
+                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                    {
+                                        if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                        {
+                                            <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                        }
+                                    }
+                                }
+
+                            </li>
+                            <br>
+                            <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+
+                        </ul>
+                        <div class="row">
+                            <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
+                        </div>
                     </div>
-                </div>    
-                
-    }
+                </div>
 
-            </div>
+            }
+
         </div>
-
     </div>
-    
-    @section Scripts {
+    <br />
+    <div class="row" id="pagniacao" name="paginacao">
+        <div class="pagination-container">
+
+            @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina }), new PagedListRenderOptions
+            {
+            ContainerDivClasses = new[] { "pagination justify-content-center" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+            })
+
+        </div>
+    </div>
+
+
+
+</div>
+
+@section Scripts {
 
     <script>
         $(document).ready(function () {
@@ -196,18 +213,18 @@
             dropdownEstado.val(selectedValue2);
             var selectedValue3 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
             dropdownCor.val(selectedValue3);
-         //   var selectedValue4 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
-         //   dropdownEstado.val(selectedValue4);
-         //   var selectedValue5 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
-         //   dropdownEstado.val(selectedValue5);
-         //   var selectedValue6 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
-         //   dropdownEstado.val(selectedValue6);
+            //   var selectedValue4 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            //   dropdownEstado.val(selectedValue4);
+            //   var selectedValue5 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            //   dropdownEstado.val(selectedValue5);
+            //   var selectedValue6 = "@(ViewContext.HttpContext.Request.Query["filtro"].ToString())";
+            //   dropdownEstado.val(selectedValue6);
         });
     </script>
 
     <script>
         function limparEFazerSubmit() {
-            
+
             voltarParaHomepage();
         }
 
@@ -217,12 +234,12 @@
         }
     </script>
 
-        <script>
-            document.getElementById('btnOpenModal').addEventListener('click', function () {
-                // Abre o modal da view details
-                $('#modalDadosAnunciante').modal('show');
-            });
-        </script>
+    <script>
+        document.getElementById('btnOpenModal').addEventListener('click', function () {
+            // Abre o modal da view details
+            $('#modalDadosAnunciante').modal('show');
+        });
+    </script>
 }
 
 

@@ -13,8 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using OutraChance.Models;
 using OutraChance.Services;
 using X.PagedList;
-using X.PagedList.Mvc;
-using X.PagedList.Mvc.Core;
+
 
 
 namespace OutraChance.Controllers
