@@ -5,7 +5,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,35 +17,26 @@
 
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" id="navBar" nome="navBar">
-                <img src="~/Imagens/logo.gif" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" id="logoOutraChance" name="logoOutraChance">
-
-
+    <header class="d-flex flex-wrap w-full align-items-center justify-content-between" id="navBar" nome="navBar">
+                <img src="~/Imagens/logo.gif" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none ms-5" id="logoOutraChance" name="logoOutraChance">
                 <ul class="nav justify-content-center mb-md-0">
                     <li><a asp-controller="Anuncios" asp-action="Index" class="nav-link px-2 text-secondary">Outra Chance</a></li>
                 </ul>
-                <ul class="nav col-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul>
-                @if (User.Identity.IsAuthenticated)
+                <ul class="nav col-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            @if (User.Identity.IsAuthenticated)
 
-                {
+            {
+                <li><a asp-controller="Anuncios" asp-action="Create" class="nav-link px-4 text-secondary">Anunciar</a></li>
+                <li><a asp-controller="Usuarios" asp-action="Details" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value" class="nav-link px-0 text-secondary">Meu Perfil</a></li>
 
+            }
+                </ul>
 
-                    <ul class="nav col-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a asp-controller="Anuncios" asp-action="Create" class="nav-link px-4 text-secondary">Anunciar</a></li>
-                        <li><a asp-controller="Usuarios" asp-action="Details" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value" class="nav-link px-0 text-secondary">Meu Perfil</a></li>
-                    </ul>
-
-
-
-                }
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Busque produtos, marcas e muito mais..." aria-label="Pesquisar" id="filtro" name="filtro">
                 </form>
                 <div class="text-end">
-                    <a asp-controller="Usuarios" asp-action="Create" class="btn btn-outline-primary">Criar Conta</a>
                     @if (User.Identity.IsAuthenticated)
                     {
                      
@@ -55,24 +46,18 @@
                     }
                     else
                     {
+                        <a asp-controller="Usuarios" asp-action="Create" class="btn btn-outline-primary">Criar Conta</a>
                         <!-- Botão para usuários não logados -->
                         <a asp-controller="Usuarios" asp-action="Login" id="btnLogin" name="btnLogin" class="btn btn-outline-secondary">Login </a>
                     }
 
                 </div>
-
-            </div>
-        </div>
+        </header>
 
 
-    </header>
-
-
-    <div class="container">
-        <main role="main" class="pb-3">
+    <main role="main" class="p-5">
             @RenderBody()
-        </main>
-    </div>
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">
