@@ -7,8 +7,12 @@
 
 
 <div>
-    <h4>Usuario</h4>
-    <hr />
+    <div class="d-flex justify-content-between">
+        <h4>Usuario</h4>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-info">Editar</a>
+    </div>
+    <hr/>
+    
     <dl class="row">
         <div>
             <img src="@(string.IsNullOrEmpty(Model.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Avatar)" class="rounded-circle" alt="..." height="150" width="150">
@@ -83,7 +87,4 @@
     </table>
 }
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
