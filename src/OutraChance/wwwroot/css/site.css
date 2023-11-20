@@ -103,7 +103,7 @@ body {
     margin-right: 10px;
 }
 
-.navbar {
+#navbar {
     position: relative;
     display: flex;
     flex-wrap: wrap;

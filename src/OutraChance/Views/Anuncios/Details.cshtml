@@ -20,10 +20,10 @@
                     <div class="col-md-6">
                         <div class="product pt-4">
                             <div class="mt-3 mb-3">
-                                <h5>@Html.DisplayFor(model => model.Titulo)</h5>
+                                <h5 style="font-size:xx-large">@Html.DisplayFor(model => model.Titulo)</h5>
                                 <div class="price d-flex flex-row align-items-center">
                                     <div class="ml-2">
-                                        <b>Vendido e entregue por:  @Html.DisplayFor(model => model.Usuario.Nome)</b>
+                                        <b>Vendido e entregue por:  <span style="font-weight:400">@Html.DisplayFor(model => model.Usuario.Nome)</span></b>
                                         <img src="@(string.IsNullOrEmpty(Model.Usuario.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Usuario.Avatar)" class="rounded-circle" alt="..." height="50" width="50">
                                     </div>
                                 </div>
@@ -35,7 +35,7 @@
                             @foreach(var caracteristicaAnuncio in Model.CaracteristicasAnuncios)
                             {
                                 <div>
-                                    <b>@caracteristicaAnuncio.Caracteristica.Nome : @caracteristicaAnuncio.Valor</b>
+                                    <b>@caracteristicaAnuncio.Caracteristica.Nome : <span style="font-weight:400">@caracteristicaAnuncio.Valor</span></b>
                                 </div>
                             }
 
