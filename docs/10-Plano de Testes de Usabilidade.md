@@ -1,5 +1,12 @@
 # Plano de Testes de Usabilidade
 
+| Tarefa | Objetivos | Critérios de Avalição de Usabilidade | Coletade de Dados | Análise dos Resultados | Recomendações |
+|--- |--- |--- |--- |--- |--- |
+| Visualizar um anúncio de vestuário e suas informações principais. | column 2 | column 3 |
+| row 2 | row 2 column 2 | row 2 column 3 |
+
+
+
 O plano de teste a seguir foi elaborado com base nas referências fornecidas pela universidade. O grupo escolheu por explicitar o plano de teste dividindo-o nos principais pontos mais relevantes para a realização desta etapa.
 ### Usuários
 
