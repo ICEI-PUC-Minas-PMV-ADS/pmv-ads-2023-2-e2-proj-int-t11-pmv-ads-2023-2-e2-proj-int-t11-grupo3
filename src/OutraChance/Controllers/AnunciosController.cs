@@ -31,11 +31,11 @@ namespace OutraChance.Controllers
 
         // GET: Anuncios
         // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo      
-        public async Task<IActionResult> Index(string filtro, string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero, int? pagina, int tamanhoPagina = 8)
+        public async Task<IActionResult> Index(string filtroEstado, string filtroCidade, string filtroCor, string filtroTamanho, string filtroDep, string filtroGenero, int? pagina, int tamanhoPagina = 8, string filtro = "true")
         {
-            
 
-            var anunciosQuery = _context.Anuncios
+
+            var anunciosQuery = _context.Anuncios.OrderByDescending(x => x.Id)
                 .Include(a => a.Usuario)
                 .Include(a => a.CaracteristicasAnuncios)
                 .AsQueryable();
@@ -49,17 +49,23 @@ namespace OutraChance.Controllers
             var idEspecificoDep = 3;
             var idEspecificoGenero = 4;
 
+            bool filtroStatus;
+            bool filtroBooleano = bool.TryParse(filtro, out filtroStatus);
+
+
 
             if (!string.IsNullOrEmpty(filtro))
             {
 
                 anunciosQuery = anunciosQuery
-                .Where(a => a.Titulo.Contains(filtro) || 
-                a.Descricao.Contains(filtro) || 
-                a.Estado.Contains(filtro) || 
+                .Where(a => a.Titulo.Contains(filtro) ||
+                a.Descricao.Contains(filtro) ||
+                a.Estado.Contains(filtro) ||
                 a.Cidade.Contains(filtro) ||
-                a.Id.ToString().Contains(filtro)||
-                a.CaracteristicasAnuncios.Any(ca => ca.Valor.Contains(filtro)));
+                a.Id.ToString().Contains(filtro) ||
+                a.CaracteristicasAnuncios.Any(ca => ca.Valor.Contains(filtro)) ||
+                a.Status == filtroStatus.ToString());
+
 
 
             }
