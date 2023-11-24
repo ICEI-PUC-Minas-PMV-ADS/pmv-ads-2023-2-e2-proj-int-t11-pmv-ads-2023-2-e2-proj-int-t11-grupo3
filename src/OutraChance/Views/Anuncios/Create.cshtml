@@ -97,4 +97,31 @@
             affixesStay: false
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            // Associar um manipulador de eventos ao dropdown da caracteristica2
+            $('#caracteristica2Dropdown').change(function () {
+                // Obter o valor selecionado em caracteristica2
+                var selectedValue = $(this).val();
+
+                // Verificar se o valor é 'Blusas' ou 'Shorts'
+                if (selectedValue === 'Blusas' || selectedValue === 'Shorts') {
+                    // Se for 'Blusas' ou 'Shorts', mostrar o bloco de seleção de caracteristica3
+                    $('#caracteristica3Block').show();
+                } else {
+                    // Se não for 'Blusas' ou 'Shorts', esconder o bloco de seleção de caracteristica3
+                    $('#caracteristica3Block').hide();
+                }
+
+                // Verificar se o valor é 'Calças' ou 'Calçados'
+                if (selectedValue === 'Calças' || selectedValue === 'Calçados') {
+                    // Se for 'Calças' ou 'Calçados', mostrar o bloco de seleção de caracteristica4
+                    $('#caracteristica4Block').show();
+                } else {
+                    // Se não for 'Calças' ou 'Calçados', esconder o bloco de seleção de caracteristica4
+                    $('#caracteristica4Block').hide();
+                }
+            });
+        });
+    </script>
 }
