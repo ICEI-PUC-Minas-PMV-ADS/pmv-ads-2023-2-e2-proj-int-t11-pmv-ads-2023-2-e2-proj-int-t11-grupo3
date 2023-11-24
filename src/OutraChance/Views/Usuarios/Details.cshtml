@@ -4,203 +4,170 @@
     ViewData["Title"] = "Details";
 }
 
-
-
-<div>
-    <div class="d-flex justify-content-between">
-        <h4>Usuario</h4>
-        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-info">Editar</a>
-    </div>
-    <hr/>
-    
-    <dl class="row">
-        <div>
-            <img src="@(string.IsNullOrEmpty(Model.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Avatar)" class="rounded-circle" alt="..." height="150" width="150">
+<div class="d-flex gap-5">
+    <div id="usuarioMenu" class="w-25 p-3 bg-secondary bg-opacity-50" style="height:fit-content; border-radius:20px">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-center flex-column">
+                <img class="rounded-circle" src="@(string.IsNullOrEmpty(Model.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Avatar)" alt="Avatar do usuário" height="150" width="150">
+                <p class="text-center">@Html.DisplayFor(model => model.Nome)</p>
+              </div>
+              <div class="d-flex flex-column gap-2 w-100">
+                <a asp-action="Details" asp-route-id="@Model?.Id" class="btn btn-outline-light w-100">Minha loja</a>
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-light w-100">Configurações</a>
+                <a asp-controller="Usuarios" asp-action="Logout" class="btn btn-outline-light w-100">Sair</a>
+              </div>
         </div>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data_Nascimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data_Nascimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-    </dl>
-</div>
-@if(Model.Anuncios != null)
-{
-    <hr />
-    <br />
-    <div class="row" id="texto" name="texto">
-        <h6>ADICIONADOS RECENTEMENTE</h6>
     </div>
 
-    <div class="container px-1" id="containerCards" style="width:100%">
-        <div class="row" id="rowCards" name="rowCards" style="width:100%">
+    <div id="secaoAnuncios" class="d-flex flex-column w-75" style="flex:auto">
+        @if(Model.Anuncios != null)
+        {
+            <br />
+            <hr />
+            <div class="row" id="texto" name="texto">
+                <h6 class="fs-2">Meus anúncios</h6>
+            </div>
 
-            @foreach (var item in Model.Anuncios.Where(x => x.Status =="true"))
+            <div class="d-flex gap-3">
 
-            {
-                <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">
-                    <div class="card" id="cardAnuncios" name="cardAnuncios">
-                        <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="100%"></img>
-                             <div class="card-body">
-                                 <h6 class="card-title" id ="cardAVenda"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
-                                <h7><p class="card-text" id="cardAVenda">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+                    @foreach (var item in Model.Anuncios.Where(x => x.Status =="true"))
+
+                    {
+                            <div class="card d-flex" id="cardAnuncios" name="cardAnuncios">
+                                <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" />
+                                     <div class="card-body">
+                                         <h6 class="card-title" id ="cardAVenda"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                                        <h7><p class="card-text" id="cardAVenda">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
                            
-                             @if (item.CaracteristicasAnuncios != null)
-                             {
+                                     @if (item.CaracteristicasAnuncios != null)
+                                     {
 
 
-                                @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                {
-                                    if (caracteristicasAnuncios.CaracteristicaId == 4)
-                                    {
-                                        <h7>@caracteristicasAnuncios.Valor </h7>
-                                    }
-                                }
-                             }
-                             </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item" id="licardAVenda">
-                                @if (item.CaracteristicasAnuncios != null)
-                                {
-
-
-                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                    {
-                                        if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
                                         {
-                                            <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                            if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                            {
+                                                <h7>@caracteristicasAnuncios.Valor </h7>
+                                            }
                                         }
-                                    }
-                                }
-                                @if (item.CaracteristicasAnuncios != null)
-                                {
-
-
-                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                    {
-                                        if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                     }
+                                     </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="licardAVenda">
+                                        @if (item.CaracteristicasAnuncios != null)
                                         {
-                                            <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+
+
+                                            @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                            {
+                                                if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                                {
+                                                    <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                                }
+                                            }
                                         }
-                                    }
-                                }
+                                        @if (item.CaracteristicasAnuncios != null)
+                                        {
 
-                            </li>
-                            <br>
-                            <li class="list-group-item" id="licardAVenda"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
 
-                        </ul>
-                        <div class="row">
-                            <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
-                        </div>
-                    </div>
+                                            @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                            {
+                                                if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                                {
+                                                    <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                                }
+                                            }
+                                        }
+
+                                    </li>
+                                    <br>
+                                    <li class="list-group-item" id="licardAVenda"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+
+                                </ul>
+                                <div class="row">
+                                    <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
+                                </div>
+                            </div>
+                    }
                 </div>
 
-            }
+            <br />
+            <hr />
+            <div class="row fs-2" id="texto" name="texto">
+                <h6 class="fs-2">Vendidos</h6>
+            </div>
 
-        </div>
-    </div>
+            <div style="width:100%">
 
-    <hr />
-    <br />
-    <div class="row" id="texto" name="texto">
-        <h6>VENDIDOS</h6>
-    </div>
+                    @foreach (var item in Model.Anuncios.Where(x => x.Status == "false"))
 
-    <div class="container px-1" id="containerCards" style="width:100%">
-        <div class="row" id="rowCards" name="rowCards" style="width:100%">
+                    {
+                        <div class="col-3" id="colCardsAnunciosVendidos" name="colCardsAnuncios">
+                            <div class="card" id="cardAnunciosVendidos" name="cardAnuncios">
+                                <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="100%"></img>
+                                <div class="card-body">
+                                    <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                                    <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
 
-            @foreach (var item in Model.Anuncios.Where(x => x.Status == "false"))
-
-            {
-                <div class="col-3" id="colCardsAnunciosVendidos" name="colCardsAnuncios">
-                    <div class="card" id="cardAnunciosVendidos" name="cardAnuncios">
-                        <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" width="100%"></img>
-                        <div class="card-body">
-                            <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
-                            <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
-
-                            @if (item.CaracteristicasAnuncios != null)
-                            {
-
-
-                                @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                {
-                                    if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                    @if (item.CaracteristicasAnuncios != null)
                                     {
-                                        <h7>@caracteristicasAnuncios.Valor </h7>
-                                    }
-                                }
-                            }
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item" id="licardVendido">
-                                @if (item.CaracteristicasAnuncios != null)
-                                {
 
 
-                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                    {
-                                        if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
                                         {
-                                            <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                            if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                            {
+                                                <h7>@caracteristicasAnuncios.Valor </h7>
+                                            }
                                         }
                                     }
-                                }
-                                @if (item.CaracteristicasAnuncios != null)
-                                {
-
-
-                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                    {
-                                        if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" id="licardVendido">
+                                        @if (item.CaracteristicasAnuncios != null)
                                         {
-                                            <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+
+
+                                            @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                            {
+                                                if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                                {
+                                                    <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                                }
+                                            }
                                         }
-                                    }
-                                }
+                                        @if (item.CaracteristicasAnuncios != null)
+                                        {
 
-                            </li>
-                            <br>
-                            <li class="list-group-item" id="licardVendido"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
 
-                        </ul>
-                        <div class="row">
-                            <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
+                                            @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                            {
+                                                if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                                {
+                                                    <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                                }
+                                            }
+                                        }
+
+                                    </li>
+                                    <br>
+                                    <li class="list-group-item" id="licardVendido"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+                                </ul>
+                                <div class="row">
+                                    <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@item.Id" class="btn btn-success" style="width:100%">Detalhes</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
-
-            }
-
-        </div>
+        }
+        else
+        {
+            <div class="d-flex justify-content-center align-items-center align-self-center">
+                <h3>Você ainda não possui anúncios</h3>
+            </div>
+        }
     </div>
-}
+</div>
 
 
