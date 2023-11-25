@@ -248,8 +248,6 @@ namespace OutraChance.Controllers
         {
             return View();
         }
-        //Login Configuração
 
-        
     }
 }
