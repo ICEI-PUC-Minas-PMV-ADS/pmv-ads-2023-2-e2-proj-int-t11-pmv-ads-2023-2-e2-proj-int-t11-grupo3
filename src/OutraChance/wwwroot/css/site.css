@@ -29,6 +29,7 @@ body {
 }
 
 #rowCards {
+    display: flex;
     justify-content: stretch;
     width: 1100px;
 }
@@ -109,8 +110,6 @@ body {
 }
 
 #cardAnunciosVendidos{
-    width: 16em;
-    margin-right: 10px;
     background-color: #dd5252ff;
 }
 

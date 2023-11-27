@@ -64,10 +64,7 @@ namespace OutraChance.Controllers
                 a.Cidade.Contains(filtro) ||
                 a.Id.ToString().Contains(filtro) ||
                 a.CaracteristicasAnuncios.Any(ca => ca.Valor.Contains(filtro)) ||
-                a.Status == filtroStatus.ToString());
-
-
-
+                a.Status == filtroStatus);
             }
 
             if (!string.IsNullOrEmpty(filtroEstado))
@@ -316,7 +313,7 @@ namespace OutraChance.Controllers
         }
 
         // POST: Anuncios/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -324,6 +321,7 @@ namespace OutraChance.Controllers
             {
                 return Problem("Entity set 'AppDbContext.Anuncios'  is null.");
             }
+            var claimUsuarioId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var anuncio = await _context.Anuncios.FindAsync(id);
             if (anuncio != null)
             {
@@ -331,12 +329,34 @@ namespace OutraChance.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Details", "Usuarios", new { id = claimUsuarioId });
         }
 
         private bool AnuncioExists(int id)
         {
           return _context.Anuncios.Any(e => e.Id == id);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarcarComoVendido(int id)
+        {
+            try
+            {
+                var anuncio = await _context.Anuncios.FirstOrDefaultAsync(a => a.Id == id);
+
+                if (anuncio != null)
+                {
+                    anuncio.Status = false;
+                    await _context.SaveChangesAsync();
+                    return Json(new { success = true });
+                }
+
+                return Json(new { success = false, error = "Anúncio não encontrado." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.Message });
+            }
         }
     }
 }
