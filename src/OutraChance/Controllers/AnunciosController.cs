@@ -182,6 +182,9 @@ namespace OutraChance.Controllers
         // GET: Anuncios/Create
         public async Task<IActionResult> CreateAsync()
         {
+          
+
+     
             var caracteristicas = await _context.Caracteristicas
                 .Include(a => a.caracteristicaValores)
                 .Where (a => a.Nome == "Cor" || a.Nome =="Genero")
@@ -197,7 +200,8 @@ namespace OutraChance.Controllers
                .Where(a => a.Nome == "Tamanho")
                .ToListAsync();
 
-    
+
+
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
             ViewData["Caracteristicas"] = caracteristicas;
             ViewData["Departamentos"] = departamentos;
@@ -213,9 +217,10 @@ namespace OutraChance.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Id_Usuario,ImagemUpload,CaracteristicasAnuncios")] Anuncio anuncio,
-            [Bind(Prefix = "Caracteristicas")] List<CaracteristicaAnuncio> Caracteristicas
-        )
+            [Bind(Prefix = "Caracteristicas")] List<CaracteristicaAnuncio> Caracteristicas)
         {
+
+        
             var claimUsuarioId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             anuncio.Id_Usuario = Convert.ToInt32(claimUsuarioId);

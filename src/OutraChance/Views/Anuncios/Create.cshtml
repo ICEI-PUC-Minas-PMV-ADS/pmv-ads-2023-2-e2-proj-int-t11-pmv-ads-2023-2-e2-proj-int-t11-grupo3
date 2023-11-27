@@ -6,7 +6,6 @@
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
     var departamentos = ViewData["Departamentos"] as List<Caracteristica>;
     var tamanhos = ViewData["Tamanhos"] as List<Caracteristica>;
-   
 }
 
 <div class="d-flex justify-content-center align-items-center">
@@ -33,6 +32,8 @@
 
                     @if (caracteristicas != null)
                     {
+                     
+
                         var index = 0;
 
                         <div class="form-group">
@@ -66,51 +67,59 @@
                                         <option value="@valor.Valor">@valor.Valor</option>
                                     }
                                 </select>
-                                <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+                                <input type="hidden" id="selectedValue2" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
 
                                 index++;
                             }
                         </div>
-
+                   
                         <div id="caracteristica3Block" class="form-group">
-                            @foreach (var caracteristica in tamanhos)
-                            {
-                                <div class="form-group">
-                                    <label class="control-label">@caracteristica.Nome</label>
-                                    <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
-                                        <option value="">Nenhum</option>
-                                        @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 10 && v.Id <= 14))
-                                        {
-                                            <option value="@valor.Valor">@valor.Valor</option>
-                                        }
-                                    </select>
-                                    <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
-                                </div>
+                          
+                                @foreach (var caracteristica in tamanhos)
+                                {
+                                 
 
-                                index++;
-                            }
+                                    <div class="form-group">
+                                        <label class="control-label">@caracteristica.Nome</label>
+                                        <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
+                                            <option value="">Nenhum</option>
+                                            @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 10 && v.Id <= 14))
+                                            {
+                                                <option value="@valor.Valor">@valor.Valor</option>
+                                            }
+                                        </select>
+                                        <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+                                      
+                                      
+                                </div>
+                              
+                                    index++;
+                                }
+                            
                         </div>
 
                         <div id="caracteristica4Block" class="form-group">
-                            @foreach (var caracteristica in tamanhos)
-                            {
-                                <div class="form-group">
-                                    <label class="control-label">@caracteristica.Nome</label>
-                                    <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
-                                        <option value="">Nenhum</option>
-                                        @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 15))
-                                        {
-                                            <option value="@valor.Valor">@valor.Valor</option>
-                                        }
-                                    </select>
-                                    <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
-                                </div>
+                           
+                                @foreach (var caracteristica in tamanhos)
+                                {
+                                    <div class="form-group">
+                                        <label class="control-label">@caracteristica.Nome</label>
+                                        <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
+                                            <option value="">Nenhum</option>
+                                            @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 15))
+                                            {
+                                                <option value="@valor.Valor">@valor.Valor</option>
+                                            }
+                                        </select>
+                                        <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+                                    </div>
 
                                 index++;
-                            }
+                                }
+                         
                         </div>
                     }
-
+                   
                     <div class="form-group">
                         <label asp-for="Cidade" class="control-label"></label>
                         <input asp-for="Cidade" class="form-control" />
@@ -153,6 +162,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script>
         $('#preco').maskMoney({
@@ -164,8 +174,9 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function () {
+   <script>
+      
+     $(document).ready(function () {
 
             // iniciar dropdows escondidos
             $('#caracteristica3Block').hide();
@@ -194,6 +205,19 @@
                     $('#caracteristica3Block').hide();
                     $('#caracteristica4Block').hide();
                 }
+            });
+        });
+    </script>
+
+    
+
+    <script>
+        $(document).ready(function () {
+            $('#caracteristica2Dropdown').change(function () {
+                var selectedValue2 = $(this).val();
+
+                $('#selectedValue2').val(selectedValue2);
+               
             });
         });
     </script>
