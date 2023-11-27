@@ -200,8 +200,8 @@ namespace OutraChance.Controllers
     
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
             ViewData["Caracteristicas"] = caracteristicas;
-            ViewData["Caracteristicas2"] = departamentos;
-            ViewData["Caracteristicas3"] = tamanhos;
+            ViewData["Departamentos"] = departamentos;
+            ViewData["Tamanhos"] = tamanhos;
            
             return View();
         }
