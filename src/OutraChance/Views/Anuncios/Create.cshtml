@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
-    var caracteristicas2 = ViewData["Caracteristicas2"] as List<Caracteristica>;
-    var caracteristicas3 = ViewData["Caracteristicas3"] as List<Caracteristica>;
-    var caracteristicas4 = ViewData["Caracteristicas4"] as List<Caracteristica>;
+    var departamentos = ViewData["Caracteristicas2"] as List<Caracteristica>;
+    var tamanhos = ViewData["Caracteristicas3"] as List<Caracteristica>;
+   
 }
 
 <div class="d-flex justify-content-center align-items-center">
@@ -55,7 +55,7 @@
 
 
                         <div class="form-group">
-                            @foreach (var caracteristica in caracteristicas2)
+                            @foreach (var caracteristica in departamentos)
                             {
 
                                 <label class="control-label">@caracteristica.Nome</label>
@@ -73,11 +73,11 @@
                         </div>
 
                         <div id="caracteristica3Block" class="form-group">
-                            @foreach (var caracteristica in caracteristicas3)
+                            @foreach (var caracteristica in tamanhos)
                             {
                                 <div class="form-group">
                                     <label class="control-label">@caracteristica.Nome</label>
-                                    <select name="Caracteristicas[@index].Valor" class="form-control">
+                                    <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
                                         <option value="">Nenhum</option>
                                         @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 10 && v.Id <= 14))
                                         {
@@ -91,11 +91,11 @@
                             }
                         </div>
                         <div id="caracteristica4Block" class="form-group">
-                            @foreach (var caracteristica in caracteristicas4)
+                            @foreach (var caracteristica in tamanhos)
                             {
                                 <div class="form-group">
                                     <label class="control-label">@caracteristica.Nome</label>
-                                    <select name="Caracteristicas[@index].Valor" class="form-control">
+                                    <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
                                         <option value="">Nenhum</option>
                                         @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 15))
                                         {

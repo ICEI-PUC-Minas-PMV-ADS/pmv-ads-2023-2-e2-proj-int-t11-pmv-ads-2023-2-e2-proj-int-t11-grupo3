@@ -64,7 +64,7 @@ namespace OutraChance.Controllers
                 a.Cidade.Contains(filtro) ||
                 a.Id.ToString().Contains(filtro) ||
                 a.CaracteristicasAnuncios.Any(ca => ca.Valor.Contains(filtro)) ||
-                a.Status == filtroStatus.ToString());
+                a.Status == filtroStatus);
 
 
 
@@ -187,26 +187,22 @@ namespace OutraChance.Controllers
                 .Where (a => a.Nome == "Cor" || a.Nome =="Genero")
                 .ToListAsync();
 
-            var caracteristicas2 = await _context.Caracteristicas
+            var departamentos = await _context.Caracteristicas
                 .Include(a => a.caracteristicaValores)
                 .Where(a => a.Nome == "Departamento")
                 .ToListAsync();
 
-            var caracteristicas3 = await _context.Caracteristicas
+            var tamanhos = await _context.Caracteristicas
                .Include(a => a.caracteristicaValores)
                .Where(a => a.Nome == "Tamanho")
                .ToListAsync();
 
-            var caracteristicas4 = await _context.Caracteristicas
-               .Include(a => a.caracteristicaValores)
-               .Where(a => a.Nome == "Tamanho")
-               .ToListAsync();
-
+    
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
             ViewData["Caracteristicas"] = caracteristicas;
-            ViewData["Caracteristicas2"] = caracteristicas2;
-            ViewData["Caracteristicas3"] = caracteristicas3;
-            ViewData["Caracteristicas4"] = caracteristicas4;
+            ViewData["Caracteristicas2"] = departamentos;
+            ViewData["Caracteristicas3"] = tamanhos;
+           
             return View();
         }
 

@@ -61,7 +61,7 @@
     <div class="container px-1" id="containerCards" style="width:100%">
         <div class="row" id="rowCards" name="rowCards" style="width:100%">
 
-            @foreach (var item in Model.Anuncios.Where(x => x.Status =="true"))
+            @foreach (var item in Model.Anuncios.Where(x => x.Status == true))
 
             {
                 <div class="col-3" id="colCardsAnuncios" name="colCardsAnuncios">
@@ -136,7 +136,7 @@
     <div class="container px-1" id="containerCards" style="width:100%">
         <div class="row" id="rowCards" name="rowCards" style="width:100%">
 
-            @foreach (var item in Model.Anuncios.Where(x => x.Status == "false"))
+            @foreach (var item in Model.Anuncios.Where(x => x.Status == false))
 
             {
                 <div class="col-3" id="colCardsAnunciosVendidos" name="colCardsAnuncios">
