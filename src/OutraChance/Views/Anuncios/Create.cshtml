@@ -6,7 +6,9 @@
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
     var departamentos = ViewData["Departamentos"] as List<Caracteristica>;
     var tamanhos = ViewData["Tamanhos"] as List<Caracteristica>;
+    
 }
+
 
 <div class="d-flex justify-content-center align-items-center">
     <div class="card text-bg-light mb-3" style="width:50%">
@@ -32,7 +34,6 @@
 
                     @if (caracteristicas != null)
                     {
-                     
 
                         var index = 0;
 
@@ -42,7 +43,7 @@
 
                                 <label class="control-label">@caracteristica.Nome</label>
                                 <select name="Caracteristicas[@index].Valor" class="form-control">
-                                    <option value="">Nenhum</option>
+                                    <option value="">Selecione</option>
                                     @foreach (var valor in caracteristica.caracteristicaValores)
                                     {
                                         <option value="@valor.Valor">@valor.Valor</option>
@@ -54,73 +55,49 @@
                             }
                         </div>
 
-
                         <div class="form-group">
                             @foreach (var caracteristica in departamentos)
                             {
 
                                 <label class="control-label">@caracteristica.Nome</label>
-                                <select id="caracteristica2Dropdown" name="Caracteristicas[@index].Valor" class="form-control">
-                                    <option value="">Nenhum</option>
+                                <select id="departamentoDropdown" name="Caracteristicas[@index].Valor" class="form-control">
                                     @foreach (var valor in caracteristica.caracteristicaValores)
                                     {
                                         <option value="@valor.Valor">@valor.Valor</option>
                                     }
                                 </select>
-                                <input type="hidden" id="selectedValue2" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+                                <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
 
                                 index++;
                             }
                         </div>
-                   
-                        <div id="caracteristica3Block" class="form-group">
-                          
-                                @foreach (var caracteristica in tamanhos)
-                                {
-                                 
 
-                                    <div class="form-group">
-                                        <label class="control-label">@caracteristica.Nome</label>
-                                        <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
-                                            <option value="">Nenhum</option>
-                                            @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 10 && v.Id <= 14))
-                                            {
-                                                <option value="@valor.Valor">@valor.Valor</option>
-                                            }
-                                        </select>
-                                        <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
-                                      
-                                      
+                        <div class="form-group">
+
+                            @foreach (var caracteristica in tamanhos)
+                            {
+
+                                <div id="divTamanhoDropdown" class="form-group">
+                                    <label class="control-label">@caracteristica.Nome</label>
+                                    <select id="tamanhoDropdown" name="Caracteristicas[@index].Valor" class="form-control">
+                                        <option value=""></option>
+                                        @foreach (var valor in caracteristica.caracteristicaValores)
+                                        {
+                                            <option value="@valor.Valor">@valor.Valor</option>
+                                        }
+                                    </select>
+                                    <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+
                                 </div>
-                              
-                                    index++;
-                                }
-                            
-                        </div>
-
-                        <div id="caracteristica4Block" class="form-group">
-                           
-                                @foreach (var caracteristica in tamanhos)
-                                {
-                                    <div class="form-group">
-                                        <label class="control-label">@caracteristica.Nome</label>
-                                        <select id="tamanho" name="Caracteristicas[@index].Valor" class="form-control">
-                                            <option value="">Nenhum</option>
-                                            @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 15))
-                                            {
-                                                <option value="@valor.Valor">@valor.Valor</option>
-                                            }
-                                        </select>
-                                        <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
-                                    </div>
 
                                 index++;
-                                }
-                         
+                            }
+
                         </div>
+
                     }
-                   
-                    <div class="form-group">
+
+                   @* <div class="form-group">
                         <label asp-for="Cidade" class="control-label"></label>
                         <input asp-for="Cidade" class="form-control" />
                         <span asp-validation-for="Cidade" class="text-danger"></span>
@@ -129,7 +106,21 @@
                         <label asp-for="Estado" class="control-label"></label>
                         <input asp-for="Estado" class="form-control" />
                         <span asp-validation-for="Estado" class="text-danger"></span>
+                    </div>*@
+                    
+                    <div class="form-group">
+                        <select name="uf" id="uf">
+                            <option value="0">Selecione a UF</option>
+                        </select>
                     </div>
+
+                    <div class="form-group">
+                        <select name="cidade" id="cidade">
+                            <option value="0">Selecione a Cidade</option>
+                        </select>
+
+                    </div>
+
                     <div>
                         <label asp-for="Status" class="form-check-label">Ativo</label>
                     </div>
@@ -162,7 +153,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
-   
+
 
     <script>
         $('#preco').maskMoney({
@@ -174,53 +165,109 @@
         });
     </script>
 
-   <script>
-      
-     $(document).ready(function () {
+    <script>
+            var mun = Municipios.BuscarMunincipios();
 
-            // iniciar dropdows escondidos
-            $('#caracteristica3Block').hide();
-            $('#caracteristica4Block').hide();
+            var selectUF = $('#uf');
 
+            // Limpar opções existentes
+            selectUF.empty();
 
-            $('#caracteristica2Dropdown').change(function () {
+            // Adicionar uma opção padrão, se desejar
+            selectUF.append('<option value="0">Selecione a UF</option>');
 
-
-                // Obter o valor selecionado em caracteristica2
-                var selectedValue = $(this).val();
-
-                // Verificar se o valor é 'blusa' ou 'shorts'
-                if (selectedValue === 'Blusas' || selectedValue === 'Shorts') {
-                    // Se for 'blusa' ou 'shorts', mostrar o bloco de seleção de caracteristica3
-                    $('#caracteristica3Block').show();
-                    // Esconder o bloco de seleção de caracteristica4
-                    $('#caracteristica4Block').hide();
-                } else if (selectedValue === 'Calças' || selectedValue === 'Calçados') {
-                    // Se for 'calca' ou 'calcados', mostrar o bloco de seleção de caracteristica4
-                    $('#caracteristica4Block').show();
-                    // Esconder o bloco de seleção de caracteristica3
-                    $('#caracteristica3Block').hide();
-                } else {
-                    // Se não for nenhum dos anteriores, esconder ambos os blocos
-                    $('#caracteristica3Block').hide();
-                    $('#caracteristica4Block').hide();
-                }
+            // Adicionar opções para cada UF
+            mun.forEach(function (ufInfo) {
+                selectUF.append('<option value="' + ufInfo.uf + '">' + ufInfo.uf + '</option>');
             });
-        });
-    </script>
-
-    
+</script>
 
     <script>
-        $(document).ready(function () {
-            $('#caracteristica2Dropdown').change(function () {
-                var selectedValue2 = $(this).val();
+        $(document).ready(function () 
+        {
+            //zerando todas as opções de tamanhos e colocando texto Selecione o departamento
+            $('#tamanhoDropdown').empty();
+            $('#tamanhoDropdown').prepend('<option selected disabled>Selecione o departamento</option>');
+            $('#departamentoDropdown').prepend('<option selected disabled>Selecione</option>');
 
-                $('#selectedValue2').val(selectedValue2);
-               
+            //função para verificar se o tamanho não está nulo, caso nulo apresenta mensagem
+            $(document).ready(function () 
+            {
+
+                $('form').submit(function () {
+                    var tamanhoSelecionado = $('#tamanhoDropdown').val();
+                   
+                    if (tamanhoSelecionado === null || tamanhoSelecionado === '') {
+
+                        alert('Por favor, escolha um departamento!');
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                $('form').submit(function () {
+
+                    var departamentoSelecionado = $('#departamentoDropdown').val();
+
+                    if (departamentoSelecionado === null || departamentoSelecionado === '') {
+
+                        alert('Por favor, escolha um departamento!');
+                        return false;
+                    }
+
+                    return true;
+                });
+                        
             });
+
+            //pegando o value no select do departamento
+            $('#departamentoDropdown').change(function () {
+
+                var valorDepSelecionado = $(this).val();
+
+           //condicionando o value para apresentar os tamanhos de blusas e shorts
+                if (valorDepSelecionado === 'Blusas' || valorDepSelecionado === 'Shorts') 
+                {
+           //zerando todas as opções, senão ao selecionar calças e blusas sem dar o gravar o select apresentava todas as opções
+                    $('#tamanhoDropdown').empty();
+                    $('#tamanhoDropdown').append('<option value="" selected disabled>Escolha o tamanho</option>');
+
+                    @foreach (var caracteristica in tamanhos)
+                    {
+           //pegando os tamanhos referentes só a blusas e short (PP, P, M, G e GG)
+                        @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 10 && v.Id <= 14))
+                        {
+                            <text>
+                                $('#tamanhoDropdown').append('<option value="@valor.Valor">@valor.Valor</option>');
+                            </text>
+                        }
+                    }
+
+                }
+                if (valorDepSelecionado === 'Calças' || valorDepSelecionado === 'Calçados')
+                {
+                    $('#tamanhoDropdown').empty();
+                    $('#tamanhoDropdown').append('<option value="" selected disabled>Escolha o tamanho</option>');
+
+                    @foreach (var caracteristica in tamanhos)
+                    {
+                
+                        @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 15))
+                        {
+                            <text>
+                                $('#tamanhoDropdown').append('<option value="@valor.Valor">@valor.Valor</option>');
+                            </text>
+                        }
+                    }
+
+                }
+
+            });
+
+
+
         });
     </script>
-
 
 }

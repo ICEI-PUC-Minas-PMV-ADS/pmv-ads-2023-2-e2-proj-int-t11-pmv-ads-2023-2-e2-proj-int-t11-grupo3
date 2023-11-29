@@ -10,9 +10,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using OutraChance.Models;
 using OutraChance.Services;
 using X.PagedList;
+
 
 
 
@@ -28,6 +30,7 @@ namespace OutraChance.Controllers
             _context = context;
             _configuration = configuration;
         }
+
 
         // GET: Anuncios
         // Podem ser adicionados outras strings de filtro, como filtroCor por exemplo      
@@ -178,14 +181,14 @@ namespace OutraChance.Controllers
 
             return View(anuncio);
         }
-
+       
         // GET: Anuncios/Create
         public async Task<IActionResult> CreateAsync()
-        {
-          
 
-     
-            var caracteristicas = await _context.Caracteristicas
+        {
+            
+
+        var caracteristicas = await _context.Caracteristicas
                 .Include(a => a.caracteristicaValores)
                 .Where (a => a.Nome == "Cor" || a.Nome =="Genero")
                 .ToListAsync();
