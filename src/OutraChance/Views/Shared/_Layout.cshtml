@@ -35,7 +35,7 @@
                             </ul>
                      
                             <!-- Botão para usuários logados -->
-                            <a asp-controller="Usuarios" asp-action="Details" class="text-decoration-none text-wrap text-secondary p-2">Olá, @User.Identity.Name!</a>
+                            <a asp-controller="Usuarios" asp-action="Details" asp-route-id="@User.FindFirst(ClaimTypes.NameIdentifier)?.Value" class="text-decoration-none text-wrap text-secondary p-2">Olá, @User.Identity.Name!</a>
                             <a asp-controller="Usuarios" asp-action="Logout" class="btn btn-outline-danger">Sair</a>
                     }
                     else
