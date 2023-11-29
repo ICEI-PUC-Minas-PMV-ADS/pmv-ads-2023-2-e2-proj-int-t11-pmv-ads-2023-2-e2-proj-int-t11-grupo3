@@ -85,7 +85,7 @@
 
                                 </ul>
                                 <div class="row gap-1">
-                            <a data-bs-toggle="modal" data-bs-target="#modalDeletarAnuncio" onclick="deletarAnuncio(@item.Id)" class="btn btn-danger" style="width:100%">Excluir</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#modalDeletarAnuncio" onclick="deletarAnuncio(@item.Id)" class="btn btn-danger" style="width:100%">Excluir</a>
                                     <a onclick="marcarComoVendido(@item.Id)" class="btn btn-success" style="width:100%">Marcar como vendido</a>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@
                 <h3 class="fs-5">Tem certeza que deseja continuar?</h3>
             </div>
             <div class="modal-footer">
-                <form asp-action="DeleteConfirmed" method="post">
+                <form asp-controller="Anuncios" asp-action="DeleteConfirmed" method="post">
                     <input type="hidden" id="anuncioId" name="id" />
                     <input type="submit" value="Apagar" class="btn btn-danger" />
                 </form>
@@ -218,7 +218,7 @@
 
 <script>
     function deletarAnuncio(id) {
-        document.getElementById('anuncioId').attributes.addNamedItem('asp-for') = id;
+        document.getElementById('anuncioId').value = id;
         $('#modalDeletarAnuncio').modal('show');
     }
 </script>
