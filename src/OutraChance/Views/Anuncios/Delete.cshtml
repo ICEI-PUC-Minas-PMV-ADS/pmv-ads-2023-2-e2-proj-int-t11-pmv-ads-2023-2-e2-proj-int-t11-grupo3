@@ -61,9 +61,9 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="DeleteConfirmed">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-controller="Usuarios" asp-action="Details" class="btn btn-secondary">Voltar</a>
     </form>
 </div>

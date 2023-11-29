@@ -29,6 +29,7 @@ body {
 }
 
 #rowCards {
+    display: flex;
     justify-content: stretch;
     width: 1100px;
 }
@@ -103,6 +104,17 @@ body {
     margin-right: 10px;
 }
 
+#cardAnunciosAVenda {
+    width: 16em;
+    margin-right: 10px;
+}
+
+#cardAnunciosVendidos {
+    background-color: #dd5252ff;
+    width: 16em;
+}
+
+
 #navbar {
     position: relative;
     display: flex;
@@ -138,10 +150,10 @@ a.btn.btn-outline-primary {
     margin-left: 1.5em;
 }
 
-    a.btn.btn-outline-primary:hover {
+a.btn.btn-outline-primary:hover {
         color: #928787;
         background-color: #fca6d3;
-    }
+}
 
 
 a.btn.btn-outline-secondary {
@@ -185,13 +197,17 @@ a.btn.btn-outline-danger:hover {
     justify-content: start;
 }
 
-.card {
-    margin-left: 5.5px;
+#cardAnuncios {
+    background-color: #dedbdbe6;
+
+}
+
+#licardAVenda {
     background-color: #dedbdbe6;
 }
 
-.list-group-item {
-    background-color: #dedbdbe6;
+#licardVendido {
+    background-color: #dd5252ff;
 }
 
 #texto{

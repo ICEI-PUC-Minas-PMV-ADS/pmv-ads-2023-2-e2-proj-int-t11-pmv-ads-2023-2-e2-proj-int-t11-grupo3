@@ -12,7 +12,7 @@
 }
 <div class="row" id="banner" nome="banner">
     <img src="~/Imagens/banner1.gif" id="imgBanner" name="imgBanner" />
-</iv>
+</div>
 
 <br />
 
@@ -87,21 +87,9 @@
                         <div class="card-body">
                             <h6 class="card-title"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
                             <h7><p class="card-text">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
-                            @if (item.CaracteristicasAnuncios != null)
-                            {
-
-
-                                @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                {
-                                    if (caracteristicasAnuncios.CaracteristicaId == 4)
-                                    {
-                                        <h7>@caracteristicasAnuncios.Valor </h7>
-                                    }
-                                }
-                            }
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+                            <li class="list-group-item" id="licardAVenda">
                                 @if (item.CaracteristicasAnuncios != null)
                                 {
 
@@ -113,23 +101,27 @@
                                             <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
                                         }
                                     }
-                                }
-                                @if (item.CaracteristicasAnuncios != null)
-                                {
 
 
                                     @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
                                     {
                                         if (caracteristicasAnuncios.CaracteristicaId == 1)
                                         {
-                                            <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                            <h7>Cor: @caracteristicasAnuncios.Valor |&nbsp;&nbsp;&nbsp;&nbsp;</h7>
                                         }
                                     }
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                            {
+                                                <h7>@caracteristicasAnuncios.Valor </h7>
+                                            }
+                                        }
                                 }
 
                             </li>
                             <br>
-                            <li class="list-group-item"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+                            <li class="list-group-item" id="licardAVenda"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
 
                         </ul>
                         <div class="row">

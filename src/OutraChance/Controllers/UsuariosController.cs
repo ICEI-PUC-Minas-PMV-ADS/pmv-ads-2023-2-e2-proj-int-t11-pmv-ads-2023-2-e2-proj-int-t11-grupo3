@@ -102,6 +102,14 @@ namespace OutraChance.Controllers
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            var anunciosQuery = _context.Anuncios
+                .Include(a => a.Usuario)
+                .Include(a => a.CaracteristicasAnuncios)
+                .AsQueryable();
+
+            var caracteristicasQuery = _context.CaracteristicaAnuncios.Include(ca => ca.Anuncio).AsQueryable();
+            var caractetisticasAnuncios = await caracteristicasQuery.ToListAsync();
+
             if (id == null || _context.Usuarios == null)
             {
                 return NotFound();

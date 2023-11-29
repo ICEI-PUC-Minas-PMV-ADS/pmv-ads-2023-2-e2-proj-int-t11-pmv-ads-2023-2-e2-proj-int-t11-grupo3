@@ -4,7 +4,7 @@
     ViewData["Title"] = "Tenis Adidas Azul";
 }
 
-<a class="nav-link text-dark" asp-area="" asp-controller="Anuncios" asp-action="Index">Voltar</a>
+<a class="nav-link text-dark btn btn-light" asp-area="" asp-controller="Usuarios" style="width:fit-content">Voltar</a>
 <div class="container mt-5 mb-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
@@ -23,7 +23,7 @@
                                 <h5 style="font-size:xx-large">@Html.DisplayFor(model => model.Titulo)</h5>
                                 <div class="price d-flex flex-row align-items-center">
                                     <div class="ml-2">
-                                        <b>Vendido e entregue por:  <span style="font-weight:400">@Html.DisplayFor(model => model.Usuario.Nome)</span></b>
+                                        <b>Vendido e entregue por: <span style="font-weight:400">@Html.DisplayFor(model => model.Usuario.Nome)</span></b>
                                         <img src="@(string.IsNullOrEmpty(Model.Usuario.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Usuario.Avatar)" class="rounded-circle" alt="..." height="50" width="50">
                                     </div>
                                 </div>

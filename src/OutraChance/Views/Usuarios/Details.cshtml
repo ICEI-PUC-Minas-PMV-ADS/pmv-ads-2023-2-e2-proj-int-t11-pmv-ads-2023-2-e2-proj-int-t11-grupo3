@@ -4,87 +4,251 @@
     ViewData["Title"] = "Details";
 }
 
-
-
-<div>
-    <div class="d-flex justify-content-between">
-        <h4>Usuario</h4>
-        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-info">Editar</a>
-    </div>
-    <hr/>
-    
-    <dl class="row">
-        <div>
-            <img src="@(string.IsNullOrEmpty(Model.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Avatar)" class="rounded-circle" alt="..." height="150" width="150">
+<div class="d-flex gap-5">
+    <div id="usuarioMenu" class="w-25 p-3 bg-secondary bg-opacity-50" style="height:fit-content; border-radius:20px">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-center flex-column">
+                <img class="rounded-circle" src="@(string.IsNullOrEmpty(Model.Avatar) ? "https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg" : Model.Avatar)" alt="Avatar do usuário" height="150" width="150">
+                <p class="text-center">@Html.DisplayFor(model => model.Nome)</p>
+              </div>
+              <div class="d-flex flex-column gap-2 w-100">
+                <a asp-action="Details" asp-route-id="@Model?.Id" class="btn btn-outline-light w-100">Minha loja</a>
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-light w-100">Configurações</a>
+                <a asp-controller="Usuarios" asp-action="Logout" class="btn btn-outline-light w-100">Sair</a>
+              </div>
         </div>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data_Nascimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data_Nascimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+    </div>
 
-    </dl>
-</div>
-@if(Model.Anuncios != null)
-{
-    <table class="table">
-        <tbody>
-            @foreach (var anuncio in Model.Anuncios)
+    <div id="secaoAnuncios" class="d-flex flex-column w-75" style="flex:auto">
+        @if(Model.Anuncios.Count != 0)
+        {
+            @if (!Model.Anuncios.Any(anuncio => anuncio.Status))
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => anuncio.Titulo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => anuncio.Descricao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => anuncio.Preco)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => anuncio.Cidade)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => anuncio.Estado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => anuncio.Status)
-                    </td>
-                    <td>
-                        <img src="@Html.DisplayFor(modelItem => anuncio.Imagem)" height="75" width="50" />
-                    </td>
-                    <td>
-                        <a asp-controller="Anuncios" asp-action="Details" asp-route-id="@anuncio.Id" class="btn btn-success">Detalhes</a>
-                    </td>
-                </tr>
+                <div class="d-flex justify-content-center align-items-center align-self-center mt-5">
+                    <h3>Você ainda não possui anúncios ):</h3>
+                </div>
             }
-        </tbody>
-    </table>
-}
+            else
+            {
+                <br />
+                <hr />
+                <div class="row" id="texto" name="texto">
+                    <h6 class="fs-2">Meus anúncios</h6>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    @foreach (var item in Model.Anuncios.Where(x => x.Status == true))
+
+                    {
+                        <div class="card d-flex" id="cardAnuncios" name="cardAnuncios">
+                            <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" />
+                            <div class="card-body">
+                                <h6 class="card-title" id="cardAVenda"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                                <h7><p class="card-text" id="cardAVenda">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+
+                                @if (item.CaracteristicasAnuncios != null)
+                                {
 
 
+                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                    {
+                                        if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                        {
+                                            <h7>@caracteristicasAnuncios.Valor </h7>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" id="licardAVenda">
+                                    @if (item.CaracteristicasAnuncios != null)
+                                    {
+
+
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                            {
+                                                <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                            }
+                                        }
+                                    }
+                                    @if (item.CaracteristicasAnuncios != null)
+                                    {
+
+
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                            {
+                                                <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                            }
+                                        }
+                                    }
+
+                                </li>
+                                <br>
+                                <li class="list-group-item" id="licardAVenda"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+
+                            </ul>
+                            <div class="row gap-1">
+                                <a data-bs-toggle="modal" data-bs-target="#modalDeletarAnuncio" onclick="deletarAnuncio(@item.Id)" class="btn btn-danger" style="width:100%">Excluir</a>
+                                <a onclick="marcarComoVendido(@item.Id)" class="btn btn-success" style="width:100%">Marcar como vendido</a>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            }
+            
+
+            @if (Model.Anuncios.Any(anuncio => !anuncio.Status))
+            {
+                <br />
+                <hr />
+                <div class="row" id="texto" name="texto">
+                    <h6 class="fs-2">Vendidos</h6>
+                </div>
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    @foreach (var item in Model.Anuncios.Where(x => x.Status == false))
+
+                    {
+                        <div class="card d-flex" id="cardAnunciosVendidos" name="cardAnuncios" key={item.Id}>
+                            <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" />
+                            <div class="card-body">
+                                <h6 class="card-title" id="cardAVenda"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
+                                <h7><p class="card-text" id="cardAVenda">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
+
+                                @if (item.CaracteristicasAnuncios != null)
+                                {
+
+
+                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                    {
+                                        if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                        {
+                                            <h7>@caracteristicasAnuncios.Valor </h7>
+                                        }
+                                    }
+                                }
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" id="licardVendido">
+                                    @if (item.CaracteristicasAnuncios != null)
+                                    {
+
+
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 2)
+                                            {
+                                                <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
+                                            }
+                                        }
+                                    }
+                                    @if (item.CaracteristicasAnuncios != null)
+                                    {
+
+
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 1)
+                                            {
+                                                <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                            }
+                                        }
+                                    }
+
+                                </li>
+                                <br>
+                                <li class="list-group-item" id="licardVendido"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
+
+                            </ul>
+                            <div class="row gap-1">
+                                <a onclick="marcarComoAtivo(@item.Id)" class="btn btn-success" style="width:100%">Marcar como ativo</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            }
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalDeletarAnuncio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Apagar anúncio</h1>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="fs-5">Tem certeza que deseja continuar?</h3>
+            </div>
+            <div class="modal-footer">
+                <form asp-controller="Anuncios" asp-action="DeleteConfirmed" method="post">
+                    <input type="hidden" id="anuncioId" name="id" />
+                    <input type="submit" value="Apagar" class="btn btn-danger" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- . -->
+
+
+
+<script>
+    function marcarComoVendido(id) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', `/Anuncios/MarcarComoVendido/${id}`, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    location.reload();
+                } else {
+                    console.error('Erro ao marcar como vendido. Status:', xhr.status);
+                }
+            }
+        };
+
+        var data = JSON.stringify({ id: id });
+        xhr.send(data);
+    }
+</script>
+
+<script>
+    function marcarComoAtivo(id) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', `/Anuncios/MarcarComoAtivo/${id}`, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    location.reload();
+                } else {
+                    console.error('Erro ao marcar como ativo. Status:', xhr.status);
+                }
+            }
+        };
+
+        var data = JSON.stringify({ id: id });
+        xhr.send(data);
+    }
+</script>
+
+<script>
+    function deletarAnuncio(id) {
+        document.getElementById('anuncioId').value = id;
+        $('#modalDeletarAnuncio').modal('show');
+    }
+</script>
