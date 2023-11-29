@@ -358,5 +358,26 @@ namespace OutraChance.Controllers
                 return Json(new { success = false, error = ex.Message });
             }
         }
+
+        public async Task<IActionResult> MarcarComoAtivo(int id)
+        {
+            try
+            {
+                var anuncio = await _context.Anuncios.FirstOrDefaultAsync(a => a.Id == id);
+
+                if (anuncio != null)
+                {
+                    anuncio.Status = true;
+                    await _context.SaveChangesAsync();
+                    return Json(new { success = true });
+                }
+
+                return Json(new { success = false, error = "Anúncio não encontrado." });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.Message });
+            }
+        }
     }
 }

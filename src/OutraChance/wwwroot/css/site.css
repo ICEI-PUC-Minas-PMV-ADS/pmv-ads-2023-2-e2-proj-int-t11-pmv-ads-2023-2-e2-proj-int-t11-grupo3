@@ -109,8 +109,9 @@ body {
     margin-right: 10px;
 }
 
-#cardAnunciosVendidos{
+#cardAnunciosVendidos {
     background-color: #dd5252ff;
+    width: 16em;
 }
 
 
@@ -197,8 +198,8 @@ a.btn.btn-outline-danger:hover {
 }
 
 #cardAnuncios {
-    margin-left: 5.5px;
     background-color: #dedbdbe6;
+
 }
 
 #licardAVenda {

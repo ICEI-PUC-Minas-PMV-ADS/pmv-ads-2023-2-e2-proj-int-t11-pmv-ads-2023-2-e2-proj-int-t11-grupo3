@@ -28,7 +28,7 @@
                 <h6 class="fs-2">Meus anúncios</h6>
             </div>
 
-            <div class="d-flex gap-3">
+            <div class="d-flex flex-wrap gap-3">
 
                     @foreach (var item in Model.Anuncios.Where(x => x.Status == true))
 
@@ -93,13 +93,15 @@
                     }
                 </div>
 
+            @if (Model.Anuncios.Any(anuncio => !anuncio.Status))
+            {
                 <br />
                 <hr />
                 <div class="row" id="texto" name="texto">
                     <h6 class="fs-2">Vendidos</h6>
                 </div>
 
-                <div class="d-flex gap-3">
+                <div class="d-flex flex-wrap gap-3">
 
                     @foreach (var item in Model.Anuncios.Where(x => x.Status == false))
 
@@ -155,16 +157,20 @@
                                 <li class="list-group-item" id="licardVendido"><b>R$ @Html.DisplayFor(modelitem => item.Preco)</b></li>
 
                             </ul>
+                            <div class="row gap-1">
+                                <a onclick="marcarComoAtivo(@item.Id)" class="btn btn-success" style="width:100%">Marcar como ativo</a>
+                            </div>
                         </div>
                     }
                 </div>
             }
-        
+            }
         else
         {
             <div class="d-flex justify-content-center align-items-center align-self-center mt-5">
                 <h3>Você ainda não possui anúncios ):</h3>
             </div>
+        
         }
     </div>
 </div>
@@ -207,6 +213,27 @@
                     location.reload();
                 } else {
                     console.error('Erro ao marcar como vendido. Status:', xhr.status);
+                }
+            }
+        };
+
+        var data = JSON.stringify({ id: id });
+        xhr.send(data);
+    }
+</script>
+
+<script>
+    function marcarComoAtivo(id) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', `/Anuncios/MarcarComoAtivo/${id}`, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    location.reload();
+                } else {
+                    console.error('Erro ao marcar como ativo. Status:', xhr.status);
                 }
             }
         };
