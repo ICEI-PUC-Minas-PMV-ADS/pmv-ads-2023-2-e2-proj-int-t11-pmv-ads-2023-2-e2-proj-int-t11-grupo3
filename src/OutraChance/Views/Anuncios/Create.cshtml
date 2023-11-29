@@ -4,89 +4,143 @@
     ViewData["Title"] = "Create";
 
     var caracteristicas = ViewData["Caracteristicas"] as List<Caracteristica>;
+    var departamentos = ViewData["Departamentos"] as List<Caracteristica>;
+    var tamanhos = ViewData["Tamanhos"] as List<Caracteristica>;
+
 }
+
 
 <div class="d-flex justify-content-center align-items-center">
     <div class="card text-bg-light mb-3" style="width:50%">
         <h1 class="card-header">Novo Anúncio</h1>
-            <div class="card-body d-flex justify-content-center align-items-center">
-                <div style="width:75%">
-                            <form asp-action="Create" enctype="multipart/form-data">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <div class="form-group">
-                                    <label asp-for="Titulo" class="control-label"></label>
-                                    <input asp-for="Titulo" class="form-control" />
-                                    <span asp-validation-for="Titulo" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Descricao" class="control-label"></label>
-                                    <input asp-for="Descricao" class="form-control" />
-                                    <span asp-validation-for="Descricao" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Preco" class="control-label"></label>
-                                    <input asp-for="Preco" id="preco" class="form-control" />
-                                </div>
-                                @if (caracteristicas != null)
-                                {
-                                    var index = 0;
-
-                                    @foreach (var caracteristica in caracteristicas)
-                                    {
-                                        <div class="form-group">
-                                            <label class="control-label">@caracteristica.Nome</label>
-                                            <select name="Caracteristicas[@index].Valor" class="form-control">
-                                                <option value="">Nenhum</option>
-                                                @foreach (var valor in caracteristica.caracteristicaValores)
-                                                {
-                                                    <option value="@valor.Valor">@valor.Valor</option>
-                                                }
-                                            </select>
-                                            <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
-                                        </div>
-                                        index++;
-                                    }
-                                }
-                                <div class="form-group">
-                                    <label asp-for="Cidade" class="control-label"></label>
-                                    <input asp-for="Cidade" class="form-control" />
-                                    <span asp-validation-for="Cidade" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Estado" class="control-label"></label>
-                                    <input asp-for="Estado" class="form-control" />
-                                    <span asp-validation-for="Estado" class="text-danger"></span>
-                                </div>
-                                <div>
-                                    <label asp-for="Status" class="form-check-label">Ativo</label>
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" asp-for="Status" class="form-check-label" checked />
-                                    <span asp-validation-for="Status" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Imagem" class="control-label"></label>
-                                    <input type="file" asp-for="ImagemUpload" class="form-control" />
-                                    <span asp-validation-for="ImagemUpload" class="text-danger"></span>
-                                </div>
-                                <br />
-                                <div class="form-group">
-                                    <input type="submit" value="Cadastrar" class="btn btn-primary" />
-                                    <input type="reset" value="Limpar" class="btn btn-danger" />
-                                </div>
-                            </form>
-                        </div>
+        <div class="card-body d-flex justify-content-center align-items-center">
+            <div style="width:75%">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Titulo" class="control-label"></label>
+                        <input asp-for="Titulo" class="form-control" />
+                        <span asp-validation-for="Titulo" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="Descricao" class="control-label"></label>
+                        <input asp-for="Descricao" class="form-control" />
+                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Preco" class="control-label"></label>
+                        <input asp-for="Preco" id="preco" class="form-control" />
+                    </div>
+
+                    @if (caracteristicas != null)
+                    {
+
+                        var index = 0;
+
+                        <div class="form-group">
+                            @foreach (var caracteristica in caracteristicas)
+                            {
+
+                                <label class="control-label">@caracteristica.Nome</label>
+                                <select name="Caracteristicas[@index].Valor" class="form-control">
+                                    <option value="">Selecione</option>
+                                    @foreach (var valor in caracteristica.caracteristicaValores)
+                                    {
+                                        <option value="@valor.Valor">@valor.Valor</option>
+                                    }
+                                </select>
+                                <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+
+                                index++;
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            @foreach (var caracteristica in departamentos)
+                            {
+
+                                <label class="control-label">@caracteristica.Nome</label>
+                                <select id="departamentoDropdown" name="Caracteristicas[@index].Valor" class="form-control">
+                                    @foreach (var valor in caracteristica.caracteristicaValores)
+                                    {
+                                        <option value="@valor.Valor">@valor.Valor</option>
+                                    }
+                                </select>
+                                <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+
+                                index++;
+                            }
+                        </div>
+
+                        <div class="form-group">
+
+                            @foreach (var caracteristica in tamanhos)
+                            {
+
+                                <div id="divTamanhoDropdown" class="form-group">
+                                    <label class="control-label">@caracteristica.Nome</label>
+                                    <select id="tamanhoDropdown" name="Caracteristicas[@index].Valor" class="form-control">
+                                        <option value=""></option>
+                                        @foreach (var valor in caracteristica.caracteristicaValores)
+                                        {
+                                            <option value="@valor.Valor">@valor.Valor</option>
+                                        }
+                                    </select>
+                                    <input type="hidden" name="Caracteristicas[@index].CaracteristicaId" value="@caracteristica.Id" />
+
+                                </div>
+
+                                index++;
+                            }
+
+                        </div>
+
+                    }
+
+                    <div class="form-group">
+                        <label asp-for="Cidade" class="control-label"></label>
+                        <input asp-for="Cidade" class="form-control" />
+                        <span asp-validation-for="Cidade" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Estado" class="control-label"></label>
+                        <input asp-for="Estado" class="form-control" />
+                        <span asp-validation-for="Estado" class="text-danger"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="Status" class="form-check-label">Ativo</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" asp-for="Status" class="form-check-label" checked />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Imagem" class="control-label"></label>
+                        <input type="file" asp-for="ImagemUpload" class="form-control" />
+                        <span asp-validation-for="ImagemUpload" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                        <input type="reset" value="Limpar" class="btn btn-danger" />
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 </div>
 
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
 
     <script>
         $('#preco').maskMoney({
@@ -95,6 +149,107 @@
             thousands: '.',
             decimal: '.',
             affixesStay: false
+        });
+    </script>
+
+    <script>
+        var mun = Municipios.BuscarMunincipios();
+
+        var selectUF = $('#uf');
+
+        // Limpar opções existentes
+        selectUF.empty();
+
+        // Adicionar uma opção padrão, se desejar
+        selectUF.append('<option value="0">Selecione a UF</option>');
+
+        // Adicionar opções para cada UF
+        mun.forEach(function (ufInfo) {
+            selectUF.append('<option value="' + ufInfo.uf + '">' + ufInfo.uf + '</option>');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            //zerando todas as opções de tamanhos e colocando texto Selecione o departamento
+            $('#tamanhoDropdown').empty();
+            $('#tamanhoDropdown').prepend('<option selected disabled>Selecione o departamento</option>');
+            $('#departamentoDropdown').prepend('<option selected disabled>Selecione</option>');
+
+            //função para verificar se o tamanho não está nulo, caso nulo apresenta mensagem
+            $(document).ready(function () {
+
+                $('form').submit(function () {
+                    var tamanhoSelecionado = $('#tamanhoDropdown').val();
+
+                    if (tamanhoSelecionado === null || tamanhoSelecionado === '') {
+
+                        alert('Por favor, escolha um departamento!');
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                $('form').submit(function () {
+
+                    var departamentoSelecionado = $('#departamentoDropdown').val();
+
+                    if (departamentoSelecionado === null || departamentoSelecionado === '') {
+
+                        alert('Por favor, escolha um departamento!');
+                        return false;
+                    }
+
+                    return true;
+                });
+
+            });
+
+            //pegando o value no select do departamento
+            $('#departamentoDropdown').change(function () {
+
+                var valorDepSelecionado = $(this).val();
+
+                //condicionando o value para apresentar os tamanhos de blusas e shorts
+                if (valorDepSelecionado === 'Blusas' || valorDepSelecionado === 'Shorts') {
+                    //zerando todas as opções, senão ao selecionar calças e blusas sem dar o gravar o select apresentava todas as opções
+                    $('#tamanhoDropdown').empty();
+                    $('#tamanhoDropdown').append('<option value="" selected disabled>Escolha o tamanho</option>');
+
+        @foreach (var caracteristica in tamanhos)
+        {
+            //pegando os tamanhos referentes só a blusas e short (PP, P, M, G e GG)
+            @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 10 && v.Id <= 14))
+            {
+                <text>
+                                $('#tamanhoDropdown').append('<option value="@valor.Valor">@valor.Valor</option>');
+                </text>
+            }
+        }
+
+                        }
+                if (valorDepSelecionado === 'Calças' || valorDepSelecionado === 'Calçados') {
+                    $('#tamanhoDropdown').empty();
+                    $('#tamanhoDropdown').append('<option value="" selected disabled>Escolha o tamanho</option>');
+
+        @foreach (var caracteristica in tamanhos)
+        {
+
+            @foreach (var valor in caracteristica.caracteristicaValores.Where(v => v.Id >= 15))
+            {
+                <text>
+                                $('#tamanhoDropdown').append('<option value="@valor.Valor">@valor.Valor</option>');
+                </text>
+            }
+        }
+
+                        }
+
+            });
+
+
+
         });
     </script>
 }
