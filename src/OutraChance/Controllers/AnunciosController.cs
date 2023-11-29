@@ -181,10 +181,25 @@ namespace OutraChance.Controllers
         {
             var caracteristicas = await _context.Caracteristicas
                 .Include(a => a.caracteristicaValores)
+                .Where(a => a.Nome == "Cor" || a.Nome == "Genero")
                 .ToListAsync();
-            
+
+            var departamentos = await _context.Caracteristicas
+                .Include(a => a.caracteristicaValores)
+                .Where(a => a.Nome == "Departamento")
+                .ToListAsync();
+
+            var tamanhos = await _context.Caracteristicas
+               .Include(a => a.caracteristicaValores)
+               .Where(a => a.Nome == "Tamanho")
+               .ToListAsync();
+
+
+
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf");
             ViewData["Caracteristicas"] = caracteristicas;
+            ViewData["Departamentos"] = departamentos;
+            ViewData["Tamanhos"] = tamanhos;
 
             return View();
         }
