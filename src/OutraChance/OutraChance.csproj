@@ -6,23 +6,23 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Azure.Storage.Blobs" Version="12.18.0" />
-		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-		<PackageReference Include="bootstrap" Version="5.3.2" />
-		<PackageReference Include="FontAwesome" Version="4.7.0" />
-		<PackageReference Include="jQuery" Version="3.7.1" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.22" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.23" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
-		<PackageReference Include="X.PagedList" Version="8.4.7" />
-		<PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
-		<PackageReference Include="X.PagedList.Web.Common" Version="8.0.7" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.18.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="bootstrap" Version="5.3.2" />
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
+    <PackageReference Include="jQuery" Version="3.7.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="X.PagedList" Version="8.4.7" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
+    <PackageReference Include="X.PagedList.Web.Common" Version="8.0.7" />
+  </ItemGroup>
 </Project>
