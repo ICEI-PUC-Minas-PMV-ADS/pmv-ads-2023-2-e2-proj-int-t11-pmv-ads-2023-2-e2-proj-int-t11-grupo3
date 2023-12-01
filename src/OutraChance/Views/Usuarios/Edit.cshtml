@@ -9,7 +9,7 @@
         <h1 class="card-header">Editar</h1>
         <div class="card-body d-flex justify-content-center align-items-center">
             <div style="width:75%">
-                <form asp-action="Edit" class="flex">
+                <form asp-action="Edit" class="flex" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
@@ -43,9 +43,14 @@
                         <span asp-validation-for="Senha" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="ConfirmacaoSenha" class="control-label"></label>
+                        <input asp-for="ConfirmacaoSenha" class="form-control" />
+                        <span asp-validation-for="ConfirmacaoSenha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Avatar" class="control-label"></label>
-                        <input asp-for="Avatar" class="form-control" />
-                        <span asp-validation-for="Avatar" class="text-danger"></span>
+                        <input type="file" asp-for="ImagemUpload" class="form-control" />
+                        <span asp-validation-for="ImagemUpload" class="text-danger"></span>
                     </div>
                     </br>
                     <div class="form-group text-end">

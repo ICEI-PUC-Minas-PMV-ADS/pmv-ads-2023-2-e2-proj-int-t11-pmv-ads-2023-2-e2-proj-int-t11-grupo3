@@ -10,7 +10,7 @@
         <h1 class="card-header">Editar</h1>
         <div class="card-body d-flex justify-content-center align-items-center">
             <div style="width:75%">
-                <form asp-action="Edit">
+                <form asp-action="Edit" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
@@ -26,7 +26,6 @@
                     <div class="form-group">
                         <label asp-for="Preco" class="control-label"></label>
                         <input asp-for="Preco" id="preco" class="form-control" />
-                        <span asp-validation-for="Preco" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Cidade" class="control-label"></label>
@@ -73,8 +72,15 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
     <script>
-        $('#preco').mask('000.000.000.000.000.00', { reverse: true });
+        $('#preco').maskMoney({
+            prefix: 'R$ ',
+            allowNegative: true,
+            thousands: '.',
+            decimal: '.',
+            affixesStay: false
+        });
     </script>
 }
