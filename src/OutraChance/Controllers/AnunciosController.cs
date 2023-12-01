@@ -302,7 +302,7 @@ namespace OutraChance.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Usuarios", new { id = anuncio.Id_Usuario });
             }
             ViewData["Id_Usuario"] = new SelectList(_context.Usuarios, "Id", "Cpf", anuncio.Id_Usuario);
             return View(anuncio);
