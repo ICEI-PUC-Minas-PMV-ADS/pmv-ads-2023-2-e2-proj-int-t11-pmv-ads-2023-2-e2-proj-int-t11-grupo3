@@ -44,21 +44,13 @@
                         <div class="card d-flex" id="cardAnuncios" name="cardAnuncios">
                             <img src="@Html.DisplayFor(modelItem => item.Imagem)" height="230px" />
                             <div class="card-body">
-                                <h6 class="card-title" id="cardAVenda"><b>@Html.DisplayFor(modelitem => item.Titulo)</b></h6>
-                                <h7><p class="card-text" id="cardAVenda">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>
-
-                                @if (item.CaracteristicasAnuncios != null)
-                                {
-
-
-                                    @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
-                                    {
-                                        if (caracteristicasAnuncios.CaracteristicaId == 4)
-                                        {
-                                            <h7>@caracteristicasAnuncios.Valor </h7>
-                                        }
-                                    }
-                                }
+                                <div class="d-flex justify-content-between align-items-end">
+                                    <h6 class="card-title" id="cardAVenda">
+                                        <b>@Html.DisplayFor(modelitem => item.Titulo)</b>
+                                    </h6>
+                                    <a asp-controller="Anuncios" asp-action="Edit" asp-route-id="@item.Id" class="btn hover:btn-ouline">✍️</a>
+                                </div>
+                                <h7><p class="card-text" id="cardAVenda">@Html.DisplayFor(modelitem => item.Descricao)</p></h7>                                
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item" id="licardAVenda">
@@ -73,16 +65,20 @@
                                                 <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
                                             }
                                         }
-                                    }
-                                    @if (item.CaracteristicasAnuncios != null)
-                                    {
 
 
                                         @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
                                         {
                                             if (caracteristicasAnuncios.CaracteristicaId == 1)
                                             {
-                                                <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                                <h7>Cor: @caracteristicasAnuncios.Valor |&nbsp;&nbsp;&nbsp;&nbsp;</h7>
+                                            }
+                                        }
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                            {
+                                                <h7>@caracteristicasAnuncios.Valor </h7>
                                             }
                                         }
                                     }
@@ -148,16 +144,20 @@
                                                 <h7>Tam: @caracteristicasAnuncios.Valor |</h7>
                                             }
                                         }
-                                    }
-                                    @if (item.CaracteristicasAnuncios != null)
-                                    {
 
 
                                         @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
                                         {
                                             if (caracteristicasAnuncios.CaracteristicaId == 1)
                                             {
-                                                <h7>Cor: @caracteristicasAnuncios.Valor </h7>
+                                                <h7>Cor: @caracteristicasAnuncios.Valor |&nbsp;&nbsp;&nbsp;&nbsp;</h7>
+                                            }
+                                        }
+                                        @foreach (var caracteristicasAnuncios in item.CaracteristicasAnuncios)
+                                        {
+                                            if (caracteristicasAnuncios.CaracteristicaId == 4)
+                                            {
+                                                <h7>@caracteristicasAnuncios.Valor </h7>
                                             }
                                         }
                                     }
