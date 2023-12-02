@@ -138,7 +138,7 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,Avatar,ImagemUpload")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,ConfirmacaoSenha,Avatar,ImagemUpload")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -179,7 +179,7 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,Avatar")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Data_Nascimento,Telefone,Email,Senha,ConfirmacaoSenha,ImagemUpload")] Usuario usuario)
         {
             if (id != usuario.Id)
             {
@@ -188,6 +188,21 @@ namespace OutraChance.Controllers
 
             if (ModelState.IsValid)
             {
+                var arquivo = usuario.ImagemUpload;
+
+                if (arquivo != null && arquivo.Length > 0)
+                {
+                    UploadAzure uploadAzure = new UploadAzure(_configuration);
+                    usuario.Avatar = await uploadAzure.SalvarArquivo(arquivo);
+                }
+                else
+                {
+                    var usuarioExistente = await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(u => u.Id == usuario.Id);
+                    if (usuarioExistente != null)
+                    {
+                        usuario.Avatar = usuarioExistente.Avatar;
+                    }
+                }
                 try
                 {
                     usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
@@ -205,7 +220,7 @@ namespace OutraChance.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", "Usuarios", new { id = id });
             }
             return View(usuario);
         }

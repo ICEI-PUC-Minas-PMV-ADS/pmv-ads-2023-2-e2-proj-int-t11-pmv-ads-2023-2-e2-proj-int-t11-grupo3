@@ -222,6 +222,8 @@ namespace OutraChance.Controllers
             {
                 var arquivo = anuncio.ImagemUpload;
 
+                anuncio.Preco = anuncio.Preco / 100; 
+
                 if (arquivo != null && arquivo.Length > 0)
                 {
                     UploadAzure uploadAzure = new UploadAzure(_configuration);
@@ -269,7 +271,7 @@ namespace OutraChance.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,Imagem,Id_Usuario")] Anuncio anuncio)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Descricao,Preco,Cidade,Estado,Status,ImagemUpload,Id_Usuario")] Anuncio anuncio)
         {
             if (id != anuncio.Id)
             {
@@ -280,12 +282,23 @@ namespace OutraChance.Controllers
             {
                 try
                 {
+                    anuncio.Preco = anuncio.Preco / 100;
+
                     var arquivo = anuncio.ImagemUpload;
 
                     if (arquivo != null && arquivo.Length > 0)
                     {
                         UploadAzure uploadAzure = new UploadAzure(_configuration);
                         anuncio.Imagem = await uploadAzure.SalvarArquivo(arquivo);
+                    }
+                    else
+                    {
+                        // Mantenha a imagem existente
+                        var anuncioExistente = await _context.Anuncios.AsNoTracking().FirstOrDefaultAsync(a => a.Id == anuncio.Id);
+                        if (anuncioExistente != null)
+                        {
+                            anuncio.Imagem = anuncioExistente.Imagem;
+                        }
                     }
 
                     _context.Update(anuncio);

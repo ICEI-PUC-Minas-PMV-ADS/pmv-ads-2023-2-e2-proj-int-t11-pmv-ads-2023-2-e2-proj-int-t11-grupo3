@@ -164,13 +164,18 @@
             var dropdownGenero = $("#filtroGenero");
             var form = $(".filtro-form");
 
-            var itemselecionadoCidade = '@ViewContext.HttpContext.Request.Query["filtroCidade"].ToString()';
+            var itemselecionadoCidadeEncoded = '@Html.Raw(ViewContext.HttpContext.Request.Query["filtroCidade"].ToString())';
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = itemselecionadoCidadeEncoded;
+            var itemselecionadoCidade = tempDiv.textContent || tempDiv.innerText || "";
+
             var itemselecionadoEstado = '@ViewContext.HttpContext.Request.Query["filtroEstado"].ToString()';
             var itemselecionadoCor = '@ViewContext.HttpContext.Request.Query["filtroCor"].ToString()';
             var itemselecionadoTamanho = '@ViewContext.HttpContext.Request.Query["filtroTamanho"].ToString()';
             var itemselecionadoDep = '@ViewContext.HttpContext.Request.Query["filtroDep"].ToString()';
             var itemselecionadoGenero = '@ViewContext.HttpContext.Request.Query["filtroGenero"].ToString()';
 
+            dropdownCidade.val(itemselecionadoCidade);
             dropdownCidade.val(itemselecionadoCidade);
             dropdownEstado.val(itemselecionadoEstado);
             dropdownCor.val(itemselecionadoCor);

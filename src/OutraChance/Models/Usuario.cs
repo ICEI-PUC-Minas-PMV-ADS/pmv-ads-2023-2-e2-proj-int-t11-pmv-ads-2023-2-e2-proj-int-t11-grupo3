@@ -41,6 +41,12 @@ namespace OutraChance.Models
         [DataType(DataType.Password)]
         public string Senha { get; set; }
 
+        [NotMapped]
+        [Display(Name = "Confirme a Senha")]
+        [DataType(DataType.Password)]
+        [Compare("Senha", ErrorMessage = "A senha e a confirmação de senha não são iguais.")]
+        public string ConfirmacaoSenha { get; set; }
+
         [Display(Name = "Imagem do Perfil")]
         [DataType(DataType.ImageUrl)]
         public string Avatar { get; set; }
