@@ -61,7 +61,19 @@ namespace OutraChance.Models
                 new CaracteristicaValores { Id = 18, CaracteristicaId = 3, Valor = "Shorts" },
 
                 new CaracteristicaValores { Id = 19, CaracteristicaId = 4, Valor = "Masculino" },
-                new CaracteristicaValores { Id = 20, CaracteristicaId = 4, Valor = "Feminino" }
+                new CaracteristicaValores { Id = 20, CaracteristicaId = 4, Valor = "Feminino" },
+
+                new CaracteristicaValores { Id = 21, CaracteristicaId = 2, Valor = "34" },
+                new CaracteristicaValores { Id = 22, CaracteristicaId = 2, Valor = "35" },
+                new CaracteristicaValores { Id = 23, CaracteristicaId = 2, Valor = "36" },
+                new CaracteristicaValores { Id = 24, CaracteristicaId = 2, Valor = "37" },
+                new CaracteristicaValores { Id = 25, CaracteristicaId = 2, Valor = "38" },
+                new CaracteristicaValores { Id = 26, CaracteristicaId = 2, Valor = "39" },
+                new CaracteristicaValores { Id = 27, CaracteristicaId = 2, Valor = "40" },
+                new CaracteristicaValores { Id = 28, CaracteristicaId = 2, Valor = "41" },
+                new CaracteristicaValores { Id = 29, CaracteristicaId = 2, Valor = "42" },
+                new CaracteristicaValores { Id = 30, CaracteristicaId = 2, Valor = "43" },
+                new CaracteristicaValores { Id = 31, CaracteristicaId = 2, Valor = "44" }
             );
         }
     }
