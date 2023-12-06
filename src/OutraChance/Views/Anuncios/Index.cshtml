@@ -229,8 +229,8 @@
         }
 
         function voltarParaHomepage() {
-            // Verificar forma correta de redirecionar
-            window.location.href = 'https://localhost:44364/Anuncios';
+            var baseUrl = window.location.origin;
+            window.location.href = baseUrl + '/Anuncios';
         }
     </script>
 
