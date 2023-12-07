@@ -22,7 +22,7 @@
 |Requisito Associado | RF-004	- Ao criar um anúncio, o usuário deverá fornecer informações do anúncio como valor, título, descrição, localidade, foto, tamanho, tipo de vestuário, condição (novo/usado), entre outros. |
 | Objetivo do Teste 	| Permitir que o usuário crie um anúncio. |
 | Passos 	| - Acessar a aplicação<br> - Fazer login<br> - Entrar na parte administrativa da conta<br> - Clicar em "Criar Anúncio"<br> - Preencher todas as informações necessárias<br> - Clicar no botão de criar anúncio<br> |
-|Critério de Êxito | - Deve ser mostrado um modal de sucesso que ao ser fechado mostra a página principal da conta do usuário com o novo anúncio criado. |
+|Critério de Êxito | - O usuário é redirecionado para a homepage onde poderá ver o novo anúncio que criou |
 |  	|  	|
 | **Caso de Teste** 	| **CT-05 – Tentativa de criação de anúncio com erro de validação**	|
 |Requisito Associado | RF-004	- Ao criar um anúncio, o usuário deverá fornecer informações do anúncio como valor, título, descrição, localidade, foto, tamanho, tipo de vestuário, condição (novo/usado), entre outros. |
