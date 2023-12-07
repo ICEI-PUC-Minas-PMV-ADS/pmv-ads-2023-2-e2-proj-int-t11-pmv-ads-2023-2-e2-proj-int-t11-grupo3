@@ -62,7 +62,7 @@
 |  	|  	|
 | **Caso de Teste** 	| **CT-11 – Alteração de dados cadastrais com erro**	|
 |Requisito Associado | RF-009	- No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá mover o anúncio da lista principal para uma lista específica de vendidos. |
-| Objetivo do Teste 	| Verificar se um anúncio some da lista quando o usuário marca como vendido|
+| Objetivo do Teste 	| Verificar se um anúncio vai para outra lista quando o usuário marca como vendido|
 | Passos 	| - Acessar a aplicação<br> - Fazer login<br> - Adentrar a área administrativa da conta<br> - Clicar no botão que marca um anuncio como vendido<br> |
 |Critério de Êxito | - O anúncio é movido para outra área do perfil do usuário |
 |  	|  	|
