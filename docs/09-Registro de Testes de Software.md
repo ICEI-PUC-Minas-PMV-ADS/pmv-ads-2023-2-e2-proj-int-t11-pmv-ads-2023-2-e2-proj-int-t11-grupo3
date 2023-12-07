@@ -1,10 +1,25 @@
 # Registro de Testes de Software
 
+Foram feitas 4 entrevistas com pessoas voluntárias dentro da persona que o projeto busca como público alvo. Foram gravadas e registradas a fim de entender se a aplicação está conseguindo cumprir com os requisitos funcionais, se está intuitiva e de fácil usabilidade. Pudemos pereceber que de forma geral todos os usuários conseguiram realizar as principais ações do software:
+
+- Criar um cadastro
+- Logar
+- Criar um anúncio
+- Ver detalhes de um anúncio
+- Acessar seu perfil
+- Marcar um anúncio como vendido
+- Reativar o anúncio
+- Excluir anúncio
+- Alterar informações do anúncio
+- Alterar informações pessoais
+- Deslogar
+
+Portanto, conclui-se que a aplicação está utilizável, intuitiva e amigável para nosso público alvo.
+
 ## Caso de Teste (CT-01) - Ver anúncios na home
 
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3/assets/84048811/35f3d76d-6a2b-482a-988e-df394039c364
-
 
 
 ## Caso de Teste (CT-02) – Filtragem de anúncios
