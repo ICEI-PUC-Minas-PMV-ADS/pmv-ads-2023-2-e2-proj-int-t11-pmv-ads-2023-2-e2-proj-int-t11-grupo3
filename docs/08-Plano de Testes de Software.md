@@ -2,7 +2,7 @@
  
 | **Caso de Teste** 	| **CT-01 – Ver anúncios na home** 	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-001 - A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições. |
+|	Requisito Associado 	| 	RF-001 - A homepage da aplicação deverá apresentar uma lista de itens de vestuário disponíveis, com suas respectivas imagens e descrições. |
 | Objetivo do Teste 	| Ser possível observar uma série de anúncios na homepage da aplicação |
 | Passos 	| - Acessar a aplicação |
 |Critério de Êxito | - Ver anúncios com imagem e descrição |
@@ -14,8 +14,7 @@
 |Critério de Êxito | - Os anúncios foram filtrados de acordo com o filtro escolhido |
 |  	|  	|
 | **Caso de Teste** 	| **CT-03 – Pedido de login ao tentar cadastrar anúncio sem ter uma conta**	|
-|Requisito Associado | RF-003	- Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar ou salvar itens, a criação de uma conta ou login será requerido. |
-| Objetivo do Teste 	| Informar ao usuário que é preciso criar uma conta para que possa anunciar ou comentar em anúncios |
+|Requisito Associado | RF-003	- Usuários não registrados deverão ser capazes de visualizar os itens, mas para anunciar em anúncios a criação de uma conta ou login será requerido. |
 | Passos 	| - Acessar a aplicação sem estar logado<br> - Adentrar um anúncio<br> |
 |Critério de Êxito | - Deve ser mostrado um modal sugerindo ao usuário fazer login ou criar uma conta para que possa criar um anúncio ou interagir com um. |
 |  	|  	|
@@ -62,20 +61,9 @@
 |Critério de Êxito | - O usuário deverá ver erro de validação pela falta de informação obrigatória no salvamento do formulário |
 |  	|  	|
 | **Caso de Teste** 	| **CT-11 – Alteração de dados cadastrais com erro**	|
-|Requisito Associado | RF-009	- No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá remover o anúncio da lista principal. |
+|Requisito Associado | RF-009	- No painel pessoal, o usuário deve ter a opção de marcar um item como vendido, o que irá mover o anúncio da lista principal para uma lista específica de vendidos. |
 | Objetivo do Teste 	| Verificar se um anúncio some da lista quando o usuário marca como vendido|
 | Passos 	| - Acessar a aplicação<br> - Fazer login<br> - Adentrar a área administrativa da conta<br> - Clicar no botão que marca um anuncio como vendido<br> |
-|Critério de Êxito | - O anúncio é removido da lista do usuário |
+|Critério de Êxito | - O anúncio é movido para outra área do perfil do usuário |
 |  	|  	|
-| **Caso de Teste** 	| **CT-12 – Anúncios pagos na plataforma**	|
-|Requisito Associado | RF-010	- Ao visualizar um anúncio, o sistema apresentará sugestões de peças para o usuário advindas de anúncios pagos por empresas, baseando-se em categorias semelhantes. |
-| Objetivo do Teste 	| Verificar se aparece um anúncio pago semelhante ao anúncio visualizado pelo usuário|
-| Passos 	| - Acessar a aplicação<br> - Acessar um anúncio<br> |
-|Critério de Êxito | - No rodapé do anúncio aparecerão anúncios semelhantes àquele. |
-|  	|  	|
-| **Caso de Teste** 	| **CT-13– Comentar em anúncios**	|
-|Requisito Associado | RF-011	- Os anúncios permitirão que usuários interajam por meio de comentários para que tirem dúvidas ou apenas expressem opiniões sobre as peças.|
-| Objetivo do Teste 	| Verificar se o usuário consegue comentar em um anúncio |
-| Passos 	| - Acessar a aplicação<br>- Fazer login<br> - Acessar um anúncio<br> - Comentar no anúncio<br> |
-|Critério de Êxito | - O usuário deverá ser capaz de adicionar um comentário a um anúncio |
 
