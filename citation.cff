@@ -1,0 +1,23 @@
+message: Please cite this software using these metadata.
+title:
+authors:
+  - family-names: dos Santos Pereira
+    given-names: Atos
+  - family-names: Batista Vieira
+    given-names: Gabriel
+  - family-names: da Silva Brião
+    given-names: Giulia
+  - family-names: Soares de Oliveira
+    given-names: Rodrigo
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Paiva
+    given-names: Neil
+  
+keywords:
+  - Compra 
+  - Venda
+  - Vestuário
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t11-pmv-ads-2023-2-e2-proj-int-t11-grupo3
+version: 1.0.0
+date-released: 2023-12-22
